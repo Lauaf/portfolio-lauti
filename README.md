@@ -1,12 +1,13 @@
 # Lautaro Florenza — Portfolio
 
-Portfolio estático en español con catálogo de 20 proyectos/módulos y 6 demos interactivas (BFS/DFS/UCS/A*, HL7, WHONET conceptual, Minimax, plantillas, espresso).
+Portfolio estático en español con catálogo de 23 proyectos/módulos y 6 demos interactivas (BFS/DFS/UCS/A*, HL7, WHONET conceptual, Minimax, plantillas, espresso).
 
 **Portfolio publicado:** [lauaf.github.io/portfolio-lauti](https://lauaf.github.io/portfolio-lauti/).
 
 Las seis demos arrancan juntas con el portfolio. Los proyectos completos conservan
 sus repositorios separados: las tarjetas y las fichas enlazan a Arky-Bites,
-Arky-Finances, TP1_CV y TP1_Prog3. Los enlaces privados están identificados.
+Arky-Finances, Sando, TP1_CV, TP2_VC, TP1_Prog3 y los tres trabajos de
+Procesamiento de Imágenes (TP_1_PDI, TP_2_PDI y TP_3_PDI). Los enlaces privados están identificados.
 El acceso «Mi GitHub» permite explorar los demás repositorios.
 Ver el [inventario de proyectos](docs/proyectos.md).
 

@@ -48,10 +48,10 @@ function createApp() {
   return { context, element: id => document.getElementById(id) };
 }
 
-test('startup renders 20 projects and both interactive boards', () => {
+test('startup renders 23 projects and both interactive boards', () => {
   const { element } = createApp();
-  assert.match(element('count').textContent, /^20 de 20/);
-  assert.equal((element('projects').innerHTML.match(/<article /g) || []).length, 20);
+  assert.match(element('count').textContent, /^23 de 23/);
+  assert.equal((element('projects').innerHTML.match(/<article /g) || []).length, 23);
   assert.equal(element('grid').children.length, 64);
   assert.equal((element('ticboard').innerHTML.match(/<button /g) || []).length, 9);
 });
@@ -59,12 +59,18 @@ test('startup renders 20 projects and both interactive boards', () => {
 test('filtering and searching preserve the original project index', () => {
   const { element } = createApp();
   element('filters').onclick({ target: { dataset: { filter: 'Personal' } } });
-  assert.match(element('count').textContent, /^3 de 20/);
+  assert.match(element('count').textContent, /^4 de 23/);
   element('search').oninput({ target: { value: 'ARKY AI' } });
-  assert.match(element('count').textContent, /^1 de 20/);
+  assert.match(element('count').textContent, /^1 de 23/);
   assert.match(element('projects').innerHTML, /showProject\(12\)/);
+  element('search').oninput({ target: { value: '' } });
+  element('filters').onclick({ target: { dataset: { filter: 'Universidad' } } });
+  assert.match(element('count').textContent, /^5 de 23/);
+  element('search').oninput({ target: { value: 'yolov8' } });
+  assert.match(element('count').textContent, /^1 de 23/);
+  assert.match(element('projects').innerHTML, /showProject\(20\)/);
   element('search').oninput({ target: { value: 'ningun-proyecto' } });
-  assert.match(element('count').textContent, /^0 de 20/);
+  assert.match(element('count').textContent, /^0 de 23/);
 });
 
 test('project cards and dialogs link to separate repositories', () => {
@@ -73,6 +79,9 @@ test('project cards and dialogs link to separate repositories', () => {
   assert.match(cards, /href="https:\/\/github\.com\/Lauaf\/TP1_CV"/);
   assert.match(cards, /href="https:\/\/github\.com\/Lauaf\/TP1_Prog3"/);
   assert.match(cards, /GitHub · repositorio privado ↗/);
+  for (const repo of ['Sando', 'TP2_VC', 'TP_1_PDI', 'TP_2_PDI', 'TP_3_PDI']) {
+    assert.match(cards, new RegExp(`href="https://github\\.com/Lauaf/${repo}"`));
+  }
   context.showProject(14);
   assert.equal(element('modal').open, true);
   assert.match(element('modalactions').innerHTML, /Arky-Finances/);

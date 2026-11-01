@@ -41,7 +41,7 @@ Prompt utilizado:
 
 ## Conservación de funciones
 
-Se mantienen las 20 fichas, categorías, búsqueda, enlaces a repositorios y las
+Se mantienen las 23 fichas, categorías, búsqueda, enlaces a repositorios y las
 seis demos. El build incluye HTML, CSS y recursos visuales. Los commits conservan
 la autoría configurada del titular del repositorio, sin créditos de coautoría
 para asistentes.

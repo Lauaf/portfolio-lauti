@@ -1,6 +1,6 @@
 # Proyectos del portfolio y código disponible
 
-El catálogo describe 20 iniciativas o módulos. El ZIP original contiene únicamente
+El catálogo describe 23 iniciativas o módulos. El ZIP original contiene únicamente
 el portfolio y seis recreaciones educativas integradas. Las fichas no incluyen
 automáticamente el código de los proyectos que describen.
 
@@ -11,11 +11,15 @@ Inventario revisado el 1 de noviembre de 2026 en la cuenta `Lauaf`:
 | Portfolio y seis demos | Este repositorio, `index.html` | Funciona con un servidor local. |
 | ArkyBites y ArkyCash-e | [Arky-Bites](https://github.com/Lauaf/Arky-Bites), privado | Su README describe ambos módulos ya unificados, con backend FastAPI, frontend Angular y Docker Compose. Las tarjetas y fichas enlazan al repositorio privado; conserva su propio arranque. |
 | Arky Finances independiente | [Arky-Finances](https://github.com/Lauaf/Arky-Finances), público | Versión independiente de finanzas. La ficha de ArkyCash-e enlaza a esta versión independiente y a la integrada en Arky-Bites. |
-| Algoritmos y tres en raya | [TP1_Prog3](https://github.com/Lauaf/TP1_Prog3), público | Contiene `tp-pathfinding`, `tp-tateti` y `tp-tsp`. Son proyectos separados de las demos educativas del portfolio. |
+| Algoritmos y tres en raya | [TP1_Prog3](https://github.com/Lauaf/TP1_Prog3), público | Contiene `tp-pathfinding` (BFS, DFS, UCS, GBFS y A*) y `tp-tateti` (Minimax). `tp-tsp` sigue siendo la plantilla de la cátedra, por eso la ficha no lo menciona. Son proyectos separados de las demos educativas del portfolio. |
 | Reconocimiento facial | [TP1_CV](https://github.com/Lauaf/TP1_CV), público | El README describe backend, Gradio, modelos y Docker Compose. La tarjeta y la ficha enlazan al repositorio público. No se ejecutó en esta revisión. |
-| Otros trabajos de visión y PDI | [TP2_VC](https://github.com/Lauaf/TP2_VC), [TP2](https://github.com/Lauaf/TP2), [TP_1_PDI](https://github.com/Lauaf/TP_1_PDI), [TP_2_PDI](https://github.com/Lauaf/TP_2_PDI), [TP_3_PDI](https://github.com/Lauaf/TP_3_PDI) | Repositorios encontrados. Falta seleccionar cuáles forman parte del portfolio y revisar sus requisitos. |
+| Razas de perros | [TP2_VC](https://github.com/Lauaf/TP2_VC), público | Ficha propia. Métricas tomadas del README del repositorio (ResNet18 ajustada: 91,6 % de accuracy en test; NDCG@10 de 0,94). Trabajo en equipo con Sebastián Palacio. No se ejecutó en esta revisión. |
+| Visión clásica con OpenCV | [TP_1_PDI](https://github.com/Lauaf/TP_1_PDI), [TP_2_PDI](https://github.com/Lauaf/TP_2_PDI), públicos | Una ficha para ambos trabajos: ecualización local, formularios, monedas, dados y patentes. Con Sebastián Palacio y Katia Otterstedt. |
+| Dados en video | [TP_3_PDI](https://github.com/Lauaf/TP_3_PDI), público | Ficha propia. Con Sebastián Palacio y Katia Otterstedt. |
+| Sin incluir | [TP2](https://github.com/Lauaf/TP2) y [WIP-TP-CV](https://github.com/Lauaf/WIP-TP-CV) están vacíos; [tuia-dog-recognition-app](https://github.com/Lauaf/tuia-dog-recognition-app) es la plantilla de la cátedra; [facu_cosas](https://github.com/Lauaf/facu_cosas) son apuntes. | — |
 | Arky AI | [Arky-DM](https://github.com/Lauaf/Arky-DM), privado, es un proyecto relacionado | Confirmar qué versión corresponde al asistente descrito en el portfolio. |
-| Barista, Valdor y recursos pixel art | No incluidos en el ZIP | La demo de espresso sí está integrada. Para las versiones completas faltan sus carpetas o repositorios. |
+| Sandō (incluye la academia de barismo) | [Sando](https://github.com/Lauaf/Sando), privado | Reemplaza a la ficha «Barista Learning Lab». Juego estilo GBA con dojo de japonés, cine, sala de música y academia de barismo; la demo Espresso Lab enlaza con esta ficha. Arky, de los recursos pixel art, es su protagonista. |
+| Valdor | No localizado | Falta su carpeta o repositorio. |
 | Nobilis, HL7, WHONET y demás casos profesionales | El ZIP contiene descripciones y demos conceptuales | Sus implementaciones laborales no están incluidas. Las demos HL7, WHONET y plantillas funcionan con datos ficticios. |
 
 ## Organización elegida
@@ -24,7 +28,8 @@ El portfolio enlaza a repositorios separados. Cada aplicación conserva su
 historial, configuración, dependencias y comandos de arranque.
 
 Las tarjetas y fichas enlazan a los repositorios confirmados de ArkyBites,
-ArkyCash-e, reconocimiento facial y algoritmos. ArkyCash-e ofrece tanto la
+ArkyCash-e, Sandō, reconocimiento facial, razas de perros, algoritmos y los
+trabajos de Procesamiento de Imágenes. ArkyCash-e ofrece tanto la
 versión independiente de finanzas como la integrada en Arky-Bites. Los enlaces
 a repositorios privados lo indican antes de abrir GitHub.
 
