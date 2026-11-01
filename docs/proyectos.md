@@ -6,13 +6,13 @@ automáticamente el código de los proyectos que describen.
 
 Inventario revisado el 1 de noviembre de 2026 en la cuenta `Lauaf`:
 
-| Proyecto o grupo | Código localizado | Situación para integrarlo |
+| Proyecto o grupo | Código localizado | Enlace y revisión |
 | --- | --- | --- |
 | Portfolio y seis demos | Este repositorio, `index.html` | Funciona con un servidor local. |
-| ArkyBites y ArkyCash-e | [Arky-Bites](https://github.com/Lauaf/Arky-Bites), privado | Su README describe ambos módulos ya unificados, con backend FastAPI, frontend Angular y Docker Compose. Falta probar e integrar su arranque desde este repositorio. |
-| Arky Finances independiente | [Arky-Finances](https://github.com/Lauaf/Arky-Finances), público | Versión independiente de finanzas. Confirmar si se conserva además de la versión integrada en Arky-Bites. |
+| ArkyBites y ArkyCash-e | [Arky-Bites](https://github.com/Lauaf/Arky-Bites), privado | Su README describe ambos módulos ya unificados, con backend FastAPI, frontend Angular y Docker Compose. Las tarjetas y fichas enlazan al repositorio privado; conserva su propio arranque. |
+| Arky Finances independiente | [Arky-Finances](https://github.com/Lauaf/Arky-Finances), público | Versión independiente de finanzas. La ficha de ArkyCash-e enlaza a esta versión independiente y a la integrada en Arky-Bites. |
 | Algoritmos y tres en raya | [TP1_Prog3](https://github.com/Lauaf/TP1_Prog3), público | Contiene `tp-pathfinding`, `tp-tateti` y `tp-tsp`. Son proyectos separados de las demos educativas del portfolio. |
-| Reconocimiento facial | [TP1_CV](https://github.com/Lauaf/TP1_CV), público | El README describe backend, Gradio, modelos y Docker Compose. Su frontend usa 8080: requiere otro puerto para convivir con el portfolio. No se ejecutó en esta revisión. |
+| Reconocimiento facial | [TP1_CV](https://github.com/Lauaf/TP1_CV), público | El README describe backend, Gradio, modelos y Docker Compose. La tarjeta y la ficha enlazan al repositorio público. No se ejecutó en esta revisión. |
 | Otros trabajos de visión y PDI | [TP2_VC](https://github.com/Lauaf/TP2_VC), [TP2](https://github.com/Lauaf/TP2), [TP_1_PDI](https://github.com/Lauaf/TP_1_PDI), [TP_2_PDI](https://github.com/Lauaf/TP_2_PDI), [TP_3_PDI](https://github.com/Lauaf/TP_3_PDI) | Repositorios encontrados. Falta seleccionar cuáles forman parte del portfolio y revisar sus requisitos. |
 | Arky AI | [Arky-DM](https://github.com/Lauaf/Arky-DM), privado, es un proyecto relacionado | Confirmar qué versión corresponde al asistente descrito en el portfolio. |
 | Barista, Valdor y recursos pixel art | No incluidos en el ZIP | La demo de espresso sí está integrada. Para las versiones completas faltan sus carpetas o repositorios. |
