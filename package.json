@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-lauti",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Portfolio de Lautaro con seis demos interactivas en el navegador",
+  "scripts": {
+    "start": "python servir.py",
+    "dev": "python servir.py",
+    "test": "node --test tests/*.test.cjs",
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

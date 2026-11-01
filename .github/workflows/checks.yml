@@ -1,0 +1,20 @@
+name: Verificar portfolio
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Pruebas de regresión
+        run: npm test
+      - name: Preparar sitio estático
+        run: npm run build
