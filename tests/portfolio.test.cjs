@@ -79,6 +79,9 @@ test('project cards and dialogs link to separate repositories', () => {
   assert.match(cards, /href="https:\/\/github\.com\/Lauaf\/TP1_CV"/);
   assert.match(cards, /href="https:\/\/github\.com\/Lauaf\/TP1_Prog3"/);
   assert.match(cards, /GitHub · repositorio privado ↗/);
+  assert.match(cards, /href="https:\/\/arky-web-production\.up\.railway\.app"/);
+  assert.match(cards, /href="https:\/\/arky-landing-production\.up\.railway\.app\/"/);
+  assert.match(cards, /class="repo-link live" href="sando\/"/);
   for (const repo of ['Sando', 'TP2_VC', 'TP_1_PDI', 'TP_2_PDI', 'TP_3_PDI']) {
     assert.match(cards, new RegExp(`href="https://github\\.com/Lauaf/${repo}"`));
   }

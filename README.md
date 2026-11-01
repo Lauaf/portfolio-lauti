@@ -1,10 +1,12 @@
 # Lautaro Florenza — Portfolio
 
-Portfolio estático en español con catálogo de 23 proyectos/módulos y 6 demos interactivas (BFS/DFS/UCS/A*, HL7, WHONET conceptual, Minimax, plantillas, espresso).
+Portfolio estático en español con catálogo de 23 proyectos/módulos 7 demos interactivas (BFS/DFS/UCS/A*, HL7, WHONET conceptual, Minimax, plantillas, espresso
+y un laboratorio de visión con los trabajos de Procesamiento de Imágenes), Sandō jugable en
+`sando/` y enlaces a Arky en producción.
 
 **Portfolio publicado:** [lauaf.github.io/portfolio-lauti](https://lauaf.github.io/portfolio-lauti/).
 
-Las seis demos arrancan juntas con el portfolio. Los proyectos completos conservan
+Las siete demos y Sandō arrancan juntos con el portfolio. Los proyectos completos conservan
 sus repositorios separados: las tarjetas y las fichas enlazan a Arky-Bites,
 Arky-Finances, Sando, TP1_CV, TP2_VC, TP1_Prog3 y los tres trabajos de
 Procesamiento de Imágenes (TP_1_PDI, TP_2_PDI y TP_3_PDI). Los enlaces privados están identificados.
@@ -19,7 +21,20 @@ infancia, el año de Working Holiday en Japón, el trabajo en Wiener Lab, la car
 de IA en la UNR y los intereses personales: café, mundos narrativos, música y
 otras formas de crear.
 
-- `index.html`: relato, catálogo y lógica de las seis demos.
+- `index.html`: relato, catálogo y lógica de las demos.
+- `vision.js`: laboratorio de visión. Porta a JavaScript, sin dependencias, la
+  ecualización local, la validación de formularios, la segmentación de patentes
+  y la detección de dados en video de los TP de Procesamiento de Imágenes. Las
+  pruebas comparan sus salidas con las del código Python original
+  (`tests/fixtures`). El conteo de monedas usa Canny y Hough, que no se
+  portaron: muestra el resultado generado por el código original.
+- `assets/pdi/`: imágenes y videos de esos trabajos. Los videos se marcaron como
+  BT.601 (sin recomprimir) para que el navegador los decodifique con los mismos
+  colores que OpenCV.
+- `sando/`: copia de `web/` del repositorio privado Sando. Funciona sin su
+  servidor: el progreso queda en el navegador; la IA local, el cine y la
+  importación de canciones necesitan `server.py`. Para actualizarlo, volver a
+  copiar esa carpeta.
 - `styles.css`: sistema visual y adaptación a escritorio y celular.
 - `assets/quiet-study.webp`: imagen editorial optimizada, sin dependencias remotas.
 - [Notas del diseño y recurso visual](docs/diseno.md).
@@ -41,20 +56,23 @@ También podés usar `npm start` o `npm run dev`. No hace falta `npm install`:
 el proyecto no tiene dependencias npm.
 
 Abrí [http://localhost:8080](http://localhost:8080). El mismo servidor sirve el
-catálogo, las fichas y las seis demos.
+catálogo, las fichas, las demos, el laboratorio de visión y Sandō.
 
 ```bash
-npm test       # regresiones de inicio, filtros, búsqueda, grilla, WHONET y Minimax
+npm test       # regresiones del portfolio y del laboratorio de visión contra el Python original
 npm run build  # genera dist/ con el sitio estático
 ```
 
 El repositorio incluye verificaciones en cada push y pull request. Las pruebas
 usan un DOM mínimo para comprobar la lógica y no sustituyen una prueba visual
-en navegador. Las seis demos también fueron comprobadas manualmente en navegador.
+en navegador. Las demos, el laboratorio de visión (incluidas las cuatro tiradas de dados) y Sandō también se comprobaron en un navegador.
 
 ## Abrir
 
-Abrí `index.html` en Chrome, Firefox o Edge. No necesita servidor ni instalaciones.
+Abrí `index.html` en Chrome, Firefox o Edge para ver el relato, el catálogo y las
+primeras seis demos sin instalar nada. Sandō y el laboratorio de visión necesitan
+servirse por HTTP: los navegadores bloquean los módulos y la lectura de píxeles
+desde `file://`.
 
 Para servirlo localmente:
 

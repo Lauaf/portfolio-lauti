@@ -1,0 +1,100 @@
+{
+  "character": "Arky",
+  "description": "Original friendly green dragon mascot, pixel-art, four directions",
+  "cellSize": 96,
+  "sheet": "arky-spritesheet-96.png",
+  "sheet64": "arky-spritesheet-64.png",
+  "rows": [
+    "down",
+    "left",
+    "up",
+    "right"
+  ],
+  "columns": [
+    "idle",
+    "walk1",
+    "walk2",
+    "walk3",
+    "walk4"
+  ],
+  "animations": {
+    "down_idle": {
+      "frames": [
+        0
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "down_walk": {
+      "frames": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "fps": 7,
+      "loop": true
+    },
+    "left_idle": {
+      "frames": [
+        5
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "left_walk": {
+      "frames": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "fps": 7,
+      "loop": true
+    },
+    "up_idle": {
+      "frames": [
+        10
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "up_walk": {
+      "frames": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "fps": 7,
+      "loop": true
+    },
+    "right_idle": {
+      "frames": [
+        15
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "right_walk": {
+      "frames": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "fps": 7,
+      "loop": true
+    }
+  },
+  "expressions": {
+    "sheet": "arky-expressions-96.png",
+    "names": [
+      "happy",
+      "angry",
+      "thinking",
+      "surprised"
+    ]
+  },
+  "notes": "Each image is 96x96 transparent; origin is top-left; rows ordered down,left,up,right. Walking animation uses frames 1-4 in a loop; idle is frame 0."
+}
