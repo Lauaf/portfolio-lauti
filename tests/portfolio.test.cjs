@@ -7,6 +7,18 @@ const vm = require('node:vm');
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 
+test('the page references existing local styles and images', () => {
+  const markup = html.slice(0, html.indexOf('<script>'));
+  const localFiles = [...markup.matchAll(/(?:src|href)="([^"#]+)"/g)]
+    .map(match => match[1])
+    .filter(value => !/^[a-z]+:/i.test(value));
+  assert.ok(localFiles.includes('styles.css'));
+  assert.ok(localFiles.includes('assets/quiet-study.webp'));
+  for (const file of localFiles) {
+    assert.ok(fs.statSync(path.join(__dirname, '..', file)).size > 0, file);
+  }
+});
+
 // Minimal DOM stand-in: these tests exercise startup and demo logic.
 // Layout, focus and real clipboard access are checked separately in a browser.
 function createApp() {

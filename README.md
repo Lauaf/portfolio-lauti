@@ -1,4 +1,4 @@
-# Portfolio de Lauti — versión local corregida
+# Lautaro Florenza — Portfolio
 
 Portfolio estático en español con catálogo de 20 proyectos/módulos y 6 demos interactivas (BFS/DFS/UCS/A*, HL7, WHONET conceptual, Minimax, plantillas, espresso).
 
@@ -9,6 +9,17 @@ sus repositorios separados: las tarjetas y las fichas enlazan a Arky-Bites,
 Arky-Finances, TP1_CV y TP1_Prog3. Los enlaces privados están identificados.
 El acceso «Mi GitHub» permite explorar los demás repositorios.
 Ver el [inventario de proyectos](docs/proyectos.md).
+
+## Diseño y relato
+
+Una dirección visual wabi-sabi: papel cálido, oliva, arcilla, tipografía serif,
+textura sutil y fotografía editorial. La sección «Mi historia» conecta Rosario,
+la experiencia laboral en Hirafu, Niseko, y el desarrollo de software.
+
+- `index.html`: relato, catálogo y lógica de las seis demos.
+- `styles.css`: sistema visual y adaptación a escritorio y celular.
+- `assets/quiet-study.webp`: imagen editorial optimizada, sin dependencias remotas.
+- [Notas del diseño y recurso visual](docs/diseno.md).
 
 ## Clonar y levantar todo lo incluido
 
