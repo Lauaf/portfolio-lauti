@@ -65,6 +65,27 @@ h2 { font: 400 clamp(36px, 4vw, 52px)/1.15 var(--serif); letter-spacing: -1.8px;
 .story-copy { padding-top: 28px; color: #646a5f; font-size: 14px; }
 .story-copy p + p { margin-top: 16px; }
 .story-copy strong { font-weight: 500; color: var(--ink); }
+.story-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 26px; }
+.story-links .text-link { font-size: 11px; }
+.japan-chapter { border-top: 1px solid var(--line); padding-top: 52px; }
+.chapter-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; }
+.chapter-year { color: #9a8971; font: italic 24px var(--serif); }
+.japan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 95px; margin-top: 30px; }
+.japan-grid h2 { margin-top: 0; }
+.japan-grid .story-copy { padding-top: 2px; }
+blockquote { margin: 44px 0 15px; max-width: 390px; font: italic 29px/1.5 var(--serif); letter-spacing: -.5px; color: var(--clay); }
+.quote-caption { font-size: 10px; color: var(--muted); }
+.places { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #c4c8b8; border-bottom: 1px solid #c4c8b8; padding: 18px 0; margin-top: 42px; gap: 20px; font: 23px var(--serif); color: #758065; }
+.work-chapter, .life-chapter { border-top: 1px solid var(--line); }
+.practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 65px; margin-top: 48px; }
+.practice-grid article { padding-top: 24px; border-top: 1px solid #c4c8b8; }
+.practice-grid h3 { font-size: 29px; margin: 21px 0 18px; }
+.practice-grid p { color: var(--muted); font-size: 13px; line-height: 1.95; }
+.stack-line { margin-top: 35px; color: #6a765f; font-size: 10px; word-spacing: 5px; line-height: 2.2; }
+.learning-note { display: grid; grid-template-columns: 1fr 1fr; gap: 65px; margin-top: 51px; padding: 35px; background: #e6e9dc; }
+.learning-note h3 { font-size: 31px; margin-top: 20px; }
+.learning-note p { font-size: 12px; color: #626d57; line-height: 1.95; }
+.learning-note p + p { margin-top: 15px; }
 .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 45px; margin-top: 53px; }
 .timeline article { border-top: 1px solid #bfc4b0; padding: 24px 0 0; }
 .timeline small { font-size: 10px; color: var(--clay); letter-spacing: .5px; }
@@ -152,3 +173,6 @@ footer { border-top: 1px solid var(--line); padding: 54px 0 33px; }
 @media (max-width: 760px) { .wrap { padding: 0 26px; } .nav { padding: 18px 26px; gap: 18px; } .brand { font-size: 22px; } .navlinks { gap: 19px; font-size: 10px; } .nav-github { display: none; } .hero { grid-template-columns: 1fr; gap: 42px; padding: 52px 0 42px; } h1 { font-size: clamp(57px, 10vw, 78px); max-width: 610px; } .hero .eyebrow { margin-bottom: 25px; } .hero-figure { max-width: 510px; width: 100%; margin-left: auto; padding-right: 15px; } .hero-photo { aspect-ratio: 6/5; border-radius: 33% 33% 1px 1px / 10% 10% 1px 1px; object-position: 50% 67%; } .hero-footnote { margin-top: 25px; } .index-strip { font-size: 8px; letter-spacing: .8px; } section { padding: 64px 0; } .story-intro { grid-template-columns: 1fr; gap: 4px; } .story-copy { padding-top: 23px; max-width: 590px; } .timeline { gap: 24px; margin-top: 36px; } .timeline h3 { font-size: 23px; } .timeline p { font-size: 11px; } .sectionhead { align-items: start; flex-direction: column; gap: 22px; } .search { width: 100%; } .demo-grid { grid-template-columns: 1fr; } .workbody { padding: 23px; } .worktop { padding: 14px; } .footer-title { font-size: 29px; } }
 @media (max-width: 480px) { .wrap { padding: 0 23px; } .nav { padding: 18px 23px; } .navlinks { gap: 13px; font-size: 9px; } .brand { font-size: 20px; } h1 { font-size: 55px; letter-spacing: -2.7px; } .lead { font-size: 13px; } .hero .eyebrow { font-size: 8px; letter-spacing: 1.7px; } .hero-footnote { font-size: 9px; } .hero-footnote span { width: 16px; margin: 0 5px 3px; } .hero-figure { padding-right: 8px; } .margin-note { right: -13px; font-size: 8px; } .index-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 15px; font-size: 8px; } .index-strip span:last-child { grid-column: 1 / -1; } h2 { font-size: 36px; } .timeline { grid-template-columns: 1fr; gap: 27px; } .timeline article { padding-top: 18px; } .timeline h3 { margin: 11px 0 10px; font-size: 25px; } .timeline p { font-size: 12px; } .story-coda { font-size: 18px; } .project-grid { grid-template-columns: 1fr; gap: 18px; } .projectbody { padding: 22px; } .filters { gap: 3px; } .chip { padding: 7px 10px; font-size: 10px; } .workbody { padding: 19px 15px; } .worktop { padding: 12px 8px; gap: 4px; } .worktop .chip { padding: 7px 9px; } .panel { padding: 17px; } .demo-title h3 { font-size: 26px; } .footer-top, .footer-bottom { align-items: start; flex-direction: column; gap: 17px; } .footer-bottom { margin-top: 30px; } dialog { padding: 25px; } .dialogtop h2 { font-size: 31px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+@media (max-width: 1050px) { .japan-grid { gap: 55px; } .practice-grid, .learning-note { gap: 40px; } }
+@media (max-width: 760px) { .japan-grid, .practice-grid, .learning-note { grid-template-columns: 1fr; gap: 28px; } .japan-grid .story-copy { padding-top: 0; } blockquote { max-width: 520px; margin-top: 29px; font-size: 26px; } .places { font-size: 21px; } .learning-note { padding: 28px; } .learning-note h3 { font-size: 29px; } .practice-grid h3 { font-size: 28px; } }
+@media (max-width: 480px) { .japan-chapter { padding-top: 34px; } .places { grid-template-columns: 1fr 1fr; gap: 17px; font-size: 22px; } .japan-grid { margin-top: 23px; } .learning-note { padding: 23px; } .stack-line { word-spacing: 2px; } }

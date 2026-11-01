@@ -5,11 +5,16 @@ Papel cálido (`#f3f0e7`), tinta vegetal (`#30372e`), oliva (`#47543d`) y arcill
 espacio, líneas finas y numeración discreta. La textura de papel se genera con
 SVG dentro del CSS; no depende de servicios externos.
 
-El relato incorpora únicamente hechos disponibles en el portfolio y el CV:
-Rosario, trabajo Full-Stack y para salud, proyectos de IA y creatividad, y la
-experiencia como Night Auditor en Hirafu, Niseko, de noviembre de 2024 a marzo
-de 2025. No se inventaron anécdotas, sentimientos, viajes adicionales ni trabajos
-de barista en Japón.
+El relato se editó a partir de la autobiografía aportada por Lautaro: curiosidad
+desde la infancia; aproximadamente un año de Working Holiday en Japón a partir
+de 2024, con experiencias en Tokio, Yokohama, Okinawa y Hokkaido; trabajo como
+Night Auditor en Niseko; desarrollo Full-Stack en Wiener Lab / Nobilis Cloud;
+estudios de IA en la UNR; café, videojuegos, D&D, música, fotografía, idiomas,
+snowboard, voluntariado y el sueño de una cafetería propia.
+
+El texto se condensó en capítulos para la lectura en web. Las reflexiones y
+citas personales provienen de esa autobiografía. No se inventaron destinos,
+anécdotas ni experiencias de trabajo de barista en Japón.
 
 ## Recurso editorial
 

@@ -13,8 +13,10 @@ Ver el [inventario de proyectos](docs/proyectos.md).
 ## Diseño y relato
 
 Una dirección visual wabi-sabi: papel cálido, oliva, arcilla, tipografía serif,
-textura sutil y fotografía editorial. La sección «Mi historia» conecta Rosario,
-la experiencia laboral en Hirafu, Niseko, y el desarrollo de software.
+textura sutil y fotografía editorial. El relato conecta la curiosidad desde la
+infancia, el año de Working Holiday en Japón, el trabajo en Wiener Lab, la carrera
+de IA en la UNR y los intereses personales: café, mundos narrativos, música y
+otras formas de crear.
 
 - `index.html`: relato, catálogo y lógica de las seis demos.
 - `styles.css`: sistema visual y adaptación a escritorio y celular.
