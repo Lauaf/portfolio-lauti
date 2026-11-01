@@ -6,7 +6,13 @@ y un laboratorio de visión con los trabajos de Procesamiento de Imágenes), San
 
 **Portfolio publicado:** [lauaf.github.io/portfolio-lauti](https://lauaf.github.io/portfolio-lauti/).
 
-Las siete demos y Sandō arrancan juntos con el portfolio. Los proyectos completos conservan
+Las siete demos y Sandō arrancan juntos con el portfolio.
+
+**Dos maneras de ver los proyectos.** La clásica (catálogo con filtros y fichas) y
+una interactiva en [`pueblo/`](pueblo/): el portfolio como un pueblo de Sandō,
+donde cada edificio es una parte del trabajo —el laboratorio clínico, la casa de
+Arky, el kissaten, la facultad y el estudio creativo— y la fuente de la plaza es
+«Sobre mí». Se entra con el botón «三道 Un vistazo a los proyectos». Los proyectos completos conservan
 sus repositorios separados: las tarjetas y las fichas enlazan a Arky-Bites,
 Arky-Finances, Sando, TP1_CV, TP2_VC, TP1_Prog3 y los tres trabajos de
 Procesamiento de Imágenes (TP_1_PDI, TP_2_PDI y TP_3_PDI). Los enlaces privados están identificados.
@@ -31,6 +37,19 @@ otras formas de crear.
 - `assets/pdi/`: imágenes y videos de esos trabajos. Los videos se marcaron como
   BT.601 (sin recomprimir) para que el navegador los decodifique con los mismos
   colores que OpenCV.
+- `proyectos.js`: el catálogo y los enlaces, compartidos por el portfolio y el pueblo.
+- `pueblo/`: la versión interactiva. Reutiliza el motor, el arte y a Arky de
+  `sando/js` sin modificarlos (`<base href="../sando/">` resuelve sus recursos).
+  El menú es el camino principal: elegir un lugar hace que Arky camine solo hasta
+  la puerta (BFS sobre el mapa) y abre la ficha de cada proyecto con capturas,
+  esquemas y enlaces a las demos (`index.html#demo=hl7`). También se camina con
+  las flechas o tocando el mapa. `lugares.js` define qué proyecto vive en cada
+  edificio y sus ejemplos visuales; las pruebas verifican que el catálogo entero
+  esté ubicado y que cada imagen exista.
+- `assets/pueblo/`: capturas de Sandō y de las demos, páginas de la presentación
+  de Arky y gráficos de los TP de visión. Lo profesional se muestra con
+  recreaciones y esquemas rotulados como tales, nunca con pantallas internas.
+  Del TP de reconocimiento facial solo se usan gráficos, no las fotos de personas.
 - `sando/`: copia de `web/` del repositorio privado Sando. Funciona sin su
   servidor: el progreso queda en el navegador; la IA local, el cine y la
   importación de canciones necesitan `server.py`. Para actualizarlo, volver a

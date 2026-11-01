@@ -6,6 +6,7 @@ const vm = require('node:vm');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
+const catalogo = fs.readFileSync(path.join(__dirname, '..', 'proyectos.js'), 'utf8');
 
 test('the page references existing local styles and images', () => {
   const markup = html.slice(0, html.indexOf('<script>'));
@@ -44,6 +45,7 @@ function createApp() {
     querySelectorAll() { return []; },
   };
   const context = vm.createContext({ document, navigator: {}, console });
+  vm.runInContext(catalogo, context, { timeout: 3000 });
   vm.runInContext(script, context, { timeout: 3000 });
   return { context, element: id => document.getElementById(id) };
 }

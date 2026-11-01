@@ -154,6 +154,23 @@ textarea.input { min-height: 155px; resize: vertical; font: 11px/1.9 Consolas, m
 .cell.start { background: #526548; border-color: #526548; color: white; }
 .cell.goal { background: #9a785a; border-color: #9a785a; color: white; }
 .cell.start, .cell.goal { font-weight: 700; }
+/* Entrada a Sandō: el único elemento con la estética del juego (noche, crema y pixel) */
+.sando-btn { display: inline-flex; align-items: center; gap: 12px; margin-top: 26px; padding: 10px 16px 10px 10px; background: #14111f; color: #f6eedb; text-decoration: none; font-family: ui-monospace, 'Cascadia Mono', Menlo, Consolas, monospace; border: 0; border-radius: 4px; box-shadow: 0 0 0 3px #2e2648, 0 0 0 5px #14111f, 6px 6px 0 5px rgba(48, 55, 46, .25); transition: transform .15s, box-shadow .15s; }
+.sando-btn:hover, .sando-btn:focus-visible { transform: translate(-2px, -2px); box-shadow: 0 0 0 3px #e8546b, 0 0 0 5px #14111f, 8px 8px 0 5px rgba(48, 55, 46, .25); }
+.sando-btn b { display: block; font-weight: 500; font-size: 13px; letter-spacing: .3px; }
+.sando-btn b::first-letter { color: #f4a6b8; }
+.sando-btn small { display: block; font-size: 10px; color: #b9aed0; margin-top: 3px; }
+.sando-flecha { color: #f2c14e; font-size: 12px; animation: sando-latido 1.2s steps(2) infinite; }
+.sando-arky { width: 48px; height: 48px; flex-shrink: 0; overflow: hidden; border-radius: 3px; background: #3f8f3e; image-rendering: pixelated; position: relative; }
+.sando-arky::before { content: ''; position: absolute; left: 0; top: 0; width: 240px; height: 192px; background: url('sando/assets/arky/limpio/arky-spritesheet-96.png') no-repeat 0 0 / 240px 192px; animation: sando-pasos .7s steps(4) infinite; image-rendering: pixelated; }
+@keyframes sando-pasos { from { transform: translateX(-48px); } to { transform: translateX(-240px); } }
+@keyframes sando-latido { 50% { opacity: .35; } }
+.sando-banda { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin: 6px 0 26px; padding: 20px 24px; background: #ebe7db; border: 1px solid #d3d8c6; border-radius: 2px; }
+.sando-banda > div b { font: 400 22px/1.3 var(--serif); color: var(--ink); }
+.sando-banda > div p { margin: 6px 0 0; font-size: 12px; color: #656e5d; max-width: 560px; }
+.sando-banda .sando-btn { margin-top: 0; flex-shrink: 0; }
+@media (max-width: 760px) { .sando-banda { flex-direction: column; align-items: start; } }
+@media (prefers-reduced-motion: reduce) { .sando-arky::before, .sando-flecha { animation: none; } .sando-btn { transition: none; } }
 .toolrow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .vtabs { margin-top: 22px; }
 .vlabel { display: flex; align-items: center; gap: 10px; font-size: 11px; color: #656e5d; }

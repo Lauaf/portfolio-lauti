@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sandō · Portfolio de Lautaro Florenza</title>
+<meta name="description" content="El portfolio de Lautaro Florenza como un pueblo de Sandō: cada edificio es una parte de su trabajo.">
+<!-- Los recursos del juego (Arky, fuentes) se resuelven desde la carpeta de Sandō. -->
+<base href="../sando/">
+<link rel="icon" href="icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+<link rel="stylesheet" href="../pueblo/pueblo.css">
+</head>
+<body>
+<button class="saltar" data-saltar>Saltar al menú de lugares</button>
+<header class="barra">
+  <a class="marca" href="../" aria-label="Volver a la versión clásica del portfolio"><span>三道</span> Sandō <small>· portfolio de Lautaro Florenza</small></a>
+  <nav class="barra-der" aria-label="Opciones">
+    <button id="noche" class="ibtn" title="Día / noche" aria-label="Cambiar entre día y noche">☀️</button>
+    <button id="sonido" class="ibtn" title="Sonido" aria-label="Sonido" aria-pressed="false">🔇</button>
+    <a class="pbtn" href="../">Versión clásica ↗</a>
+  </nav>
+</header>
+
+<main class="juego">
+  <aside id="menu" aria-label="Lugares del pueblo">
+    <h1>¿Adónde vamos?</h1>
+    <p class="ayuda">Elegí un lugar y Arky te lleva. Cada edificio es una parte de mi trabajo.</p>
+    <div id="lugares"></div>
+    <figure class="mapa">
+      <canvas id="minimapa" aria-label="Mapa del pueblo: tocá un edificio para ir"></canvas>
+      <figcaption>Mapa · el punto verde es Arky</figcaption>
+    </figure>
+  </aside>
+
+  <section class="pantalla" aria-label="El pueblo">
+    <canvas id="lienzo" tabindex="0" aria-label="El pueblo de Sandō. Usá las flechas para caminar y Enter para entrar, o elegí un lugar en el menú."></canvas>
+    <div id="etiquetas"></div>
+    <div id="cartel" class="oculto" aria-live="polite"></div>
+    <div id="aviso" class="oculto" aria-live="polite"></div>
+    <div id="charla" class="oculto" role="dialog" aria-label="Conversación"></div>
+    <div id="panel" class="oculto" role="dialog" aria-modal="false" aria-label="Lugar"></div>
+
+    <div id="bienvenida" role="dialog" aria-labelledby="bienvenida-titulo">
+      <img src="../assets/pueblo/arky-saludo.webp" alt="" width="120" height="123">
+      <div>
+        <h2 id="bienvenida-titulo">¡Bienvenido a Sandō!</h2>
+        <p>Este pueblo es mi portfolio. Cada edificio guarda una parte de mi trabajo: el laboratorio clínico, la casa de Arky, la facultad, el café y el estudio creativo.</p>
+        <p>Elegí un lugar en el menú y Arky camina hasta la puerta. También podés caminar con las flechas (o tocando el mapa) y entrar con Enter.</p>
+        <div class="acciones">
+          <button class="pbtn vivo" data-recorrido>▶ Recorrido guiado</button>
+          <button class="pbtn" data-empezar>Explorar a mi ritmo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="teclas">
+  <span><kbd>1</kbd>–<kbd>6</kbd> ir a un lugar</span>
+  <span><kbd>←↑↓→</kbd> caminar</span>
+  <span><kbd>Enter</kbd> entrar o hablar</span>
+  <span><kbd>Esc</kbd> volver al pueblo</span>
+</footer>
+<dialog id="zoom" aria-label="Imagen ampliada"></dialog>
+
+<script src="../proyectos.js"></script>
+<script type="module" src="../pueblo/pueblo.js"></script>
+</body>
+</html>

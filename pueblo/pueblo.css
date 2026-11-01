@@ -1,0 +1,205 @@
+/* El pueblo de Sandō como portfolio. Misma paleta y tipografía que el juego. */
+@font-face {
+  font-family: 'SandoJP';
+  src: local('Yu Gothic UI Semibold'), local('YuGothic-Bold'), local('Yu Gothic Bold'), local('Hiragino Sans'), local('Meiryo'), local('Noto Sans CJK JP');
+  unicode-range: U+3000-303F, U+3040-309F, U+30A0-30FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+/* DotGothic16 no trae la «ō» de Sandō: esas letras salen de una fuente del sistema. */
+@font-face {
+  font-family: 'SandoLatin';
+  src: local('DejaVu Sans'), local('Verdana'), local('Arial'), local('Helvetica');
+  unicode-range: U+0100-017F, U+0300-036F;
+}
+:root {
+  --fondo: #14111f;
+  --marco: #231d38;
+  --marco2: #2e2648;
+  --tinta: #241a2e;
+  --crema: #f6eedb;
+  --crema2: #e9dcc0;
+  --suave: #b9aed0;
+  --sakura: #e8546b;
+  --sakura2: #f4a6b8;
+  --te: #3fa7a0;
+  --oro: #f2c14e;
+  --verde: #4caf6a;
+  --fuente: 'SandoJP', 'SandoLatin', 'DotGothic16', 'MS Gothic', monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--fondo); color: var(--crema); font-family: var(--fuente); }
+body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+button, a { font-family: inherit; }
+.oculto { display: none !important; }
+:focus-visible { outline: 2px solid var(--oro); outline-offset: 2px; }
+
+.saltar { position: absolute; left: 8px; top: -60px; z-index: 50; background: var(--oro); color: var(--tinta); border: 0; padding: 8px 12px; }
+.saltar:focus { top: 8px; }
+
+/* ---------- Barra ---------- */
+.barra { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 18px; border-bottom: 2px solid var(--marco); }
+.marca { color: var(--crema); text-decoration: none; font-size: 18px; letter-spacing: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.marca span { color: var(--sakura2); }
+.marca small { color: var(--suave); font-size: 12px; }
+.barra-der { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.ibtn { width: 36px; height: 36px; border-radius: 6px; border: 2px solid var(--marco2); background: var(--marco); color: var(--crema); font-size: 16px; cursor: pointer; }
+
+.pbtn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 6px; border: 2px solid var(--marco2); background: var(--marco); color: var(--crema); font-size: 13px; text-decoration: none; cursor: pointer; line-height: 1.3; }
+.pbtn:hover { border-color: var(--sakura2); }
+.pbtn.vivo { background: var(--te); border-color: #2e8079; color: #fff; }
+.pbtn.vivo:hover { border-color: var(--crema); }
+
+/* ---------- Diseño principal: menú a la izquierda, pueblo a la derecha ---------- */
+.juego { flex: 1; display: grid; grid-template-columns: minmax(270px, 330px) 1fr; gap: 18px; padding: 16px 18px; align-items: start; max-width: 1400px; width: 100%; margin: 0 auto; }
+
+#menu { background: var(--marco); border: 2px solid var(--marco2); border-radius: 10px; padding: 16px; }
+#menu h1 { margin: 0 0 4px; font-size: 20px; font-weight: normal; color: var(--oro); }
+.ayuda { margin: 0 0 12px; font-size: 13px; color: var(--suave); line-height: 1.5; }
+#lugares { display: grid; gap: 8px; }
+.lugar { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; text-align: left; padding: 10px; border-radius: 8px; border: 2px solid var(--marco2); background: var(--crema); color: var(--tinta); cursor: pointer; transition: transform .12s, border-color .12s; }
+.lugar:hover, .lugar.activo { border-color: var(--sakura); transform: translateX(3px); }
+.lugar .ico { font-size: 22px; text-align: center; }
+.lugar b { display: block; font-weight: normal; font-size: 15px; }
+.lugar small { display: block; font-size: 11px; color: #6b5f78; line-height: 1.35; margin-top: 2px; }
+.lugar .num { display: flex; flex-direction: column; align-items: end; gap: 3px; font-size: 13px; color: #8a5a3b; }
+kbd { font-family: inherit; font-size: 10px; padding: 1px 5px; border-radius: 3px; background: var(--marco2); color: var(--crema); }
+.lugar kbd { background: #e3d5b8; color: var(--tinta); }
+
+.mapa { margin: 14px 0 0; }
+#minimapa { display: block; width: 100%; image-rendering: pixelated; border-radius: 6px; border: 2px solid var(--marco2); cursor: pointer; }
+.mapa figcaption { font-size: 11px; color: var(--suave); margin-top: 6px; }
+
+.pantalla { position: relative; border: 3px solid var(--marco2); border-radius: 10px; overflow: hidden; background: #000; aspect-ratio: 3 / 2; }
+/* Etiquetas en castellano sobre cada edificio (las posiciona pueblo.js con la cámara del motor) */
+#etiquetas { position: absolute; inset: 0; pointer-events: none; }
+.etiqueta { position: absolute; transform: translate(-50%, -100%); padding: 3px 9px; border-radius: 6px; background: rgba(246, 238, 219, .95); color: var(--tinta); border: 2px solid var(--tinta); font-size: 13px; white-space: nowrap; pointer-events: auto; cursor: pointer; box-shadow: 0 3px 0 rgba(0, 0, 0, .25); }
+.etiqueta:hover { background: var(--oro); }
+#lienzo { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; cursor: pointer; }
+
+#cartel, #aviso { position: absolute; left: 50%; transform: translateX(-50%); padding: 6px 12px; border-radius: 6px; background: rgba(36, 26, 46, .92); border: 2px solid var(--oro); font-size: 14px; white-space: nowrap; pointer-events: none; }
+#cartel { bottom: 12px; }
+#aviso { top: 12px; border-color: var(--te); }
+
+/* ---------- Charla ---------- */
+#charla { position: absolute; left: 3%; right: 3%; bottom: 4%; background: var(--crema); color: var(--tinta); border: 3px solid var(--tinta); border-radius: 8px; padding: 14px 16px; box-shadow: 0 0 0 3px var(--crema2); }
+#charla b { position: absolute; top: -16px; left: 14px; background: var(--tinta); color: var(--crema); padding: 2px 10px; border-radius: 6px; font-weight: normal; }
+#charla p { margin: 6px 0 10px; font-size: 16px; line-height: 1.5; }
+#charla .acciones { display: flex; flex-wrap: wrap; gap: 8px; }
+#charla .pbtn:not(.vivo) { background: #efe4cc; color: var(--tinta); border-color: #d6c6a4; }
+
+/* ---------- Bienvenida ---------- */
+#bienvenida { position: absolute; inset: 0; display: flex; gap: 20px; align-items: center; justify-content: center; padding: 6%; background: rgba(20, 17, 31, .78); backdrop-filter: blur(2px); }
+#bienvenida > div { max-width: 520px; background: var(--crema); color: var(--tinta); border: 3px solid var(--tinta); border-radius: 10px; padding: 20px 22px; }
+#bienvenida img { width: 120px; height: auto; flex-shrink: 0; filter: drop-shadow(0 4px 0 rgba(0, 0, 0, .3)); }
+#bienvenida h2 { margin: 0 0 8px; font-weight: normal; color: #a8203a; }
+#bienvenida p { margin: 0 0 10px; line-height: 1.55; font-size: 15px; }
+#bienvenida .acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+#bienvenida .pbtn:not(.vivo) { background: #efe4cc; color: var(--tinta); border-color: #d6c6a4; }
+
+/* ---------- Panel de un lugar ---------- */
+#panel { position: absolute; inset: 0; display: flex; flex-direction: column; background: var(--fondo); overflow: hidden; }
+/* Con un lugar abierto, el recuadro crece hasta el alto de la ventana para que la ficha respire */
+.pantalla.con-panel { aspect-ratio: auto; height: calc(100vh - 110px); height: calc(100dvh - 110px); min-height: 520px; }
+.panel-top { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 2px solid var(--marco2); background: var(--marco); }
+.panel-top > div { flex: 1; min-width: 0; }
+.panel-top h2 { margin: 0; font-weight: normal; font-size: 19px; }
+.panel-top p { margin: 2px 0 0; color: var(--suave); font-size: 12px; }
+.kanji { color: var(--sakura2); margin-right: 4px; }
+.intro { margin: 0; padding: 10px 16px; font-size: 13px; line-height: 1.6; color: var(--crema2); border-bottom: 1px dashed var(--marco2); }
+.cuerpo { flex: 1; display: grid; grid-template-columns: minmax(180px, 250px) 1fr; min-height: 0; }
+.lista { overflow: auto; padding: 10px; display: flex; flex-direction: column; gap: 6px; border-right: 2px solid var(--marco2); }
+.item { display: flex; gap: 8px; align-items: center; text-align: left; padding: 8px; border-radius: 6px; border: 2px solid transparent; background: var(--marco); color: var(--crema); cursor: pointer; }
+.item b { display: block; font-weight: normal; font-size: 13px; }
+.item small { display: block; font-size: 10px; color: var(--suave); line-height: 1.3; }
+.item.activo { border-color: var(--oro); background: var(--marco2); }
+.ico { font-size: 18px; }
+.ico.grande { font-size: 30px; }
+
+.ficha { overflow: auto; padding: 14px 18px 20px; }
+.ficha-top { display: flex; gap: 12px; align-items: center; }
+.ficha h3 { margin: 0; font-weight: normal; font-size: 20px; color: var(--oro); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 0; }
+.chips span, .tags span { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: var(--marco2); color: var(--crema2); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.resumen { font-size: 15px; line-height: 1.6; margin: 12px 0; }
+.ficha h4 { margin: 16px 0 6px; font-weight: normal; color: var(--sakura2); font-size: 14px; }
+.ficha p { line-height: 1.6; font-size: 13px; }
+
+.galeria { margin: 12px 0 0; background: var(--marco); border: 2px solid var(--marco2); border-radius: 8px; padding: 10px; }
+.principal { display: grid; place-items: center; min-height: 160px; border-radius: 6px; overflow: hidden; background: #0e0c17; cursor: zoom-in; }
+.principal img, .principal video { display: block; max-width: 100%; max-height: 340px; object-fit: contain; }
+.galeria figcaption { font-size: 12px; color: var(--crema2); margin: 8px 2px 0; line-height: 1.5; }
+.miniaturas { display: flex; gap: 6px; margin-top: 8px; overflow-x: auto; padding-bottom: 4px; }
+.mini { flex: 0 0 auto; width: 88px; height: 58px; padding: 0; border: 2px solid var(--marco2); border-radius: 5px; background: #0e0c17; overflow: hidden; cursor: pointer; display: grid; place-items: center; }
+.mini.activo { border-color: var(--oro); }
+.mini img, .mini video { width: 100%; height: 100%; object-fit: cover; }
+.mini-txt { display: flex; flex-direction: column; align-items: center; font-size: 20px; color: var(--oro); }
+.mini-txt small { font-size: 10px; color: var(--crema2); }
+.enlaces { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+/* Esquemas ilustrativos */
+.flujo { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; padding: 18px 12px; cursor: default; }
+.flujo .paso { padding: 8px 12px; border-radius: 6px; background: var(--crema); color: var(--tinta); border: 2px solid var(--tinta); box-shadow: 3px 3px 0 var(--te); font-size: 13px; text-align: center; max-width: 180px; }
+.flujo .flecha { color: var(--oro); font-size: 18px; }
+.grafico { width: 100%; max-width: 420px; color: var(--te); padding: 14px; }
+.grafico circle { fill: var(--oro); }
+.grafico text { fill: var(--suave); font-size: 11px; font-family: var(--fuente); }
+
+/* Arky animado con su hoja de sprites (celdas de 96 px: columnas idle + 4 pasos, filas abajo/izq/arriba/der) */
+.sprite-arky { width: 96px; height: 96px; overflow: hidden; image-rendering: pixelated; margin: 20px auto; transform: scale(1.6); }
+.sprite-arky span { display: block; width: 480px; height: 384px; background: url('../sando/assets/arky/limpio/arky-spritesheet-96.png') no-repeat; animation: arky-pasos .6s steps(4) infinite, arky-giro 4.8s steps(4) infinite; }
+@keyframes arky-pasos { from { background-position-x: -96px; } to { background-position-x: -480px; } }
+@keyframes arky-giro { from { transform: translateY(0); } to { transform: translateY(-384px); } }
+.caras-arky { width: 256px; height: 64px; margin: 24px auto; background: url('../sando/assets/arky/limpio/arky-expressions-64.png') no-repeat; image-rendering: pixelated; transform: scale(1.4); }
+
+/* Sobre mí */
+.sobre { flex: 1; overflow: auto; display: grid; grid-template-columns: 160px 1fr; gap: 20px; padding: 18px 20px; }
+.arky-saludo { width: 150px; height: auto; }
+.sobre p { line-height: 1.6; font-size: 14px; margin: 0 0 10px; }
+.datos { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-top: 14px; }
+.dato { display: flex; flex-direction: column; gap: 4px; padding: 10px; border-radius: 8px; border: 2px solid var(--marco2); background: var(--marco); color: var(--crema); text-align: left; cursor: pointer; }
+.dato b { font-weight: normal; font-size: 20px; color: var(--oro); }
+.dato span { font-size: 12px; color: var(--crema2); }
+
+#zoom { max-width: min(96vw, 1200px); padding: 10px; border: 3px solid var(--marco2); border-radius: 10px; background: var(--fondo); color: var(--crema); cursor: zoom-out; }
+#zoom::backdrop { background: rgba(0, 0, 0, .8); }
+#zoom img { display: block; max-width: 100%; max-height: 82vh; margin: 0 auto; }
+#zoom p { margin: 8px 0 0; font-size: 12px; text-align: center; color: var(--suave); }
+
+.teclas { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 8px 16px 14px; font-size: 12px; color: var(--suave); }
+
+/* ---------- Pantallas medianas y celulares ---------- */
+@media (max-width: 980px) {
+  .juego { grid-template-columns: 1fr; padding: 12px; }
+  .pantalla { order: -1; }
+  #menu { padding: 12px; }
+  #lugares { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .mapa { display: none; }
+  /* el panel ocupa toda la pantalla: dentro del recuadro del pueblo no se lee */
+  #panel { position: fixed; z-index: 20; }
+  .pantalla.con-panel { aspect-ratio: 3 / 2; height: auto; min-height: 0; }
+}
+@media (max-width: 640px) {
+  .barra { padding: 8px 12px; }
+  .marca small { display: none; }
+  .barra .pbtn { padding: 6px 8px; font-size: 12px; }
+  .teclas { display: none; }
+  .lugar kbd { display: none; }
+  #bienvenida { position: fixed; z-index: 15; flex-direction: column; gap: 10px; padding: 16px; overflow: auto; justify-content: start; }
+  #bienvenida img { width: 80px; }
+  #bienvenida > div { padding: 16px; }
+  #charla p { font-size: 14px; }
+  .panel-top { flex-wrap: wrap; }
+  .panel-top [data-ir] { order: 3; width: 100%; justify-content: center; }
+  .cuerpo { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .lista { flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 2px solid var(--marco2); }
+  .item { flex: 0 0 auto; max-width: 210px; }
+  .intro { max-height: 30vh; overflow: auto; }
+  .sobre { grid-template-columns: 1fr; }
+  .arky-saludo { width: 100px; }
+  #cartel, #aviso { font-size: 12px; }
+  .etiqueta { font-size: 10px; padding: 2px 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sprite-arky span { animation: none; background-position: 0 0; }
+  .lugar { transition: none; }
+}

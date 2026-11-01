@@ -24,6 +24,19 @@ Inventario revisado el 1 de noviembre de 2026 en la cuenta `Lauaf`:
 | Valdor | No localizado | Falta su carpeta o repositorio. |
 | Nobilis, HL7, WHONET y demás casos profesionales | El ZIP contiene descripciones y demos conceptuales | Sus implementaciones laborales no están incluidas. Las demos HL7, WHONET y plantillas funcionan con datos ficticios. |
 
+## El pueblo (`pueblo/`)
+
+Los 23 proyectos también se recorren como un pueblo de Sandō. Cada proyecto vive
+en un solo edificio (`pueblo/lugares.js`, verificado por `tests/pueblo.test.cjs`):
+
+| Edificio | Estilo de Sandō | Proyectos |
+| --- | --- | --- |
+| 研究所 Laboratorio clínico | sala de música | Los 12 profesionales de Wiener Lab / Nobilis |
+| アーキー Casa de Arky | casa | Arky AI, ArkyBites, ArkyCash-e |
+| 喫茶店 Kissaten | café | Sandō, más «Café y barismo» (fuera del catálogo) |
+| 大学 Facultad · UNR | dojo | Los 5 trabajos de la universidad |
+| 工房 Estudio creativo | cine | Arky Pixel Assets, Valdor |
+
 ## Organización elegida
 
 El portfolio enlaza a repositorios separados. Cada aplicación conserva su
