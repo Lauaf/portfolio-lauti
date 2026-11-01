@@ -20,6 +20,7 @@ function createApp() {
     set innerHTML(value) { this.html = String(value); this.children = []; }
     get innerHTML() { return this.html || ''; }
     append(child) { this.children.push(child); }
+    showModal() { this.open = true; }
   }
   const elements = new Map();
   const document = {
@@ -52,6 +53,21 @@ test('filtering and searching preserve the original project index', () => {
   assert.match(element('projects').innerHTML, /showProject\(12\)/);
   element('search').oninput({ target: { value: 'ningun-proyecto' } });
   assert.match(element('count').textContent, /^0 de 20/);
+});
+
+test('project cards and dialogs link to separate repositories', () => {
+  const { context, element } = createApp();
+  const cards = element('projects').innerHTML;
+  assert.match(cards, /href="https:\/\/github\.com\/Lauaf\/TP1_CV"/);
+  assert.match(cards, /href="https:\/\/github\.com\/Lauaf\/TP1_Prog3"/);
+  assert.match(cards, /GitHub · repositorio privado ↗/);
+  context.showProject(14);
+  assert.equal(element('modal').open, true);
+  assert.match(element('modalactions').innerHTML, /Arky-Finances/);
+  assert.match(element('modalactions').innerHTML, /Versión integrada · privado/);
+  assert.match(element('modalactions').innerHTML, /target="_blank" rel="noopener noreferrer"/);
+  context.showProject(0);
+  assert.equal(element('modalactions').innerHTML, '');
 });
 
 test('all search modes solve the initial maze and report blocked routes', () => {

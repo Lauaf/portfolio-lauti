@@ -2,8 +2,11 @@
 
 Portfolio estático en español con catálogo de 20 proyectos/módulos y 6 demos interactivas (BFS/DFS/UCS/A*, HL7, WHONET conceptual, Minimax, plantillas, espresso).
 
-Las seis demos arrancan juntas con el portfolio. Los demás proyectos tienen
-su propio código y sus propios servicios: ver el [inventario de proyectos](docs/proyectos.md).
+Las seis demos arrancan juntas con el portfolio. Los proyectos completos conservan
+sus repositorios separados: las tarjetas y las fichas enlazan a Arky-Bites,
+Arky-Finances, TP1_CV y TP1_Prog3. Los enlaces privados están identificados.
+El acceso «Mi GitHub» permite explorar los demás repositorios.
+Ver el [inventario de proyectos](docs/proyectos.md).
 
 ## Clonar y levantar todo lo incluido
 
@@ -67,6 +70,7 @@ otros proyectos.
 
 - Editá el texto de la sección inicial en `index.html`.
 - Modificá el arreglo `P` dentro del `<script>` para cambiar proyectos, estados y tecnologías.
+- Editá `PROJECT_REPOSITORIES` para agregar o actualizar los enlaces de cada ficha.
 - Reemplazá las demos simplificadas por enlaces o integraciones de proyectos reales cuando tengas repositorios y permisos.
 - Agregá capturas, enlaces de código, información de contacto y CV antes de publicarlo.
 

@@ -18,19 +18,19 @@ Inventario revisado el 1 de noviembre de 2026 en la cuenta `Lauaf`:
 | Barista, Valdor y recursos pixel art | No incluidos en el ZIP | La demo de espresso sí está integrada. Para las versiones completas faltan sus carpetas o repositorios. |
 | Nobilis, HL7, WHONET y demás casos profesionales | El ZIP contiene descripciones y demos conceptuales | Sus implementaciones laborales no están incluidas. Las demos HL7, WHONET y plantillas funcionan con datos ficticios. |
 
-## Levantar varios proyectos juntos
+## Organización elegida
 
-Hay dos opciones compatibles con este portfolio:
+El portfolio enlaza a repositorios separados. Cada aplicación conserva su
+historial, configuración, dependencias y comandos de arranque.
 
-1. Mantener los repositorios originales y agregar un lanzador central que use
-   rutas locales o checkouts de versiones concretas.
-2. Reunir los proyectos elegidos en un repositorio con varias aplicaciones y
-   preparar un `compose.yml` con puertos, variables y volúmenes por servicio.
+Las tarjetas y fichas enlazan a los repositorios confirmados de ArkyBites,
+ArkyCash-e, reconocimiento facial y algoritmos. ArkyCash-e ofrece tanto la
+versión independiente de finanzas como la integrada en Arky-Bites. Los enlaces
+a repositorios privados lo indican antes de abrir GitHub.
 
-Antes de definir el lanzador hace falta elegir las implementaciones concretas.
-Los distintos backends suelen usar el puerto 8000, y varios frontends usan
-4200 u 8080. Copiar sus comandos actuales sin adaptar puertos no permite
-ejecutarlos todos a la vez.
+El acceso al perfil de GitHub permite explorar los otros trabajos. Las fichas
+sin correspondencia confirmada conservan su descripción y su demo, cuando existe.
+Para agregar enlaces, editar `PROJECT_REPOSITORIES` en `index.html`.
 
 GitHub almacena el código; GitHub Pages sirve el portfolio estático y sus seis
 demos. Los backends Python, bases de datos y modelos de IA necesitan su propio
