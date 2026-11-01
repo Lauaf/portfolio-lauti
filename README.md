@@ -23,6 +23,9 @@ otras formas de crear.
 - `assets/quiet-study.webp`: imagen editorial optimizada, sin dependencias remotas.
 - [Notas del diseño y recurso visual](docs/diseno.md).
 
+El build publica la hoja de estilos con una huella de su contenido en el nombre,
+para que las nuevas versiones no queden ocultas por la caché del navegador.
+
 ## Clonar y levantar todo lo incluido
 
 Requisitos: Python 3.10 o superior. Para los comandos npm y las pruebas: Node.js 20 o superior.
