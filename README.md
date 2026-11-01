@@ -2,6 +2,8 @@
 
 Portfolio estático en español con catálogo de 20 proyectos/módulos y 6 demos interactivas (BFS/DFS/UCS/A*, HL7, WHONET conceptual, Minimax, plantillas, espresso).
 
+**Portfolio publicado:** [lauaf.github.io/portfolio-lauti](https://lauaf.github.io/portfolio-lauti/).
+
 Las seis demos arrancan juntas con el portfolio. Los proyectos completos conservan
 sus repositorios separados: las tarjetas y las fichas enlazan a Arky-Bites,
 Arky-Finances, TP1_CV y TP1_Prog3. Los enlaces privados están identificados.
@@ -62,9 +64,9 @@ y ejecutá **Actions → Publicar portfolio en GitHub Pages → Run workflow**.
 El workflow publica únicamente `dist/`; no publica archivos de configuración,
 documentación ni el servidor local. La publicación es manual.
 
-GitHub Pages en repositorios privados depende del plan de GitHub de la cuenta.
-Preparar el repositorio no publica el sitio ni cambia la visibilidad de los
-otros proyectos.
+Este repositorio es público y publica el sitio con GitHub Pages. Los proyectos
+enlazados conservan su propia configuración de acceso; Arky-Bites sigue siendo
+privado.
 
 ## Personalizar
 
