@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lautaro Florenza, CV</title>
+<style>
+  @page { size: A4; margin: 15mm 15mm 14mm; }
+  :root { --ink: #23281f; --muted: #5f6458; --accent: #47543d; --line: #cfd1c4; }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: var(--ink); font: 9.6pt/1.42 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
+  h1, h2, h3, p, ul { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  header { border-bottom: 1.5px solid var(--accent); padding-bottom: 8px; margin-bottom: 10px; }
+  h1 { font: 400 23pt/1.1 Georgia, 'Times New Roman', serif; letter-spacing: -.3px; }
+  .title { font-size: 10.5pt; color: var(--accent); font-weight: 600; margin-top: 3px; }
+  .contact { font-size: 8.8pt; color: var(--muted); margin-top: 5px; }
+  .contact span + span::before { content: ' · '; }
+  h2 { font-size: 8.6pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin: 12px 0 5px; padding-bottom: 2px; border-bottom: 1px solid var(--line); }
+  .summary p + p { margin-top: 4px; }
+  .job, .proj { margin-bottom: 8px; break-inside: avoid; }
+  .row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  h3 { font-size: 10pt; font-weight: 700; }
+  h3 span { font-weight: 400; color: var(--muted); }
+  .when { font-size: 8.8pt; color: var(--muted); white-space: nowrap; }
+  .intro { color: var(--muted); font-style: italic; margin: 1px 0 2px; }
+  ul { padding-left: 14px; margin-top: 2px; }
+  li { margin-top: 1.5px; }
+  .proj p { margin-top: 1px; }
+  .stack { color: var(--muted); font-size: 8.8pt; }
+  .skills { display: grid; grid-template-columns: 150px 1fr; gap: 2px 10px; }
+  .skills b { font-weight: 600; }
+  .newpage { break-before: page; }
+  .newpage h2 { margin-top: 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Lautaro Adrián Florenza</h1>
+  <div class="title">Full-Stack Developer, backend-focused · Python / FastAPI · SQL · Angular · Healthcare interoperability (HL7 v2, FHIR)</div>
+  <div class="contact">
+    <span>Rosario, Argentina (UTC−3) · open to fully remote roles</span>
+    <span><a href="mailto:lautaroflorenza@gmail.com">lautaroflorenza@gmail.com</a></span>
+  </div>
+  <div class="contact">
+    <span><a href="https://lauaf.github.io/portfolio-lauti/en/">lauaf.github.io/portfolio-lauti/en</a></span>
+    <span><a href="https://www.linkedin.com/in/lautaro-florenza-bb0536242/">linkedin.com/in/lautaro-florenza-bb0536242</a></span>
+    <span><a href="https://github.com/Lauaf">github.com/Lauaf</a></span>
+  </div>
+</header>
+
+<section class="summary">
+  <h2>Summary</h2>
+  <p>Full-stack developer with nearly four years of professional experience building web applications and APIs, mostly in healthcare software. I work mainly on the backend and the database of a multi-tenant SaaS platform for clinical laboratories, and I also contribute to the Angular frontend. My core stack is Python (FastAPI, SQLAlchemy, Alembic) and SQL, and I have built integrations with external health systems using HL7 v2.6 over MLLP and FHIR.</p>
+  <p>I'm comfortable where legacy and modern systems have to coexist: turning ambiguous third-party requirements into clear contracts, validations and tests. Outside work I built and run my own LLM-powered web app in production. I lived and worked in Japan on a Working Holiday (2024–2025).</p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <div class="job">
+    <div class="row"><h3>Full-Stack Developer <span>· Wiener Lab</span></h3><div class="when">Jun 2025 – Present · Rosario, Argentina (hybrid)</div></div>
+    <p class="intro">Multi-tenant SaaS platform for clinical laboratory management. Main focus on backend and database; I also contribute to the frontend.</p>
+    <ul>
+      <li><b>Backend:</b> develop and maintain services in Python, FastAPI, SQLAlchemy and Alembic, including REST endpoints, data models and schema migrations.</li>
+      <li><b>Database:</b> design and maintain SQL Server schemas, complex queries, views, triggers and migrations, including per-tenant data separation.</li>
+      <li><b>Healthcare integrations:</b> inbound HL7 v2.6 messages (ADT, OML) over MLLP, FHIR-based exchange of orders, observations and reports (including PDF results), and MQTT notifications. This includes validating and mapping facilities, practitioners, diagnoses and test codes.</li>
+      <li><b>Legacy compatibility:</b> keep legacy Java components (HAPI HL7, Tomcat) working alongside newer Python services, with a focus on message state and testing.</li>
+      <li><b>Identity and SaaS:</b> Keycloak authentication and authorization (OIDC/SSO, RBAC, realms, tenant isolation), tenant administration, feature flags, quotas and subscription plans.</li>
+      <li><b>Frontend:</b> Angular features (recently Angular 20) with TypeScript, RxJS, TailwindCSS and Angular Material. Services run with Docker Compose and are tested with pytest, including end-to-end tests.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="row"><h3>Night Auditor <span>· NISADE × The Luxe Nomad</span></h3><div class="when">Nov 2024 – Mar 2025 · Niseko, Japan</div></div>
+    <ul><li>Working Holiday: night operations, guest services, and audit and control tasks for international guests, working in English every day.</li></ul>
+  </div>
+  <div class="job">
+    <div class="row"><h3>Full-Stack Web/API Developer <span>· NEORIS</span></h3><div class="when">Sep 2022 – Apr 2024 · Rosario, Argentina</div></div>
+    <ul>
+      <li>Web and mobile project features with ASP.NET MVC (C#) on the backend and JavaScript/jQuery on the frontend.</li>
+      <li>SQL schema design and query optimization; agile teamwork with Git and Jira.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="row"><h3>Full-Stack Developer <span>· Fantommers</span></h3><div class="when">Oct 2021 – Oct 2022 · Rosario, Argentina</div></div>
+    <ul><li>Healthcare-sector web applications with Node.js backends, Angular frontends and SQL Server, including API integrations.</li></ul>
+  </div>
+</section>
+
+<section class="newpage">
+  <h2>Selected projects</h2>
+  <div class="proj">
+    <div class="row"><h3>Arky <span>· LLM-powered assistant for cooking and personal finance</span></h3><div class="when">Live in production · built solo</div></div>
+    <p>The assistant takes real actions against the database, not just answers: it creates recipes, adds missing items to the shopping list and records expenses, and it asks for confirmation before any money-related change. The AI provider sits behind an interface, with Gemini in production and a deterministic mock for development and tests. About 300 backend tests and 15 frontend tests. The source code is private and available on request.</p>
+    <p class="stack">Angular 20 · FastAPI · SQLAlchemy · PostgreSQL · JWT · Gemini API · Docker · Railway · <a href="https://arky-landing-production.up.railway.app/">arky-landing-production.up.railway.app</a> · open finance module: <a href="https://github.com/Lauaf/Arky-Finances">github.com/Lauaf/Arky-Finances</a></p>
+  </div>
+  <div class="proj">
+    <div class="row"><h3>Sandō <span>· browser game for learning Japanese, piano and coffee</span></h3><div class="when">Personal project</div></div>
+    <p>A pixel-art town with kana battles, N5–N3 vocabulary with spaced repetition and conversation with a local LLM. It also has a cinema that breaks Japanese YouTube subtitles into words with readings and meanings, a MIDI music room and coffee simulations. Vanilla JavaScript, no build step.</p>
+  </div>
+  <div class="proj">
+    <div class="row"><h3>Dog breed recognition <span>· university project, team of two</span></h3><div class="when">UNR · Computer Vision</div></div>
+    <p>Similarity search with pgvector, a fine-tuned ResNet18 (91.6% test accuracy, F1 0.91) against a custom CNN, and YOLOv8 detection, served by an async FastAPI with Docker Compose. <span class="stack"><a href="https://github.com/Lauaf/TP2_VC">github.com/Lauaf/TP2_VC</a></span></p>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="row"><h3>Associate Degree in Artificial Intelligence <span>· Universidad Nacional de Rosario</span></h3><div class="when">In progress</div></div>
+  <p class="stack">Tecnicatura Universitaria en Inteligencia Artificial. Coursework includes Programming III, Databases I, Image Processing and Computer Vision.</p>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <div class="skills">
+    <b>Backend</b><span>Python, FastAPI, Pydantic, SQLAlchemy, Alembic, REST API design, pytest · earlier: Node.js, C#, ASP.NET MVC</span>
+    <b>Frontend</b><span>Angular, TypeScript, RxJS, TailwindCSS, Angular Material, JavaScript</span>
+    <b>Databases</b><span>SQL Server, PostgreSQL, MySQL, SQLite · some Redis</span>
+    <b>Identity and SaaS</b><span>Keycloak, OpenID Connect (Authorization Code + PKCE), SSO, RBAC, JWT, multi-tenancy, feature flags</span>
+    <b>Health interoperability</b><span>HL7 v2.6 (ADT, OML, MLLP), FHIR (ServiceRequest, DiagnosticReport, Observation), MQTT</span>
+    <b>AI integration</b><span>LLM APIs (Gemini) with action execution and provider abstraction</span>
+    <b>Tooling</b><span>Docker, Docker Compose, Git, GitLab, GitHub Actions, Railway, Jira, Linux/WSL2</span>
+    <b>Languages</b><span>Spanish (native) · English (advanced) · Japanese (basic–intermediate, no JLPT certificate)</span>
+  </div>
+</section>
+</body>
+</html>

@@ -50,12 +50,10 @@ function createApp() {
   return { context, element: id => document.getElementById(id) };
 }
 
-test('startup renders 15 projects and both interactive boards', () => {
+test('startup renders 15 projects', () => {
   const { element } = createApp();
   assert.match(element('count').textContent, /^15 de 15/);
   assert.equal((element('projects').innerHTML.match(/<article /g) || []).length, 15);
-  assert.equal(element('grid').children.length, 64);
-  assert.equal((element('ticboard').innerHTML.match(/<button /g) || []).length, 9);
 });
 
 test('filtering and searching preserve the original project index', () => {
@@ -94,46 +92,4 @@ test('project cards and dialogs link to separate repositories', () => {
   assert.match(element('modalactions').innerHTML, /target="_blank" rel="noopener noreferrer"/);
   context.showProject(0);
   assert.equal(element('modalactions').innerHTML, '');
-});
-
-test('all search modes solve the initial maze and report blocked routes', () => {
-  const { context, element } = createApp();
-  for (const mode of ['bfs', 'dfs', 'ucs', 'astar']) {
-    element('algorithm').value = mode;
-    context.runPath();
-    assert.equal(element('pathmetric').textContent, '14 pasos');
-  }
-  context.resetPath();
-  element('grid').children[1].onclick();
-  element('grid').children[8].onclick();
-  assert.equal(element('pathmetric').textContent, '—');
-  context.runPath();
-  assert.equal(element('pathmetric').textContent, 'Sin ruta');
-});
-
-test('Antibiogram export rejects blank numeric values and exports valid values', () => {
-  const { context, element } = createApp();
-  for (const [id, value] of Object.entries({
-    sample: 'DEMO-01', organism: 'Ejemplo', antibiotic: 'Demo',
-    resulttype: 'mic', resultvalue: '',
-  })) element(id).value = value;
-  context.generateAntibiograma();
-  assert.match(element('antibiogramaout').textContent, /^Validación fallida/);
-  element('resultvalue').value = '0.25';
-  context.generateAntibiograma();
-  assert.match(element('antibiogramaout').textContent, /\tMIC\t0\.25$/);
-  element('resulttype').value = 'sir';
-  element('resultvalue').value = 's';
-  context.generateAntibiograma();
-  assert.match(element('antibiogramaout').textContent, /\tSIR\tS$/);
-});
-
-test('Minimax completes a drawn game and resets', () => {
-  const { context, element } = createApp();
-  for (const index of [0, 8, 7, 2, 3]) context.ticMove(index);
-  assert.equal(element('ticstatus').textContent, 'Empate');
-  assert.equal((element('ticboard').innerHTML.match(/disabled/g) || []).length, 9);
-  context.resetTic();
-  assert.equal(element('ticstatus').textContent, 'Tu turno: X');
-  assert.doesNotMatch(element('ticboard').innerHTML, /disabled/);
 });

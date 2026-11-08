@@ -287,7 +287,7 @@ function interactuar(x, y) {
   if (m.decor.some(d => (d.tipo === 'fuenteGrande' || d.tipo === 'fuente-parte') && d.x === x && d.y === y)) return abrirSobreMi();
 }
 function charlarTablon() {
-  CHARLAS.tablon = { nombre: '掲示板 Tablón', lineas: ['¿Preferís la versión clásica? El portfolio tradicional tiene el catálogo completo con filtros y las demos.'], ir: 'plaza' };
+  CHARLAS.tablon = { nombre: '掲示板 Tablón', lineas: ['¿Preferís la versión clásica? El portfolio tradicional tiene el catálogo completo con filtros.'], ir: 'plaza' };
   const caja = $('#charla');
   motor.pausado = true;
   caja.innerHTML = `<b>掲示板 Tablón</b><p>${esc(CHARLAS.tablon.lineas[0])}</p><div class="acciones"><a class="pbtn vivo" href="../">Ir a la versión clásica ↗</a><button class="pbtn" data-cerrar-charla>Seguir paseando</button></div>`;

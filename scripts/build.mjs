@@ -30,6 +30,9 @@ await writeFile(path.join(output, visionName), vision);
 await writeFile(path.join(output, 'proyectos.js'), catalogo);
 await cp(path.join(root, 'assets'), path.join(output, 'assets'), { recursive: true });
 
+// Versión en inglés para reclutadores: HTML autocontenido que usa las imágenes de assets/.
+await cp(path.join(root, 'en'), path.join(output, 'en'), { recursive: true });
+
 // Sandō se publica tal cual: HTML, CSS y módulos ES sin build.
 await cp(path.join(root, 'sando'), path.join(output, 'sando'), { recursive: true });
 

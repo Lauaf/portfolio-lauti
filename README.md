@@ -1,12 +1,10 @@
 # Lautaro Florenza — Portfolio
 
-Portfolio estático en español con catálogo de 15 proyectos y 7 demos interactivas (BFS/DFS/UCS/A*, HL7, exportación de antibiogramas, Minimax, plantillas, espresso
-y un laboratorio de visión con los trabajos de Procesamiento de Imágenes), Sandō jugable en
-`sando/` y enlaces a Arky en producción.
+Portfolio estático con catálogo de 15 proyectos, un laboratorio de visión con los trabajos
+de Procesamiento de Imágenes, Sandō jugable en `sando/` y enlaces a Arky en producción.
+Incluye una versión en inglés para reclutadores en [`en/`](en/) y el CV en PDF.
 
-**Portfolio publicado:** [lauaf.github.io/portfolio-lauti](https://lauaf.github.io/portfolio-lauti/).
-
-Las siete demos y Sandō arrancan juntos con el portfolio.
+**Portfolio publicado:** [lauaf.github.io/portfolio-lauti](https://lauaf.github.io/portfolio-lauti/) · en inglés: [lauaf.github.io/portfolio-lauti/en](https://lauaf.github.io/portfolio-lauti/en/).
 
 **Dos maneras de ver los proyectos.** La clásica (catálogo con filtros y fichas) y
 una interactiva en [`pueblo/`](pueblo/): el portfolio como un pueblo de Sandō,
@@ -27,7 +25,11 @@ infancia, el año de Working Holiday en Japón, el trabajo en Wiener Lab, la car
 de IA en la UNR y los intereses personales: café, mundos narrativos, música y
 otras formas de crear.
 
-- `index.html`: relato, catálogo y lógica de las demos.
+- `index.html`: relato, catálogo y laboratorio de visión.
+- `en/index.html`: versión en inglés para reclutadores, alineada con el CV. Es HTML
+  autocontenido y usa las imágenes de `assets/`.
+- `cv/cv.html`: fuente del CV. `node cv/render.cjs` (requiere Playwright con
+  Chromium) genera `assets/cv/Lautaro_Florenza_CV.pdf`, que enlazan ambas versiones.
 - `vision.js`: laboratorio de visión. Porta a JavaScript, sin dependencias, la
   ecualización local, la validación de formularios, la segmentación de patentes
   y la detección de dados en video de los TP de Procesamiento de Imágenes. Las
@@ -42,11 +44,11 @@ otras formas de crear.
   `sando/js` sin modificarlos (`<base href="../sando/">` resuelve sus recursos).
   El menú es el camino principal: elegir un lugar hace que Arky camine solo hasta
   la puerta (BFS sobre el mapa) y abre la ficha de cada proyecto con capturas,
-  esquemas y enlaces a las demos (`index.html#demo=hl7`). También se camina con
+  esquemas y enlaces al laboratorio de visión (`index.html#demo=vision/dados`). También se camina con
   las flechas o tocando el mapa. `lugares.js` define qué proyecto vive en cada
   edificio y sus ejemplos visuales; las pruebas verifican que el catálogo entero
   esté ubicado y que cada imagen exista.
-- `assets/pueblo/`: capturas de Sandō y de las demos, páginas de la presentación
+- `assets/pueblo/`: capturas de Sandō, páginas de la presentación
   de Arky y gráficos de los TP de visión. Lo profesional se muestra con
   recreaciones y esquemas rotulados como tales, nunca con pantallas internas.
   Del TP de reconocimiento facial solo se usan gráficos, no las fotos de personas.
@@ -75,7 +77,7 @@ También podés usar `npm start` o `npm run dev`. No hace falta `npm install`:
 el proyecto no tiene dependencias npm.
 
 Abrí [http://localhost:8080](http://localhost:8080). El mismo servidor sirve el
-catálogo, las fichas, las demos, el laboratorio de visión y Sandō.
+catálogo, las fichas, la versión en inglés, el laboratorio de visión y Sandō.
 
 ```bash
 npm test       # regresiones del portfolio y del laboratorio de visión contra el Python original
@@ -84,12 +86,12 @@ npm run build  # genera dist/ con el sitio estático
 
 El repositorio incluye verificaciones en cada push y pull request. Las pruebas
 usan un DOM mínimo para comprobar la lógica y no sustituyen una prueba visual
-en navegador. Las demos, el laboratorio de visión (incluidas las cuatro tiradas de dados) y Sandō también se comprobaron en un navegador.
+en navegador. El laboratorio de visión (incluidas las cuatro tiradas de dados) y Sandō también se comprobaron en un navegador.
 
 ## Abrir
 
-Abrí `index.html` en Chrome, Firefox o Edge para ver el relato, el catálogo y las
-primeras seis demos sin instalar nada. Sandō y el laboratorio de visión necesitan
+Abrí `index.html` en Chrome, Firefox o Edge para ver el relato y el catálogo sin
+instalar nada. Sandō y el laboratorio de visión necesitan
 servirse por HTTP: los navegadores bloquean los módulos y la lectura de píxeles
 desde `file://`.
 
@@ -101,13 +103,11 @@ python servir.py
 
 Después ingresá a http://localhost:8080. El servidor escucha solo en esta computadora y desactiva la caché para que las correcciones se vean al recargar. Para detenerlo, presioná Ctrl+C en la terminal donde lo iniciaste.
 
-## Correcciones y verificación (1 de noviembre de 2026)
+## Cambios del 8 de noviembre de 2026
 
-- Corregido `TypeError: p.slice is not a function`, que interrumpía el inicio y dejaba vacíos el catálogo y los tableros. Se conserva el índice original de cada proyecto al filtrar, para que las fichas abran el caso correcto.
-- La grilla inicial de búsqueda tiene una ruta válida. Editar paredes borra las métricas anteriores.
-- La exportación de antibiogramas rechaza resultados vacíos, normaliza S/I/R y limpia saltos de línea de las columnas exportadas. La copia de TXT informa éxito o permite copiar manualmente si el navegador no ofrece portapapeles.
-- Probados en navegador: las cinco categorías, búsqueda con y sin resultados, fichas y enlaces a demos; BFS, DFS, UCS y A* con y sin ruta; parsing HL7; exportación CMI/halo/SIR y copia de TXT; partida completa, empate y reinicio en Minimax; variables y estilos de plantillas; controles y extracción en Espresso Lab.
-- La versión corregida no produjo nuevos errores de JavaScript durante estas pruebas. No requiere instalación de dependencias.
+- Se quitaron las seis demos simplificadas (búsqueda, HL7, antibiogramas, Minimax, plantillas y espresso). Queda el laboratorio de visión.
+- El trabajo profesional se describe sin nombres internos.
+- Se agregaron la versión en inglés (`en/`) y el CV en PDF.
 
 ## Publicar
 
@@ -127,7 +127,6 @@ privado.
 - Editá el texto de la sección inicial en `index.html`.
 - Modificá el arreglo `P` dentro del `<script>` para cambiar proyectos, estados y tecnologías.
 - Editá `PROJECT_REPOSITORIES` para agregar o actualizar los enlaces de cada ficha.
-- Reemplazá las demos simplificadas por enlaces o integraciones de proyectos reales cuando tengas repositorios y permisos.
-- Agregá capturas, enlaces de código, información de contacto y CV antes de publicarlo.
+- Si cambia el CV, editá `cv/cv.html`, regenerá el PDF y revisá que `en/index.html` diga lo mismo.
 
-**Importante:** los proyectos laborales se presentan a nivel conceptual con datos ficticios. Los estados, las fechas y la atribución individual deben verificarse. Las demos nuevas no se deben presentar como entregas originales universitarias.
+**Importante:** el trabajo en Wiener Lab se describe solo como tipos de desarrollo, sin nombres de productos, módulos, clientes, código ni datos internos.
