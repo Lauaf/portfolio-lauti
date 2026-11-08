@@ -108,6 +108,7 @@ Después ingresá a http://localhost:8080. El servidor escucha solo en esta comp
 - Se quitaron las seis demos simplificadas (búsqueda, HL7, antibiogramas, Minimax, plantillas y espresso). Queda el laboratorio de visión.
 - El trabajo profesional se describe sin nombres internos.
 - Se agregaron la versión en inglés (`en/`) y el CV en PDF.
+- Las tarjetas y fichas muestran imágenes: escenas del video de Arky en el idioma de cada versión, capturas reales de los TP e ilustraciones propias para el trabajo profesional.
 
 ## Publicar
 
