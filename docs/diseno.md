@@ -8,7 +8,7 @@ SVG dentro del CSS; no depende de servicios externos.
 El relato se editó a partir de la autobiografía aportada por Lautaro: curiosidad
 desde la infancia; aproximadamente un año de Working Holiday en Japón a partir
 de 2024, con experiencias en Tokio, Yokohama, Okinawa y Hokkaido; trabajo como
-Night Auditor en Niseko; desarrollo Full-Stack en Wiener Lab / Nobilis Cloud;
+Night Auditor en Niseko; desarrollo Full-Stack en Wiener Lab;
 estudios de IA en la UNR; café, videojuegos, D&D, música, fotografía, idiomas,
 snowboard, voluntariado y el sueño de una cafetería propia.
 

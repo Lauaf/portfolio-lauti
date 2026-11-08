@@ -1,6 +1,6 @@
 # Lautaro Florenza — Portfolio
 
-Portfolio estático en español con catálogo de 23 proyectos/módulos 7 demos interactivas (BFS/DFS/UCS/A*, HL7, WHONET conceptual, Minimax, plantillas, espresso
+Portfolio estático en español con catálogo de 15 proyectos y 7 demos interactivas (BFS/DFS/UCS/A*, HL7, exportación de antibiogramas, Minimax, plantillas, espresso
 y un laboratorio de visión con los trabajos de Procesamiento de Imágenes), Sandō jugable en
 `sando/` y enlaces a Arky en producción.
 
@@ -105,7 +105,7 @@ Después ingresá a http://localhost:8080. El servidor escucha solo en esta comp
 
 - Corregido `TypeError: p.slice is not a function`, que interrumpía el inicio y dejaba vacíos el catálogo y los tableros. Se conserva el índice original de cada proyecto al filtrar, para que las fichas abran el caso correcto.
 - La grilla inicial de búsqueda tiene una ruta válida. Editar paredes borra las métricas anteriores.
-- WHONET rechaza resultados vacíos, normaliza S/I/R y limpia saltos de línea de las columnas exportadas. La copia de TXT informa éxito o permite copiar manualmente si el navegador no ofrece portapapeles.
+- La exportación de antibiogramas rechaza resultados vacíos, normaliza S/I/R y limpia saltos de línea de las columnas exportadas. La copia de TXT informa éxito o permite copiar manualmente si el navegador no ofrece portapapeles.
 - Probados en navegador: las cinco categorías, búsqueda con y sin resultados, fichas y enlaces a demos; BFS, DFS, UCS y A* con y sin ruta; parsing HL7; exportación CMI/halo/SIR y copia de TXT; partida completa, empate y reinicio en Minimax; variables y estilos de plantillas; controles y extracción en Espresso Lab.
 - La versión corregida no produjo nuevos errores de JavaScript durante estas pruebas. No requiere instalación de dependencias.
 
