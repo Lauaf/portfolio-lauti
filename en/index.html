@@ -41,6 +41,8 @@
     .btn:hover { background: #e6e8dc; }
     .btn.primary { background: var(--olive); border-color: var(--olive); color: #faf8ee; }
     .btn.primary:hover { background: #303c29; }
+    .btn.live::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #9fd48f; box-shadow: 0 0 0 3px #9fd48f44; }
+    .btn.live:not(.primary)::before { background: #5b9a4f; }
     section { padding: 64px 0; border-top: 1px solid var(--line); }
     h2 { font: 400 clamp(30px, 3.4vw, 40px)/1.15 var(--serif); letter-spacing: -1px; margin: 12px 0 28px; }
     h3 { font: 400 23px/1.3 var(--serif); }
@@ -115,6 +117,7 @@
       <p class="lead">I'm Lautaro Florenza, a full-stack developer with nearly four years of professional experience, most of it in healthcare software. I work mainly on the backend and the database: Python (FastAPI, SQLAlchemy), SQL, multi-tenant SaaS and integrations with external health systems over HL7 v2 and FHIR. I also build Angular frontends, and I run my own LLM-powered app in production.</p>
       <div class="actions">
         <a class="btn primary" href="../assets/cv/Lautaro_Florenza_CV.pdf">Download CV (PDF)</a>
+        <a class="btn live" href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">Try Arky, my app in production ↗</a>
         <a class="btn" href="https://www.linkedin.com/in/lautaro-florenza-bb0536242/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         <a class="btn" href="https://github.com/Lauaf" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
@@ -187,11 +190,11 @@
         <h4>Evidence</h4>
         <p>More than 850 backend tests, 88 frontend unit tests and an end-to-end Playwright run. JWT authentication, deployed on Railway (nginx web, Dockerized API, PostgreSQL). The app is bilingual (English and Spanish) and sign-up is open.</p>
         <div class="tags"><span>Angular 20</span><span>FastAPI</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Gemini API</span><span>Docker</span><span>Railway</span></div>
-        <div class="links">
-          <a href="https://arky-landing-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Product page ↗</a>
-          <a href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">Open the app ↗</a>
-          <a href="https://github.com/Lauaf/Arky-Finances" target="_blank" rel="noopener noreferrer">Open-source finance module ↗</a>
+        <div class="actions">
+          <a class="btn primary live" href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">Try it in production ↗</a>
+          <a class="btn" href="https://arky-landing-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Product page ↗</a>
         </div>
+        <p class="note">Sign-up is open and the app works in English. Open-source finance module: <a href="https://github.com/Lauaf/Arky-Finances" target="_blank" rel="noopener noreferrer">github.com/Lauaf/Arky-Finances ↗</a></p>
         <p class="note">The full source code is private and available on request.</p>
       </div>
       <div class="shots arky">
@@ -227,7 +230,7 @@
         <div class="meta">Personal project · playable in the browser</div>
         <p>A pixel-art town I built to practice what I care about. The dojo has kana battles, N5–N3 vocabulary with spaced repetition and conversation with a local LLM. The cinema imports YouTube videos with Japanese subtitles and breaks each line into words with readings and meanings in context. The music room reads a MIDI keyboard or microphone. The coffee academy runs eight mini-games on simulation models I wrote.</p>
         <div class="tags"><span>JavaScript (ES modules)</span><span>Canvas</span><span>Python stdlib server</span><span>Local LLM (Ollama)</span><span>MIDI</span></div>
-        <div class="links"><a href="../sando/">Play Sandō ↗</a></div>
+        <div class="actions"><a class="btn primary live" href="../sando/">Play it in the browser ↗</a></div>
         <p class="note">No build step and no dependencies. The UI is in Spanish, and the AI features need the local server.</p>
       </div>
       <div class="shots pixel">

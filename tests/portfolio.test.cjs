@@ -81,12 +81,17 @@ test('project cards and dialogs link to separate repositories', () => {
   assert.match(cards, /GitHub · repositorio privado ↗/);
   assert.match(cards, /href="https:\/\/arky-web-production\.up\.railway\.app"/);
   assert.match(cards, /href="https:\/\/arky-landing-production\.up\.railway\.app\/"/);
-  assert.match(cards, /class="repo-link live" href="sando\/"/);
+  // Lo que está en producción es el botón principal de su tarjeta, y no se repite abajo.
+  assert.match(cards, /class="btn primary small" href="sando\/"[^>]*>Jugalo en el navegador/);
+  assert.equal((cards.match(/class="btn primary small" href="https:\/\/arky-web-production\.up\.railway\.app"/g) || []).length, 3);
+  assert.doesNotMatch(cards, /class="repo-link live" href="sando\/"/);
+  assert.match(cards, /En producción/);
   for (const repo of ['Sando', 'TP2_VC', 'TP_1_PDI', 'TP_2_PDI', 'TP_3_PDI']) {
     assert.match(cards, new RegExp(`href="https://github\\.com/Lauaf/${repo}"`));
   }
   context.showProject(6);
   assert.equal(element('modal').open, true);
+  assert.match(element('modalactions').innerHTML, /^<a class="btn primary" href="https:\/\/arky-web-production[^>]*>Probalo en producción/);
   assert.match(element('modalactions').innerHTML, /Arky-Finances/);
   assert.match(element('modalactions').innerHTML, /Versión integrada · privado/);
   assert.match(element('modalactions').innerHTML, /target="_blank" rel="noopener noreferrer"/);

@@ -39,26 +39,27 @@ const PROYECTO_IMAGENES={
 };
 
 // Apps en vivo y repositorios confirmados. Cada app conserva su propio código y arranque.
+// `cta`: el enlace que la tarjeta muestra como botón principal (probar lo que está en producción).
 const ARKY_APP='https://arky-web-production.up.railway.app',ARKY_LANDING='https://arky-landing-production.up.railway.app/';
 const PROYECTO_ENLACES={
   'Arky AI':[
-    {url:ARKY_APP,label:'Abrir Arky en vivo ↗',live:true},
+    {url:ARKY_APP,label:'Abrir Arky en vivo ↗',live:true,cta:'Probalo en producción ↗'},
     {url:ARKY_LANDING,label:'Conocé a Arky ↗',live:true},
     {url:'https://github.com/Lauaf/Arky-Bites',label:'GitHub · repositorio privado ↗'}
   ],
   'ArkyBites':[
-    {url:ARKY_APP,label:'Abrir en Arky ↗',live:true},
+    {url:ARKY_APP,label:'Abrir en Arky ↗',live:true,cta:'Probalo en producción ↗'},
     {url:'https://github.com/Lauaf/Arky-Bites',label:'GitHub · repositorio privado ↗'}
   ],
   'ArkyCash-e':[
-    {url:ARKY_APP,label:'Abrir en Arky ↗',live:true},
+    {url:ARKY_APP,label:'Abrir en Arky ↗',live:true,cta:'Probalo en producción ↗'},
     {url:'https://github.com/Lauaf/Arky-Finances',label:'GitHub · Arky Finances ↗'},
     {url:'https://github.com/Lauaf/Arky-Bites',label:'Versión integrada · privado ↗'}
   ],
   'Reconocimiento facial':[{url:'https://github.com/Lauaf/TP1_CV',label:'GitHub · reconocimiento facial ↗'}],
   'Algoritmos de búsqueda e IA':[{url:'https://github.com/Lauaf/TP1_Prog3',label:'GitHub · algoritmos e IA ↗'}],
   'Sandō 三道':[
-    {url:'sando/',label:'Jugar Sandō en el navegador ↗',live:true},
+    {url:'sando/',label:'Jugar Sandō en el navegador ↗',live:true,cta:'Jugalo en el navegador ↗'},
     {url:'https://github.com/Lauaf/Sando',label:'GitHub · Sandō · privado ↗'}
   ],
   'Razas de perros':[{url:'https://github.com/Lauaf/TP2_VC',label:'GitHub · razas de perros ↗'}],
