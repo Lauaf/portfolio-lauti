@@ -1,17 +1,16 @@
 # Proyectos del portfolio y código disponible
 
-El catálogo describe 23 iniciativas o módulos. Arky enlaza a su versión en producción
+El catálogo describe 15 proyectos. Arky enlaza a su versión en producción
 en Railway, Sandō se juega desde `sando/` y los trabajos de Procesamiento de Imágenes
-tienen su laboratorio en vivo. El ZIP original contiene únicamente
-el portfolio y seis recreaciones educativas integradas. Las fichas no incluyen
-automáticamente el código de los proyectos que describen.
+tienen su laboratorio en vivo. Las fichas no incluyen automáticamente el código
+de los proyectos que describen.
 
 Inventario revisado el 1 de noviembre de 2026 en la cuenta `Lauaf`:
 
 | Proyecto o grupo | Código localizado | Enlace y revisión |
 | --- | --- | --- |
-| Portfolio, siete demos y Sandō | Este repositorio, `index.html`, `vision.js` y `sando/` | Funciona con un servidor local. |
-| ArkyBites, ArkyCash-e y Arky AI | [Arky-Bites](https://github.com/Lauaf/Arky-Bites), privado | Ambos módulos unificados con el agente Arky: FastAPI, Angular 20 y Postgres. En producción en Railway: [app](https://arky-web-production.up.railway.app) (registro con código de invitación) y [landing](https://arky-landing-production.up.railway.app/). URLs tomadas de `CHECKPOINT.md`; la red de la revisión no permitió abrirlas. |
+| Portfolio, laboratorio de visión, versión en inglés y Sandō | Este repositorio, `index.html`, `vision.js` y `sando/` | Funciona con un servidor local. |
+| ArkyBites, ArkyCash-e y Arky AI | [Arky-Bites](https://github.com/Lauaf/Arky-Bites), privado | Ambos módulos unificados con el agente Arky: FastAPI, Angular 20 y Postgres. En producción en Railway: [app](https://arky-web-production.up.railway.app) (registro abierto) y [landing](https://arky-landing-production.up.railway.app/). URLs tomadas de `CHECKPOINT.md`; la red de la revisión no permitió abrirlas. |
 | Arky Finances independiente | [Arky-Finances](https://github.com/Lauaf/Arky-Finances), público | Versión independiente de finanzas. La ficha de ArkyCash-e enlaza a esta versión independiente y a la integrada en Arky-Bites. |
 | Algoritmos y tres en raya | [TP1_Prog3](https://github.com/Lauaf/TP1_Prog3), público | Contiene `tp-pathfinding` (BFS, DFS, UCS, GBFS y A*) y `tp-tateti` (Minimax). `tp-tsp` sigue siendo la plantilla de la cátedra, por eso la ficha no lo menciona. Son proyectos separados de las demos educativas del portfolio. |
 | Reconocimiento facial | [TP1_CV](https://github.com/Lauaf/TP1_CV), público | El README describe backend, Gradio, modelos y Docker Compose. La tarjeta y la ficha enlazan al repositorio público. No se ejecutó en esta revisión. |
@@ -22,16 +21,16 @@ Inventario revisado el 1 de noviembre de 2026 en la cuenta `Lauaf`:
 | Arky AI | [Arky-DM](https://github.com/Lauaf/Arky-DM), privado, es un proyecto relacionado | Confirmar qué versión corresponde al asistente descrito en el portfolio. |
 | Sandō (incluye la academia de barismo) | [Sando](https://github.com/Lauaf/Sando), privado; `web/` copiado en `sando/` | Jugable en el portfolio sin servidor. Reemplaza a la ficha «Barista Learning Lab». Juego estilo GBA con dojo de japonés, cine, sala de música y academia de barismo; la demo Espresso Lab enlaza con esta ficha. Arky, de los recursos pixel art, es su protagonista. |
 | Valdor | No localizado | Falta su carpeta o repositorio. |
-| Nobilis, HL7, WHONET y demás casos profesionales | El ZIP contiene descripciones y demos conceptuales | Sus implementaciones laborales no están incluidas. Las demos HL7, WHONET y plantillas funcionan con datos ficticios. |
+| Trabajo profesional en Wiener Lab | Solo descripciones generales | Se describen tipos de desarrollo, sin nombres de productos, módulos, clientes ni código. |
 
 ## El pueblo (`pueblo/`)
 
-Los 23 proyectos también se recorren como un pueblo de Sandō. Cada proyecto vive
+Los 15 proyectos también se recorren como un pueblo de Sandō. Cada proyecto vive
 en un solo edificio (`pueblo/lugares.js`, verificado por `tests/pueblo.test.cjs`):
 
 | Edificio | Estilo de Sandō | Proyectos |
 | --- | --- | --- |
-| 研究所 Laboratorio clínico | sala de música | Los 12 profesionales de Wiener Lab / Nobilis |
+| 研究所 Laboratorio clínico | sala de música | Los 4 tipos de trabajo profesional en Wiener Lab |
 | アーキー Casa de Arky | casa | Arky AI, ArkyBites, ArkyCash-e |
 | 喫茶店 Kissaten | café | Sandō, más «Café y barismo» (fuera del catálogo) |
 | 大学 Facultad · UNR | dojo | Los 5 trabajos de la universidad |
@@ -49,9 +48,8 @@ versión independiente de finanzas como la integrada en Arky-Bites. Los enlaces
 a repositorios privados lo indican antes de abrir GitHub.
 
 El acceso al perfil de GitHub permite explorar los otros trabajos. Las fichas
-sin correspondencia confirmada conservan su descripción y su demo, cuando existe.
+sin correspondencia confirmada conservan su descripción.
 Para agregar enlaces, editar `PROJECT_REPOSITORIES` en `index.html`.
 
-GitHub almacena el código; GitHub Pages sirve el portfolio estático y sus seis
-demos. Los backends Python, bases de datos y modelos de IA necesitan su propio
+GitHub almacena el código; GitHub Pages sirve el portfolio estático. Los backends Python, bases de datos y modelos de IA necesitan su propio
 entorno de ejecución o un arranque local.

@@ -50,29 +50,27 @@ function createApp() {
   return { context, element: id => document.getElementById(id) };
 }
 
-test('startup renders 23 projects and both interactive boards', () => {
+test('startup renders 15 projects', () => {
   const { element } = createApp();
-  assert.match(element('count').textContent, /^23 de 23/);
-  assert.equal((element('projects').innerHTML.match(/<article /g) || []).length, 23);
-  assert.equal(element('grid').children.length, 64);
-  assert.equal((element('ticboard').innerHTML.match(/<button /g) || []).length, 9);
+  assert.match(element('count').textContent, /^15 de 15/);
+  assert.equal((element('projects').innerHTML.match(/<article /g) || []).length, 15);
 });
 
 test('filtering and searching preserve the original project index', () => {
   const { element } = createApp();
   element('filters').onclick({ target: { dataset: { filter: 'Personal' } } });
-  assert.match(element('count').textContent, /^4 de 23/);
+  assert.match(element('count').textContent, /^4 de 15/);
   element('search').oninput({ target: { value: 'ARKY AI' } });
-  assert.match(element('count').textContent, /^1 de 23/);
-  assert.match(element('projects').innerHTML, /showProject\(12\)/);
+  assert.match(element('count').textContent, /^1 de 15/);
+  assert.match(element('projects').innerHTML, /showProject\(4\)/);
   element('search').oninput({ target: { value: '' } });
   element('filters').onclick({ target: { dataset: { filter: 'Universidad' } } });
-  assert.match(element('count').textContent, /^5 de 23/);
+  assert.match(element('count').textContent, /^5 de 15/);
   element('search').oninput({ target: { value: 'yolov8' } });
-  assert.match(element('count').textContent, /^1 de 23/);
-  assert.match(element('projects').innerHTML, /showProject\(20\)/);
+  assert.match(element('count').textContent, /^1 de 15/);
+  assert.match(element('projects').innerHTML, /showProject\(12\)/);
   element('search').oninput({ target: { value: 'ningun-proyecto' } });
-  assert.match(element('count').textContent, /^0 de 23/);
+  assert.match(element('count').textContent, /^0 de 15/);
 });
 
 test('project cards and dialogs link to separate repositories', () => {
@@ -87,53 +85,11 @@ test('project cards and dialogs link to separate repositories', () => {
   for (const repo of ['Sando', 'TP2_VC', 'TP_1_PDI', 'TP_2_PDI', 'TP_3_PDI']) {
     assert.match(cards, new RegExp(`href="https://github\\.com/Lauaf/${repo}"`));
   }
-  context.showProject(14);
+  context.showProject(6);
   assert.equal(element('modal').open, true);
   assert.match(element('modalactions').innerHTML, /Arky-Finances/);
   assert.match(element('modalactions').innerHTML, /Versión integrada · privado/);
   assert.match(element('modalactions').innerHTML, /target="_blank" rel="noopener noreferrer"/);
   context.showProject(0);
   assert.equal(element('modalactions').innerHTML, '');
-});
-
-test('all search modes solve the initial maze and report blocked routes', () => {
-  const { context, element } = createApp();
-  for (const mode of ['bfs', 'dfs', 'ucs', 'astar']) {
-    element('algorithm').value = mode;
-    context.runPath();
-    assert.equal(element('pathmetric').textContent, '14 pasos');
-  }
-  context.resetPath();
-  element('grid').children[1].onclick();
-  element('grid').children[8].onclick();
-  assert.equal(element('pathmetric').textContent, '—');
-  context.runPath();
-  assert.equal(element('pathmetric').textContent, 'Sin ruta');
-});
-
-test('WHONET rejects blank numeric values and exports valid values', () => {
-  const { context, element } = createApp();
-  for (const [id, value] of Object.entries({
-    sample: 'DEMO-01', organism: 'Ejemplo', antibiotic: 'Demo',
-    resulttype: 'mic', resultvalue: '',
-  })) element(id).value = value;
-  context.generateWhonet();
-  assert.match(element('whonetout').textContent, /^Validación fallida/);
-  element('resultvalue').value = '0.25';
-  context.generateWhonet();
-  assert.match(element('whonetout').textContent, /\tMIC\t0\.25$/);
-  element('resulttype').value = 'sir';
-  element('resultvalue').value = 's';
-  context.generateWhonet();
-  assert.match(element('whonetout').textContent, /\tSIR\tS$/);
-});
-
-test('Minimax completes a drawn game and resets', () => {
-  const { context, element } = createApp();
-  for (const index of [0, 8, 7, 2, 3]) context.ticMove(index);
-  assert.equal(element('ticstatus').textContent, 'Empate');
-  assert.equal((element('ticboard').innerHTML.match(/disabled/g) || []).length, 9);
-  context.resetTic();
-  assert.equal(element('ticstatus').textContent, 'Tu turno: X');
-  assert.doesNotMatch(element('ticboard').innerHTML, /disabled/);
 });

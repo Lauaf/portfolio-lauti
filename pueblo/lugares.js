@@ -9,18 +9,10 @@ const flujo = (pasos, cap) => ({ flujo: pasos, cap: cap || 'Esquema ilustrativo:
 const img = (archivo, cap) => ({ img: IMG + archivo + '.webp', cap });
 
 export const VISUALES = {
-  'Nobilis Cloud': [flujo(['Laboratorios (tenants)', 'Keycloak · permisos', 'API FastAPI', 'Módulos: resultados, plantillas, turnos'])],
-  'Integración HSI ↔ LIS': [img('demo-hl7', 'Recreación en el laboratorio: un mensaje HL7 v2.6 ficticio interpretado segmento por segmento.'), flujo(['Hospital (HSI)', 'HL7 v2.6 por MLLP', 'Integrador: mapeos y reintentos', 'Laboratorio (LIS)'])],
-  'WHONET / BacLink': [img('demo-whonet', 'Recreación: exportación de un antibiograma con validación de CMI, halo o S/I/R.'), flujo(['Antibiograma', 'Validación CMI / halo / SIR', 'Vista previa', 'Archivo para BacLink'])],
-  'Diseñador de plantillas': [img('demo-plantillas', 'Recreación: una plantilla con variables, renderizada con datos ficticios.'), flujo(['Plantilla con {{variables}}', 'Estilos por fragmento', 'Vista previa', 'Aplicación masiva'])],
-  'Portal Pacientes': [flujo(['Paciente', 'Ingreso con DNI o SSO', 'Órdenes y resultados', 'PDF y acceso por QR'])],
-  'Turnero multi-laboratorio': [flujo(['Disponibilidad semanal', 'Reglas por laboratorio', 'Caché en Redis', 'Próximos turnos'])],
-  'Integración ManLab': [flujo(['Laboratorio de origen', 'Derivación de estudios', 'FTP', 'ManLab', 'Resultados de vuelta'])],
-  'Login multiusuario': [flujo(['Cuenta A · Cuenta B', 'OIDC + PKCE', 'Refresh tokens', 'Cambio de cuenta estilo Gmail'])],
-  'Histórico por estudio': [{ grafico: [92, 97, 104, 99, 111, 108, 115, 109], cap: 'Ilustrativo con datos ficticios: un mismo estudio a lo largo del tiempo.' }],
-  'Reenvíos HSI': [flujo(['Mensaje con error', 'Cola de reenvíos', 'Reintento', 'Trazabilidad'])],
-  'Importador de mapeos': [flujo(['Excel de equivalencias', 'Validación', 'Reconciliación', 'Códigos sin mapear'])],
-  'LIS legado / mantenimiento': [flujo(['Java · Tomcat', 'Validaciones nuevas', 'Herramientas internas', 'Sistema en producción'])],
+  'SaaS multi-tenant para salud': [flujo(['Clientes (tenants)', 'Keycloak · permisos', 'API FastAPI', 'Módulos de negocio'])],
+  'Integraciones clínicas HL7 / FHIR': [flujo(['Sistema externo', 'HL7 v2.6 por MLLP · FHIR', 'Integrador: mapeos y reintentos', 'Sistema del laboratorio'])],
+  'Exportación de antibiogramas': [flujo(['Antibiograma', 'Validación CMI / halo / SIR', 'Vista previa', 'Archivo de exportación'])],
+  'Plantillas de informes': [flujo(['Plantilla con {{variables}}', 'Estilos por fragmento', 'Vista previa', 'Aplicación masiva'])],
   'Arky AI': [img('arky-portada', 'Arky: un asistente para la cocina y la plata.'), img('arky-chat', 'El chat ejecuta acciones contra la base, con confirmación cuando hay plata de por medio.'), img('arky-panel', 'El panel: un número principal y lo que conviene decidir hoy.')],
   'ArkyBites': [img('arky-recetas', 'Recetas ordenadas por lo que ya tenés en la despensa.'), img('arky-cocina', 'Modo cocción paso a paso: descuenta el stock real.')],
   'ArkyCash-e': [img('arky-plata', 'Cuánto podés gastar sin romper el ahorro ni el colchón.'), img('arky-comprar', '«¿Me lo puedo comprar?»: simula la compra mes a mes antes de decidir.')],
@@ -28,7 +20,7 @@ export const VISUALES = {
   'Valdor — D&D tools': [flujo(['Acertijo de varias etapas', 'Pistas', 'Decisiones de los jugadores', 'La historia cambia'], 'Esquema ilustrativo de cómo funcionan los puzles de la campaña.')],
   'Arky Pixel Assets': [{ sprite: true, cap: 'La hoja de sprites de Arky, animada: caminata en cuatro direcciones.' }, { caras: true, cap: 'Expresiones: feliz, enojado, pensativo y sorprendido.' }],
   'Reconocimiento facial': [img('facial-embeddings', 'Embeddings del dataset propio con PCA y t-SNE: cada persona forma su propio grupo.'), img('facial-umbral', 'Barrido del umbral: reconocer a los conocidos contra rechazar a los desconocidos.'), img('facial-confusion', 'Matriz de confusión de la evaluación closed-set.')],
-  'Algoritmos de búsqueda e IA': [img('demo-busqueda', 'A* resolviendo el laberinto del laboratorio: 14 pasos.'), img('demo-minimax', 'Minimax: un agente que no pierde al tres en raya.')],
+  'Algoritmos de búsqueda e IA': [flujo(['Laberinto', 'BFS · DFS · UCS · GBFS · A*', 'Camino y nodos expandidos'], 'Esquema del trabajo práctico de búsqueda.'), flujo(['Tablero', 'MAX y MIN recursivos', 'Jugada óptima'], 'Esquema del agente Minimax para el tres en raya.')],
   'Razas de perros': [img('perros-metricas', 'ResNet18 con fine-tuning contra una CNN propia, en test.'), img('perros-confusion', 'Matriz de confusión de la ResNet18 sobre 70 razas.'), img('perros-similitud', 'Búsqueda por similitud: accuracy por modelo.'), img('perros-entrenamiento', 'Curvas de entrenamiento.')],
   'Visión clásica con OpenCV': [img('vision-ecualizacion', 'Ecualización local: aparecen un cuadrado, una diagonal, una «a», cuatro líneas y un círculo escondidos.'), img('vision-formulario', 'Validación de formularios: en verde lo válido, en rojo lo que falla.'), img('vision-patente', 'Segmentación de los caracteres de una patente.'), img('vision-monedas', 'Monedas y dados: $7,40 en monedas, dados 5 y 3.')],
   'Dados en video': [img('vision-dados', 'El cuadro elegido de la tirada 4: cinco dados quietos, 14 puntos.'), { video: '../assets/pdi/tirada_4.mp4', cap: 'La tirada original.' }],
@@ -38,24 +30,24 @@ export const VISUALES = {
 export const EXTRAS = {
   'Café y barismo': {
     resumen: 'El café empezó como curiosidad y terminó en simulaciones. A largo plazo, una cafetería propia: un espacio cálido, jazz de fondo y tiempo para conversar.',
-    trabajado: 'Modelos de extracción, vaporizado y latte art dentro de Sandō, y una versión mínima para probar en el laboratorio del portfolio.',
+    trabajado: 'Modelos de extracción, vaporizado y latte art dentro de Sandō, .',
     tags: 'Café,Simulación,JavaScript', icono: '☕', estado: 'Lo que me mueve',
-    visuales: [img('demo-espresso', 'Espresso Lab, la versión mínima del laboratorio.'), img('sando-cafe', 'El kissaten de Kenji: la academia completa dentro de Sandō.')],
-    enlaces: [{ url: '../#demo=barista', label: 'Probar Espresso Lab ↗', live: true }],
+    visuales: [img('sando-cafe', 'El kissaten de Kenji: la academia completa dentro de Sandō.')],
+    enlaces: [{ url: '../sando/', label: 'Abrir la academia en Sandō ↗', live: true }],
   },
 };
 
 export const LUGARES = [
   {
     id: 'lab', nombre: 'Laboratorio clínico', kanji: '研究所', estilo: 'musica', icono: '🏥', x: 23, y: 2, w: 8, h: 6, puerta: { x: 26, y: 7 },
-    linea: 'Mi trabajo en Wiener Lab · Nobilis Cloud',
-    intro: 'Soy desarrollador Full-Stack en Wiener Lab, dentro del ecosistema de Nobilis Cloud. Acá están los módulos en los que trabajé: integraciones con hospitales, exportaciones de microbiología, plantillas y más. Como son sistemas de salud reales, no muestro código ni pantallas internas: hay recreaciones con datos ficticios y esquemas.',
-    proyectos: ['Nobilis Cloud', 'Integración HSI ↔ LIS', 'WHONET / BacLink', 'Diseñador de plantillas', 'Portal Pacientes', 'Turnero multi-laboratorio', 'Integración ManLab', 'Login multiusuario', 'Histórico por estudio', 'Reenvíos HSI', 'Importador de mapeos', 'LIS legado / mantenimiento'],
+    linea: 'Mi trabajo en Wiener Lab',
+    intro: 'Soy desarrollador Full-Stack en Wiener Lab: me encargo principalmente del backend y la base de datos, y colaboro con el frontend. Acá están los tipos de desarrollo que hago, explicados de forma general. Como es software de salud de la empresa, no muestro código, pantallas, nombres de productos ni detalles internos: solo recreaciones con datos ficticios y esquemas.',
+    proyectos: ['SaaS multi-tenant para salud', 'Integraciones clínicas HL7 / FHIR', 'Exportación de antibiogramas', 'Plantillas de informes'],
   },
   {
     id: 'arky', nombre: 'Casa de Arky', kanji: 'アーキー', estilo: 'casa', icono: '🐉', x: 26, y: 12, w: 7, h: 5, puerta: { x: 28, y: 16 },
     linea: 'Un asistente con IA para la cocina y la plata, en producción',
-    intro: 'Arky es un dragoncito con IA que maneja dos áreas del día a día y las cruza en una misma conversación: la cocina (ArkyBites) y las finanzas (ArkyCash-e). Está en producción en Railway, con usuarios reales y registro por invitación.',
+    intro: 'Arky es un dragoncito con IA que maneja dos áreas del día a día y las cruza en una misma conversación: la cocina (ArkyBites) y las finanzas (ArkyCash-e). Está en producción en Railway, con usuarios reales y registro abierto.',
     proyectos: ['Arky AI', 'ArkyBites', 'ArkyCash-e'],
   },
   {
