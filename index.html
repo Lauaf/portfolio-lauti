@@ -47,7 +47,7 @@
     </figure>
   </section>
   <div class="index-strip" aria-label="En este portfolio">
-    <span><strong>15</strong> proyectos</span>
+    <span><strong>06</strong> proyectos elegidos</span>
     <span><strong>01</strong> <a href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">app propia en producción ↗</a></span>
     <span>Rosario ↔ Japón <strong> / </strong> Un recorrido propio</span>
   </div>
@@ -169,7 +169,7 @@
 <script src="proyectos.js"></script>
 <script>
 const P=PROYECTOS;
-const categories=['Todos','Profesional','Personal','Universidad','Creativo'];let activeCat='Todos',q='';const $=id=>document.getElementById(id);function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
+const categories=['Todos','Profesional','Personal','Universidad'];let activeCat='Todos',q='';const $=id=>document.getElementById(id);function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
 const PROJECT_REPOSITORIES=PROYECTO_ENLACES;
 function thumb(name,cls='thumb'){const m=PROYECTO_IMAGENES[name];if(!m)return '';return `<img class="${cls}${m.pixel?' pixel':''}${m.contain?' contain':''}" src="${safe(m.src)}" alt="${safe(m.alt)}" loading="lazy"${m.pos?` style="object-position:${safe(m.pos)}"`:''}>`}
 function liveCta(name){return (PROJECT_REPOSITORIES[name]||[]).find(r=>r.cta)}
@@ -184,7 +184,7 @@ function renderProjects(){
     (activeCat==='Todos'||p[1]===activeCat)&&p.slice(0,4).join(' ').toLowerCase().includes(q)
   );
   $('projects').innerHTML=filtered.map(({p,i})=>`<article class="project"><div class="projectvisual${PROYECTO_IMAGENES[p[0]]?' has-img':''}">${thumb(p[0])}<span class="projectnumber">${String(i+1).padStart(2,'0')}</span><small${liveCta(p[0])?' class="live-badge"':''}>${liveCta(p[0])?'● En producción':safe(p[1])}</small></div><div class="projectbody"><h3>${safe(p[0])}</h3><p>${safe(p[2])}</p><div class="tags">${p[3].split(',').slice(0,4).map(t=>`<span>${safe(t)}</span>`).join('')}</div><div class="projectfoot">${liveCta(p[0])?`<a class="btn primary small" href="${safe(liveCta(p[0]).url)}" target="_blank" rel="noopener noreferrer">${safe(liveCta(p[0]).cta)}</a>`:p[9]?`<button class="btn primary small" onclick="openDemo('${p[9]}')">Probar ↗</button>`:''}<button class="btn small" onclick="showProject(${i})">Ver detalles</button></div><div class="repolinks">${repositoryLinks(p[0],'repo-link',true)}</div></div></article>`).join('');
-  $('count').textContent=`${filtered.length} de ${P.length} proyectos / módulos mostrados`;
+  $('count').textContent=`${filtered.length} de ${P.length} proyectos mostrados`;
 }
 $('filters').innerHTML=categories.map(c=>`<button class="chip ${c===activeCat?'active':''}" data-filter="${c}">${c}</button>`).join('');$('filters').onclick=e=>{if(e.target.dataset.filter){activeCat=e.target.dataset.filter;[...$('filters').children].forEach(x=>x.classList.toggle('active',x.dataset.filter===activeCat));renderProjects()}};$('search').oninput=e=>{q=e.target.value.toLowerCase();renderProjects()};function showProject(i){const p=P[i];$('modalcat').textContent=p[1]+' / '+p[6];$('modaltitle').textContent=p[0];$('modalcontent').innerHTML=`${thumb(p[0],'modalimg')}<p>${safe(p[2])}</p><h3>¿Qué se trabajó?</h3><p>${safe(p[7])}</p><h3>Stack y conceptos</h3><p>${safe(p[3].replaceAll(',',' · '))}</p><h3>Estado y consideraciones</h3><p>${safe(p[8])}</p>`;$('modalactions').innerHTML=(liveCta(p[0])?`<a class="btn primary" href="${safe(liveCta(p[0]).url)}" target="_blank" rel="noopener noreferrer">${safe(liveCta(p[0]).cta)}</a>`:'')+(p[9]?`<button class="btn primary" onclick="$('modal').close();openDemo('${p[9]}')">Probar demo relacionada ↗</button>`:'')+repositoryLinks(p[0],'btn',true);$('modal').showModal()}
 renderProjects();

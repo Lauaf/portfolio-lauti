@@ -1,6 +1,6 @@
 # Lautaro Florenza — Portfolio
 
-Portfolio estático con catálogo de 15 proyectos, un laboratorio de visión con los trabajos
+Portfolio estático con un catálogo de 6 proyectos elegidos, un laboratorio de visión con los trabajos
 de Procesamiento de Imágenes, Sandō jugable en `sando/` y enlaces a Arky en producción.
 Incluye una versión en inglés para reclutadores en [`en/`](en/) y el CV en PDF.
 
@@ -108,6 +108,7 @@ Después ingresá a http://localhost:8080. El servidor escucha solo en esta comp
 - Se quitaron las seis demos simplificadas (búsqueda, HL7, antibiogramas, Minimax, plantillas y espresso). Queda el laboratorio de visión.
 - El trabajo profesional se describe sin nombres internos.
 - Se agregaron la versión en inglés (`en/`) y el CV en PDF.
+- El catálogo pasa de 15 a 6 proyectos: Arky en una sola ficha, el trabajo profesional en una sola ficha, y fuera las fichas genéricas que no sumaban.
 - Las tarjetas y fichas muestran imágenes: escenas del video de Arky en el idioma de cada versión, capturas reales de los TP e ilustraciones propias para el trabajo profesional.
 
 ## Publicar
