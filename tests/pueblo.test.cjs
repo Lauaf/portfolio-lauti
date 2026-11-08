@@ -3,7 +3,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { PROYECTOS, PROYECTO_ENLACES } = require('../proyectos.js');
+const { PROYECTOS, PROYECTO_ENLACES, PROYECTO_IMAGENES } = require('../proyectos.js');
 
 const raiz = path.join(__dirname, '..');
 const cargar = () => import(path.join(raiz, 'pueblo', 'lugares.js'));
@@ -51,4 +51,12 @@ test('pathfinding reaches a door around obstacles and gives up when it cannot', 
   assert.ok(ruta.every(p => !bloqueado[p.y][p.x]));
   bloqueado[3][3] = true;
   assert.equal(camino(m, { x: 0, y: 0 }, { x: 5, y: 0 }), null);
+});
+
+test('card images point to real files and to catalog projects', () => {
+  for (const [nombre, m] of Object.entries(PROYECTO_IMAGENES)) {
+    assert.ok(PROYECTOS.some(p => p[0] === nombre), nombre);
+    assert.ok(m.alt, `${nombre}: falta el texto alternativo`);
+    assert.ok(fs.statSync(path.join(raiz, m.src)).size > 0, m.src);
+  }
 });

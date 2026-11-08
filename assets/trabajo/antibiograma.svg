@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="640" height="360" fill="#ece9de"/>
+  <rect x="32" y="54" width="576" height="268" rx="8" fill="#faf8f1" stroke="#c9cbbb"/>
+  <g font-size="13" fill="#707366" font-weight="600"><text x="56" y="86">ORGANISM</text><text x="236" y="86">AB</text><text x="320" y="86">MIC</text><text x="410" y="86">DISK</text><text x="510" y="86">S/I/R</text></g>
+  <g font-size="15" fill="#30372e">
+    <g><line x1="48" y1="100" x2="592" y2="100" stroke="#e1e1d5"/><text x="56" y="128" font-style="italic">E. coli</text><text x="236" y="128" font-family="Consolas, monospace">CIP</text><text x="320" y="128">0.25</text><text x="410" y="128">—</text><rect x="510" y="110" width="30" height="24" rx="4" fill="#7b8a64"/><text x="519" y="127" fill="#fff" font-weight="700">S</text></g>
+    <g><line x1="48" y1="146" x2="592" y2="146" stroke="#e1e1d5"/><text x="56" y="174" font-style="italic">E. coli</text><text x="236" y="174" font-family="Consolas, monospace">AMP</text><text x="320" y="174">—</text><text x="410" y="174">11 mm</text><rect x="510" y="156" width="30" height="24" rx="4" fill="#a0523d"/><text x="519" y="173" fill="#fff" font-weight="700">R</text></g>
+    <g><line x1="48" y1="192" x2="592" y2="192" stroke="#e1e1d5"/><text x="56" y="220" font-style="italic">K. pneumoniae</text><text x="236" y="220" font-family="Consolas, monospace">GEN</text><text x="320" y="220">4</text><text x="410" y="220">—</text><rect x="512" y="202" width="26" height="24" rx="4" fill="#c49a4a"/><text x="521" y="219" fill="#fff" font-weight="700">I</text></g>
+    <g><line x1="48" y1="238" x2="592" y2="238" stroke="#e1e1d5"/><text x="56" y="266" font-style="italic">S. aureus</text><text x="236" y="266" font-family="Consolas, monospace">OXA</text><text x="320" y="266">—</text><text x="410" y="266">22 mm</text><rect x="510" y="248" width="30" height="24" rx="4" fill="#7b8a64"/><text x="519" y="265" fill="#fff" font-weight="700">S</text></g>
+  </g>
+  <rect x="440" y="286" width="152" height="26" rx="13" fill="#47543d"/><text x="466" y="304" font-size="12" fill="#faf8ee" font-weight="600">.TXT  ⇣  preview</text>
+</svg>

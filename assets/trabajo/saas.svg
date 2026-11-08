@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="640" height="360" fill="#ece9de"/>
+  <g font-size="15" fill="#30372e">
+    <g transform="translate(36,60)">
+      <rect width="132" height="58" rx="6" fill="#faf8f1" stroke="#c9cbbb"/><text x="16" y="25" font-weight="600">Tenant A</text><text x="16" y="44" font-size="12" fill="#707366">Lab · plan Premium</text>
+      <rect y="86" width="132" height="58" rx="6" fill="#faf8f1" stroke="#c9cbbb"/><text x="16" y="111" font-weight="600">Tenant B</text><text x="16" y="130" font-size="12" fill="#707366">Lab · plan Standard</text>
+      <rect y="172" width="132" height="58" rx="6" fill="#faf8f1" stroke="#c9cbbb"/><text x="16" y="197" font-weight="600">Tenant C</text><text x="16" y="216" font-size="12" fill="#707366">Lab · plan Free</text>
+    </g>
+    <path d="M170 89 C 210 89, 210 180, 236 180 M170 175 L236 180 M170 261 C 210 261, 210 180, 236 180" stroke="#8b957d" stroke-width="2" fill="none"/>
+    <rect x="236" y="140" width="150" height="80" rx="8" fill="#47543d"/>
+    <text x="252" y="170" fill="#faf8ee" font-weight="600">Keycloak</text><text x="252" y="192" fill="#d9dccb" font-size="12">OIDC · SSO · RBAC</text><text x="252" y="209" fill="#d9dccb" font-size="12">realm per tenant</text>
+    <path d="M386 180 L430 180" stroke="#8b957d" stroke-width="2"/><path d="M424 174 L432 180 L424 186" fill="none" stroke="#8b957d" stroke-width="2"/>
+    <rect x="432" y="140" width="150" height="80" rx="8" fill="#faf8f1" stroke="#86654d" stroke-width="1.5"/>
+    <text x="448" y="170" font-weight="600">FastAPI</text><text x="448" y="192" font-size="12" fill="#707366">feature flags · quotas</text><text x="448" y="209" font-size="12" fill="#707366">SQLAlchemy · Alembic</text>
+    <path d="M507 220 L507 252" stroke="#8b957d" stroke-width="2"/>
+    <g transform="translate(432,254)">
+      <rect width="150" height="70" rx="8" fill="#faf8f1" stroke="#c9cbbb"/>
+      <text x="16" y="24" font-weight="600">SQL Server</text>
+      <rect x="16" y="36" width="36" height="20" rx="3" fill="#d5dac5"/><rect x="57" y="36" width="36" height="20" rx="3" fill="#e6d5c6"/><rect x="98" y="36" width="36" height="20" rx="3" fill="#dfe2d3"/>
+      <text x="29" y="50" font-size="11">A</text><text x="70" y="50" font-size="11">B</text><text x="111" y="50" font-size="11">C</text>
+    </g>
+  </g>
+</svg>

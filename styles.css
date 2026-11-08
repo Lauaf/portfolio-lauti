@@ -107,6 +107,15 @@ h3 { font: 400 27px/1.2 var(--serif); letter-spacing: -.7px; }
 .project:hover { border-color: #aeb99b; background: #faf8f0; }
 .projectvisual { height: 61px; display: flex; justify-content: space-between; align-items: center; padding: 0 23px; border-bottom: 1px solid #e1e1d5; color: var(--muted); }
 .projectnumber { font: italic 23px var(--serif); color: #8f967e; }
+.projectvisual.has-img { position: relative; height: auto; display: block; padding: 0; overflow: hidden; }
+.projectvisual .thumb { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #e9e9de; transition: transform .4s; }
+.project:hover .projectvisual .thumb { transform: scale(1.03); }
+.projectvisual .thumb.contain, .modalimg.contain { object-fit: contain; padding: 14px; }
+.thumb.pixel, .modalimg.pixel { image-rendering: pixelated; }
+.projectvisual.has-img .projectnumber, .projectvisual.has-img small { position: absolute; top: 10px; background: #faf8f1e8; padding: 2px 9px; border-radius: 2px; line-height: 1.5; }
+.projectvisual.has-img .projectnumber { left: 12px; font-size: 16px; }
+.projectvisual.has-img small { right: 12px; }
+.modalimg { display: block; width: 100%; max-height: 340px; object-fit: cover; margin-bottom: 20px; border: 1px solid var(--line); background: #e9e9de; }
 .projectvisual small { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
 .projectbody { padding: 24px 23px 23px; display: flex; flex: 1; flex-direction: column; }
 .projectbody h3 { font-size: 25px; margin-bottom: 13px; }

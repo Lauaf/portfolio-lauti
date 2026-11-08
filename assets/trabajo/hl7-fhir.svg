@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="640" height="360" fill="#ece9de"/>
+  <rect x="28" y="56" width="282" height="270" rx="8" fill="#1f2a24"/>
+  <g font-family="Consolas, Menlo, monospace" font-size="12.5" fill="#d9e3cf">
+    <text x="44" y="86"><tspan fill="#e0b48c">MSH</tspan>|^~\&amp;|HIS_DEMO|HOSP|LIS|LAB|</text>
+    <text x="44" y="104">   20261101||<tspan fill="#9fd0a8">OML^O21</tspan>|2.6</text>
+    <text x="44" y="130"><tspan fill="#e0b48c">PID</tspan>|1||PAC-0001||DEMO^ANA</text>
+    <text x="44" y="156"><tspan fill="#e0b48c">PV1</tspan>|1|O|CONSULT</text>
+    <text x="44" y="182"><tspan fill="#e0b48c">ORC</tspan>|NW|ORD-0007</text>
+    <text x="44" y="208"><tspan fill="#e0b48c">OBR</tspan>|1|ORD-0007||GLU</text>
+    <text x="44" y="246" fill="#7d8f80">ACK^O21 · AA</text>
+    <text x="44" y="268" fill="#7d8f80">retry · trace · resend</text>
+  </g>
+  <path d="M322 190 L366 190" stroke="#86654d" stroke-width="2.5"/><path d="M359 183 L368 190 L359 197" fill="none" stroke="#86654d" stroke-width="2.5"/>
+  <rect x="378" y="56" width="234" height="270" rx="8" fill="#faf8f1" stroke="#c9cbbb"/>
+  <g font-family="Consolas, Menlo, monospace" font-size="12.5" fill="#30372e">
+    <text x="394" y="86">{</text>
+    <text x="406" y="106">"resourceType":</text>
+    <text x="418" y="124" fill="#86654d">"ServiceRequest",</text>
+    <text x="406" y="146">"status": <tspan fill="#86654d">"active"</tspan>,</text>
+    <text x="406" y="168">"subject": {</text>
+    <text x="418" y="186" fill="#86654d">"Patient/PAC-0001"</text>
+    <text x="406" y="204">},</text>
+    <text x="406" y="226">"code": <tspan fill="#86654d">"GLU"</tspan></text>
+    <text x="394" y="246">}</text>
+    <text x="394" y="284" fill="#707366">→ Observation</text>
+    <text x="394" y="304" fill="#707366">→ DiagnosticReport</text>
+  </g>
+</svg>

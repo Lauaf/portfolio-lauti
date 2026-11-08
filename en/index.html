@@ -62,6 +62,9 @@
     .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
     .shots img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: #fff; }
     .shots .wide { grid-column: 1 / -1; }
+    .case.has-row { grid-template-columns: 1fr 1fr; }
+    .case.has-row .shots.arky { grid-column: 1 / -1; grid-template-columns: repeat(4, 1fr); }
+    .shots video { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: #e9e3d6; }
     .pixel img { image-rendering: pixelated; }
     figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
     .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; font-size: 14px; }
@@ -82,6 +85,7 @@
       .hero { padding-top: 44px; }
       .facts { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; }
       .cols3, .skills { grid-template-columns: 1fr; }
+      .case.has-row .shots.arky { grid-template-columns: 1fr 1fr; }
       .job { grid-template-columns: 1fr; gap: 8px; }
       section { padding: 48px 0; }
     }
@@ -168,7 +172,7 @@
     <div class="eyebrow">Selected work</div>
     <h2 id="work-title">Things I've built.</h2>
 
-    <article class="case">
+    <article class="case has-row">
       <div>
         <h3>Arky, an assistant for the kitchen and your money</h3>
         <div class="meta">Personal product · live in production · built solo</div>
@@ -181,7 +185,7 @@
           <li>The finance module forecasts 12 months with inflation, salary updates and conservative, base and optimistic scenarios.</li>
         </ul>
         <h4>Evidence</h4>
-        <p>About 300 backend tests and 15 frontend tests. JWT authentication, deployed on Railway (nginx web, Dockerized API, PostgreSQL). Sign-up is open.</p>
+        <p>More than 850 backend tests, 88 frontend unit tests and an end-to-end Playwright run. JWT authentication, deployed on Railway (nginx web, Dockerized API, PostgreSQL). The app is bilingual (English and Spanish) and sign-up is open.</p>
         <div class="tags"><span>Angular 20</span><span>FastAPI</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Gemini API</span><span>Docker</span><span>Railway</span></div>
         <div class="links">
           <a href="https://arky-landing-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Product page ↗</a>
@@ -190,11 +194,12 @@
         </div>
         <p class="note">The full source code is private and available on request.</p>
       </div>
-      <div class="shots">
-        <figure class="wide"><img src="../assets/pueblo/arky-chat.webp" width="1280" height="720" loading="lazy" alt="Arky's chat: it reviews a request, shows a transcript and confirms before changing records"></figure>
-        <figure><img src="../assets/pueblo/arky-panel.webp" width="1280" height="720" loading="lazy" alt="Arky's home dashboard with the free-to-spend number and kitchen status"></figure>
-        <figure><img src="../assets/pueblo/arky-recetas.webp" width="1280" height="720" loading="lazy" alt="Recipes ranked by how much of each is covered by the pantry"></figure>
-        <p class="note wide" style="margin-top:0">Slides from Arky's product presentation.</p>
+      <div class="shots arky">
+        <figure><video src="../assets/arky/arky-video-en.mp4" poster="../assets/arky/arky-video-en.webp" controls muted playsinline preload="none" width="540" height="960" aria-label="Arky's one-minute product video"></video></figure>
+        <figure><img src="../assets/arky/arky-libre-en.webp" width="540" height="960" loading="lazy" alt="Arky's home: how much is free to spend this month, with the breakdown"></figure>
+        <figure><img src="../assets/arky/arky-chat-en.webp" width="540" height="960" loading="lazy" alt="Arky's chat builds a recipe and adds what's missing to the shopping list"></figure>
+        <figure><img src="../assets/arky/arky-despensa-en.webp" width="540" height="960" loading="lazy" alt="The pantry warns what's expiring and Arky suggests a recipe"></figure>
+        <p class="note wide" style="margin-top:0">Scenes from Arky's product video: the real app, in English.</p>
       </div>
     </article>
 
@@ -238,11 +243,14 @@
         <ul>
           <li><b>Dog breed recognition (team of two):</b> similarity search with pgvector, a fine-tuned ResNet18 against a custom CNN, and YOLOv8 detection, served by an async FastAPI and Docker Compose. On the test set the ResNet18 reached 91.6% accuracy (F1 0.91), and similarity search reached NDCG@10 0.94. <a href="https://github.com/Lauaf/TP2_VC" target="_blank" rel="noopener noreferrer">Repo ↗</a></li>
           <li><b>Face recognition pipeline:</b> YuNet detection, five-point alignment, FaceNet embeddings and threshold tuning, served by an async API. The dataset is small, so it validates the pipeline rather than measuring accuracy. <a href="https://github.com/Lauaf/TP1_CV" target="_blank" rel="noopener noreferrer">Repo ↗</a></li>
+          <li><b>Search algorithms:</b> BFS, DFS, UCS, GBFS and A* in a Pygame maze visualizer, plus a Minimax tic-tac-toe agent. <a href="https://github.com/Lauaf/TP1_Prog3" target="_blank" rel="noopener noreferrer">Repo ↗</a></li>
           <li><b>Classical computer vision:</b> OpenCV work ported to dependency-free JavaScript, with regression tests against the original Python output. <a href="../#laboratorio" lang="es">Try it ↗</a></li>
         </ul>
       </div>
       <div class="shots">
-        <figure class="wide"><img src="../assets/pueblo/perros-metricas.webp" width="1100" height="541" loading="lazy" alt="Test metrics comparing the fine-tuned ResNet18 with the custom CNN"></figure>
+        <figure class="wide"><img src="../assets/uni/perros-pipeline.webp" width="1489" height="924" loading="lazy" alt="Stage 3 on external images: YOLOv8 finds each dog and the classifier names the breed"><figcaption>Dog breeds: detection and classification on images outside the dataset.</figcaption></figure>
+        <figure><img src="../assets/uni/busqueda-astar.webp" width="874" height="530" loading="lazy" alt="The Pygame visualizer solving a maze with A*"><figcaption>A* in the maze visualizer.</figcaption></figure>
+        <figure><img src="../assets/uni/facial-lau.webp" width="309" height="548" loading="lazy" alt="Face recognition: detected face, landmarks and the recognized identity with its similarity score"><figcaption>Face recognition (similarity 0.92).</figcaption></figure>
       </div>
     </article>
   </section>
