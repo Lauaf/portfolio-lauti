@@ -19,13 +19,13 @@ Ver el [inventario de proyectos](docs/proyectos.md).
 
 ## Diseño y relato
 
-Una dirección visual wabi-sabi: papel cálido, oliva, arcilla, tipografía serif,
-textura sutil y fotografía editorial. El relato conecta la curiosidad desde la
-infancia, el año de Working Holiday en Japón, el trabajo en Wiener Lab, la carrera
-de IA en la UNR y los intereses personales: café, mundos narrativos, música y
-otras formas de crear.
+Papel cálido, oliva, arcilla y tipografía serif, con un tono directo: la portada
+dice qué hago y lleva a Arky en producción, y después vienen los proyectos, la
+experiencia, el laboratorio de visión y un apartado corto sobre Japón. Los textos
+decorativos y la foto editorial de la versión anterior se quitaron porque no le
+decían nada a quien evalúa.
 
-- `index.html`: relato, catálogo y laboratorio de visión.
+- `index.html`: portada, catálogo, experiencia, laboratorio de visión y Japón.
 - `en/index.html`: versión en inglés para reclutadores, alineada con el CV. Es HTML
   autocontenido y usa las imágenes de `assets/`.
 - `cv/cv.html`: fuente del CV. `node cv/render.cjs` (requiere Playwright con
@@ -57,7 +57,6 @@ otras formas de crear.
   importación de canciones necesitan `server.py`. Para actualizarlo, volver a
   copiar esa carpeta.
 - `styles.css`: sistema visual y adaptación a escritorio y celular.
-- `assets/quiet-study.webp`: imagen editorial optimizada, sin dependencias remotas.
 - [Notas del diseño y recurso visual](docs/diseno.md).
 
 El build publica la hoja de estilos con una huella de su contenido en el nombre,
@@ -108,6 +107,7 @@ Después ingresá a http://localhost:8080. El servidor escucha solo en esta comp
 - Se quitaron las seis demos simplificadas (búsqueda, HL7, antibiogramas, Minimax, plantillas y espresso). Queda el laboratorio de visión.
 - El trabajo profesional se describe sin nombres internos.
 - Se agregaron la versión en inglés (`en/`) y el CV en PDF.
+- Portada y textos más directos: qué hago, Arky en producción, experiencia y contacto. Sin la foto editorial ni las frases decorativas.
 - El catálogo pasa de 15 a 6 proyectos: Arky en una sola ficha, el trabajo profesional en una sola ficha, y fuera las fichas genéricas que no sumaban.
 - Las tarjetas y fichas muestran imágenes: escenas del video de Arky en el idioma de cada versión, capturas reales de los TP e ilustraciones propias para el trabajo profesional.
 

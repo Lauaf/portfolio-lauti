@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f3f0e7">
-  <meta name="description" content="Lautaro Florenza: desarrollador Full-Stack en Wiener Lab, estudiante de IA en la UNR. Japón, software, café y proyectos que nacen de la curiosidad.">
-  <meta property="og:title" content="Lautaro Florenza — Software, café y curiosidad">
-  <meta property="og:description" content="De Rosario a un año de Working Holiday en Japón. Software para salud, inteligencia artificial, café y el placer de crear.">
+  <meta name="description" content="Lautaro Florenza, desarrollador Full-Stack con foco en backend: Python/FastAPI, SQL, SaaS multi-tenant e integraciones de salud (HL7, FHIR). Rosario, Argentina; abierto a trabajo remoto.">
+  <meta property="og:title" content="Lautaro Florenza, desarrollador Full-Stack">
+  <meta property="og:description" content="Backend en Python y SQL, SaaS multi-tenant e integraciones HL7/FHIR. Arky, mi app con IA, está en producción.">
   <meta property="og:type" content="website">
-  <title>Lautaro Florenza — Software, café y curiosidad</title>
+  <title>Lautaro Florenza, desarrollador Full-Stack</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,9 +17,10 @@
   <nav class="nav" aria-label="Navegación principal">
     <a class="brand" href="#inicio" aria-label="Lautaro Florenza, inicio">Lautaro <span>Florenza.</span></a>
     <div class="navlinks">
-      <a href="#historia">Mi historia</a>
       <a href="#proyectos">Proyectos</a>
-      <a href="#laboratorio">Visión</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#japon">Japón</a>
+      <a href="#contacto">Contacto</a>
       <a href="en/" lang="en">English</a>
       <a class="nav-github" href="https://github.com/Lauaf" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </div>
@@ -28,138 +29,121 @@
 <main class="wrap" id="contenido">
   <section id="inicio" class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <div class="eyebrow">Desarrollo de software · Una mirada personal</div>
-      <h1 id="hero-title">Construir<br>con calma.<br><em>Seguir curioso.</em></h1>
-      <p class="lead">Soy <strong>Lautaro Florenza</strong>, desarrollador Full-Stack en Wiener Lab y estudiante de Inteligencia Artificial en la UNR. Me gusta transformar ideas en herramientas, experiencias y cosas que antes no existían.</p>
+      <div class="eyebrow">Desarrollador Full-Stack · foco en backend</div>
+      <h1 id="hero-title">Backend para<br><em>salud y SaaS.</em></h1>
+      <p class="lead">Soy <strong>Lautaro Florenza</strong>, desarrollador Full-Stack con casi cuatro años de experiencia, la mayor parte en software de salud. Trabajo sobre todo en backend y base de datos: Python (FastAPI, SQLAlchemy), SQL, SaaS multi-tenant e integraciones por HL7 y FHIR. También hago frontend en Angular. Fuera del trabajo construí <strong>Arky</strong>, una app con IA que está en producción.</p>
       <div class="actions">
-        <a class="btn primary live" href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">Probá Arky, mi app en producción <span aria-hidden="true">↗</span></a>
-        <a class="btn" href="#proyectos">Explorar mi trabajo</a>
-        <a class="text-link" href="#historia">La historia detrás <span aria-hidden="true">↗</span></a>
+        <a class="btn primary live" href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">Probá Arky en producción <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="assets/cv/Lautaro_Florenza_CV.pdf">CV en PDF (inglés)</a>
+        <a class="text-link" href="#proyectos">Ver proyectos <span aria-hidden="true">↓</span></a>
       </div>
-      <a class="sando-btn" href="pueblo/"><span class="sando-arky" aria-hidden="true"></span><span class="sando-txt"><b>三道 Un vistazo a los proyectos</b><small>Recorré mi trabajo como un pueblo de Sandō</small></span><span class="sando-flecha" aria-hidden="true">▶</span></a>
-      <p class="hero-footnote">Rosario, Argentina <span aria-hidden="true"></span> Japón, Working Holiday<br>Software, café y curiosidad.</p>
+      <ul class="hero-facts">
+        <li><b>Base</b>Rosario, Argentina (UTC−3)</li>
+        <li><b>Busco</b>Trabajo remoto, idealmente con equipos vinculados a Japón</li>
+        <li><b>Idiomas</b>Español nativo · inglés avanzado · japonés básico-intermedio</li>
+      </ul>
     </div>
-    <figure class="hero-figure">
-      <div class="photo-label"><span>Una pausa para mirar</span><span>Estudio n.º 01</span></div>
-      <img class="hero-photo" src="assets/quiet-study.webp" width="1024" height="1280" alt="Una taza de cerámica artesanal y un cuaderno sobre madera, iluminados por una ventana" fetchpriority="high">
-      <span class="margin-note" aria-hidden="true">LO SIMPLE · LO VIVIDO · LO QUE SIGUE</span>
-      <figcaption><span>Luz, materia y pequeñas rutinas.</span><em>Siempre en proceso.</em></figcaption>
+    <figure class="hero-figure app-shot">
+      <img src="assets/arky/arky-libre-es.webp" width="540" height="960" alt="Arky en producción: el panel con cuánto queda libre para gastar en el mes" fetchpriority="high">
+      <figcaption>Arky, en producción: cuánto podés gastar de verdad, con el desglose.</figcaption>
     </figure>
   </section>
-  <div class="index-strip" aria-label="En este portfolio">
-    <span><strong>06</strong> proyectos elegidos</span>
-    <span><strong>01</strong> <a href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">app propia en producción ↗</a></span>
-    <span>Rosario ↔ Japón <strong> / </strong> Un recorrido propio</span>
+  <div class="index-strip" aria-label="Resumen">
+    <span><strong>~4 años</strong> de experiencia</span>
+    <span><strong>+850</strong> tests en Arky</span>
+    <span><strong>HL7 · FHIR</strong> en producción</span>
+    <span><strong>ES · EN</strong> · 日本語 básico</span>
   </div>
-  <section id="historia" aria-labelledby="story-title">
-    <span id="trayectoria" class="anchor" aria-hidden="true"></span>
-    <div class="story-intro">
-      <div>
-        <div class="eyebrow"><span class="section-number">01</span> El camino hasta acá</div>
-        <h2 id="story-title">La curiosidad fue<br>el punto de partida.</h2>
-      </div>
-      <div class="story-copy">
-        <p>Desde chico me interesaron los videojuegos y la tecnología. Con el tiempo, dejé de querer solamente usarlos: quise <strong>entender cómo funcionan, modificarlos y construir mi propia versión</strong>.</p>
-        <p>Encontré en el software una manera de darle forma a las ideas y resolver problemas para otras personas. Me gusta aprender, pero especialmente transformar lo que aprendo en algo tangible.</p>
-        <p>Para contar quién soy como profesional, también necesito contar quién soy fuera del código.</p>
-        <div class="story-links"><a class="text-link" href="#japon">Japón ↗</a><a class="text-link" href="#oficio">Mi trabajo ↗</a><a class="text-link" href="#vida">Lo que me mueve ↗</a></div>
-      </div>
-    </div>
-  </section>
-  <section id="japon" class="japan-chapter" aria-labelledby="japan-title">
-    <div class="chapter-head"><div class="eyebrow">Japón / Working Holiday</div><span class="chapter-year">2024 →</span></div>
-    <div class="japan-grid">
-      <div>
-        <h2 id="japan-title">Un año fuera<br>de lo conocido.</h2>
-        <blockquote>«Sentirse cómodo con la incertidumbre es una habilidad que se desarrolla enfrentándola».</blockquote>
-        <p class="quote-caption">Algo que me traje de Japón.</p>
-      </div>
-      <div class="story-copy">
-        <p>En 2024 viajé a Japón con una visa Working Holiday. Viví aproximadamente un año entre una cultura, un idioma y una manera de trabajar diferentes. Mi recorrido pasó por <strong>Tokio, Yokohama, Okinawa y Hokkaido</strong>.</p>
-        <p>En Niseko trabajé como <em>Night Auditor</em>, en turnos de aproximadamente 22:00 a 7:00. La operación hotelera, la atención a huéspedes y las responsabilidades de la noche me llevaron a resolver situaciones nuevas en un entorno multicultural.</p>
-        <p>Cuando no conocía las reglas, las costumbres o las palabras adecuadas, tenía que observar, escuchar y encontrar una solución con los recursos disponibles. Gané independencia, capacidad de adaptación y confianza para afrontar desafíos que al principio parecían fuera de mi alcance.</p>
-        <p>Hoy hablo español de manera nativa, tengo un nivel avanzado de inglés y sigo interesado en perfeccionar mi japonés.</p>
-      </div>
-    </div>
-    <div class="places" aria-label="Lugares donde viví en Japón"><span>Tokio</span><span>Yokohama</span><span>Okinawa</span><span>Hokkaido</span></div>
-    <p class="story-coda">Una inversión en la persona y el profesional que quería ser.</p>
-  </section>
-  <section id="oficio" class="work-chapter" aria-labelledby="work-title">
-    <div class="story-intro">
-      <div>
-        <div class="eyebrow">Mi oficio / Wiener Lab</div>
-        <h2 id="work-title">Resolver problemas.<br>Pensar en las personas.</h2>
-      </div>
-      <div class="story-copy">
-        <p>Trabajo como desarrollador Full-Stack en Wiener Lab, en software para laboratorios clínicos. Me encargo principalmente del backend y la base de datos, colaboro con el frontend y desarrollo integraciones entre sistemas de información sanitaria.</p>
-        <p>Disfruto comprender el recorrido completo de una funcionalidad: la necesidad del usuario, los datos, la lógica de negocio, las APIs, la interfaz y las pruebas.</p>
-        <p>Quiero crecer hacia responsabilidades que combinen desarrollo, arquitectura y liderazgo técnico, en equipos donde preguntar, compartir y aprender sea parte del trabajo.</p>
-      </div>
-    </div>
-    <div class="practice-grid">
-      <article><span class="eyebrow">01 / Precisión y contexto</span><h3>Sistemas en los que<br>cada detalle importa.</h3><p>Integrar órdenes médicas, pacientes y resultados clínicos implica comprender reglas de negocio, validar datos y poder seguir el recorrido de un mensaje. En salud aprendí a prestar especial atención a la trazabilidad, los casos excepcionales y la recuperación de procesos cuando algo falla.</p></article>
-      <article><span class="eyebrow">02 / El recorrido completo</span><h3>Comprender lo existente.<br>Mejorar lo que viene.</h3><p>También trabajo con sistemas heredados y arquitecturas que no diseñé. Investigar sus decisiones y restricciones me permite incorporar mejoras dentro de un contexto real. Busco que una solución sea comprensible, mantenible y útil para quien la utiliza.</p></article>
-    </div>
-    <p class="stack-line">Python · FastAPI · Angular · TypeScript · SQL Server · PostgreSQL · Docker · HL7 · FHIR · MQTT</p>
-    <div class="learning-note">
-      <div><div class="eyebrow">Formación / Universidad Nacional de Rosario</div><h3>Entender lo que viene.<br>Desde los fundamentos.</h3></div>
-      <div><p>Estudio la Tecnicatura Universitaria en Inteligencia Artificial mientras trabajo a jornada completa. Me interesan la matemática, los algoritmos de búsqueda, las heurísticas, la optimización y los sistemas capaces de tomar decisiones.</p><p>Quiero combinar ingeniería de software e inteligencia artificial, comprendiendo cómo funcionan las herramientas y cuándo tiene sentido aplicarlas.</p><p>En la facultad construí sistemas de reconocimiento facial y de razas de perros (una ResNet18 ajustada llegó a 91,6 % de accuracy sobre 70 razas), resolví problemas de visión clásica con OpenCV y programé algoritmos de búsqueda y agentes para juegos. Varios fueron en equipo, y eso también se aprende.</p></div>
-    </div>
-  </section>
-  <section id="vida" class="life-chapter" aria-labelledby="life-title">
-    <div class="eyebrow">Fuera del trabajo / La misma curiosidad</div>
-    <h2 id="life-title">Crear también es<br>una forma de vivir.</h2>
-    <div class="timeline">
-      <article>
-        <small>01 / Café y un sueño</small>
-        <h3>Una cafetería,<br>algún día.</h3>
-        <p>Me gusta aprender sobre preparación, equipamiento y los detalles que cambian una taza. Ese interés se convirtió en la academia de barismo de Sandō, un juego estilo GBA que también uso para practicar japonés y piano: ocho minijuegos donde cada shot, cada leche y cada vertido salen de un modelo de simulación. A largo plazo imagino mi propia cafetería: un espacio cálido, jazz de fondo y tiempo para una conversación tranquila.</p>
-      </article>
-      <article>
-        <small>02 / Videojuegos y mundos propios</small>
-        <h3>Historias que<br>se pueden explorar.</h3>
-        <p>Los videojuegos, el pixel art y los sistemas interactivos me permiten combinar lógica y creatividad visual. También desarrollo un universo para Dungeons &amp; Dragons, con reglas, acertijos y herramientas donde las decisiones de los jugadores transforman la experiencia.</p>
-      </article>
-      <article>
-        <small>03 / Personas y otras perspectivas</small>
-        <h3>Más allá<br>de la pantalla.</h3>
-        <p>La fotografía, la música, el piano, la guitarra, los idiomas y el snowboard también forman parte de mí. Participé en voluntariado en comedores y valoro los espacios donde podemos escuchar, preguntar y aprender juntos, sin competir por tener todas las respuestas.</p>
-      </article>
-    </div>
-    <p class="story-coda">No necesito que un proyecto sea una obligación para tomármelo en serio.</p>
-  </section>
   <section id="proyectos" class="archive" aria-labelledby="projects-title">
     <div class="sectionhead">
       <div>
-        <div class="eyebrow"><span class="section-number">02</span> Obra y exploraciones</div>
-        <h2 id="projects-title">Lo que fui construyendo.</h2>
-        <p>Trabajo, estudio y proyectos propios. Cada pieza tiene su contexto, sus decisiones y algo que me dejó para la siguiente.</p>
+        <div class="eyebrow"><span class="section-number">01</span> Proyectos</div>
+        <h2 id="projects-title">Lo que construí.</h2>
+        <p>Lo que está en producción se puede probar. El resto tiene su repositorio o, si es de la empresa, una descripción de lo que hice.</p>
       </div>
       <input class="search" id="search" placeholder="Buscar proyecto o tecnología…" aria-label="Buscar proyectos" type="search">
     </div>
-    <aside class="sando-banda" aria-label="Versión interactiva">
-      <div><b>¿Preferís recorrerlo?</b><p>Los mismos proyectos, en un pueblo pixel art: cada edificio es una parte de mi trabajo, con capturas y ejemplos de cada uno. Elegís un lugar del menú y Arky te lleva.</p></div>
-      <a class="sando-btn" href="pueblo/"><span class="sando-arky" aria-hidden="true"></span><span class="sando-txt"><b>三道 Un vistazo a los proyectos</b><small>Recorré mi trabajo como un pueblo de Sandō</small></span><span class="sando-flecha" aria-hidden="true">▶</span></a>
-    </aside>
     <div class="filters" id="filters" aria-label="Filtrar proyectos"></div>
     <div class="project-grid" id="projects"></div>
     <p class="micro" id="count" aria-live="polite"></p>
-    <p class="repo-note">Cada proyecto conserva su propio repositorio. Los enlaces privados requieren acceso. <a class="repo-link" href="https://github.com/Lauaf?tab=repositories" target="_blank" rel="noopener noreferrer">Ver todos mis repositorios ↗</a></p>
+    <aside class="sando-banda" aria-label="Versión interactiva">
+      <div><b>¿Preferís recorrerlo jugando?</b><p>Los mismos proyectos en un pueblo pixel art, hecho con el motor de Sandō, mi juego para estudiar japonés.</p></div>
+      <a class="sando-btn" href="pueblo/"><span class="sando-arky" aria-hidden="true"></span><span class="sando-txt"><b>三道 Recorrer el pueblo</b><small>Elegís un lugar y Arky te lleva</small></span><span class="sando-flecha" aria-hidden="true">▶</span></a>
+    </aside>
+    <p class="repo-note">Los enlaces privados requieren acceso. <a class="repo-link" href="https://github.com/Lauaf?tab=repositories" target="_blank" rel="noopener noreferrer">Ver todos mis repositorios ↗</a></p>
+  </section>
+  <section id="experiencia" class="work-chapter" aria-labelledby="work-title">
+    <div class="eyebrow"><span class="section-number">02</span> Experiencia</div>
+    <h2 id="work-title">Dónde trabajé.</h2>
+    <div class="jobs">
+      <article class="job">
+        <div class="when"><b>Wiener Lab</b>Desarrollador Full-Stack<br>Junio 2025 – hoy · Rosario (híbrido)</div>
+        <div>
+          <p>SaaS multi-tenant para laboratorios clínicos. Me encargo principalmente del backend y la base de datos, y colaboro con el frontend.</p>
+          <ul>
+            <li>Servicios en Python con FastAPI, SQLAlchemy y Alembic: endpoints, modelos de datos y migraciones.</li>
+            <li>SQL Server: esquemas, consultas complejas, vistas, triggers y datos separados por tenant.</li>
+            <li>Integraciones con sistemas de salud: HL7 v2.6 (ADT, OML) por MLLP, intercambio por FHIR de órdenes, observaciones e informes, y avisos por MQTT, conviviendo con componentes Java heredados.</li>
+            <li>Autenticación y permisos con Keycloak (OIDC/SSO, RBAC, realms), feature flags, cuotas y planes de suscripción.</li>
+            <li>Frontend en Angular 20 con TypeScript, RxJS, TailwindCSS y Angular Material.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when"><b>NISADE × The Luxe Nomad</b>Night Auditor<br>Nov 2024 – Mar 2025 · Niseko, Japón</div>
+        <div><p>Working Holiday en Japón: operación nocturna, atención a huéspedes internacionales y tareas de auditoría y control, trabajando en inglés todos los días.</p></div>
+      </article>
+      <article class="job">
+        <div class="when"><b>NEORIS</b>Desarrollador Full-Stack Web/API<br>Sep 2022 – Abr 2024 · Rosario</div>
+        <div><p>Proyectos web y mobile con ASP.NET MVC (C#) y JavaScript/jQuery, diseño y optimización de bases SQL, y trabajo ágil con Git y Jira.</p></div>
+      </article>
+      <article class="job">
+        <div class="when"><b>Fantommers</b>Desarrollador Full-Stack<br>Oct 2021 – Oct 2022 · Rosario</div>
+        <div><p>Aplicaciones web para el sector salud con Node.js, Angular y SQL Server, incluidas integraciones por API.</p></div>
+      </article>
+      <article class="job">
+        <div class="when"><b>Universidad Nacional de Rosario</b>Tecnicatura en Inteligencia Artificial<br>En curso</div>
+        <div><p>La curso mientras trabajo a jornada completa. Materias como Programación III, Bases de Datos I, Procesamiento de Imágenes y Visión por Computadora; varios trabajos están en el catálogo.</p></div>
+      </article>
+    </div>
+    <p class="stack-line">Python · FastAPI · SQLAlchemy · SQL Server · PostgreSQL · Angular · TypeScript · Keycloak · Docker · HL7 · FHIR · MQTT · pytest</p>
   </section>
   <section id="laboratorio" class="lab" aria-labelledby="lab-title">
-    <div class="eyebrow"><span class="section-number">03</span> Visión por computadora</div>
-    <h2 id="lab-title">Laboratorio de visión.</h2>
+    <div class="eyebrow"><span class="section-number">03</span> Laboratorio de visión</div>
+    <h2 id="lab-title">Probalo en el navegador.</h2>
     <p class="muted">Los trabajos de Procesamiento de Imágenes de la UNR, portados de Python a JavaScript sin dependencias. Las pruebas comparan sus salidas con las del código original.</p>
 <div class="workspace"><div class="workbody"><div class="demo active" id="demo-vision"><div class="demo-title"><div><h3>Procesamiento de imágenes, en el navegador</h3><p>Los trabajos de Procesamiento de Imágenes de la UNR, portados de Python a JavaScript y ejecutados en tu navegador. Dan los mismos resultados que el código original.</p></div></div><div class="vtabs filters"></div><div class="vbody"></div></div></div></div>
     <p class="micro" style="margin-top:17px">Usa las imágenes y videos de los trabajos prácticos.</p>
+  <section id="japon" class="japan-chapter" aria-labelledby="japan-title">
+    <div class="eyebrow"><span class="section-number">04</span> Japón y fuera del código</div>
+    <div class="japan-grid">
+      <div>
+        <h2 id="japan-title">Un año en Japón.</h2>
+        <div class="places" aria-label="Lugares donde viví en Japón"><span>Tokio</span><span>Yokohama</span><span>Okinawa</span><span>Hokkaido</span></div>
+      </div>
+      <div class="story-copy">
+        <p>En 2024 viajé a Japón con una visa Working Holiday y viví cerca de un año entre Tokio, Yokohama, Okinawa y Hokkaido. En Niseko trabajé de <em>Night Auditor</em>, en turnos de 22 a 7, resolviendo solo lo que pasara en la noche y con huéspedes de todo el mundo.</p>
+        <p>Volví con más autonomía, inglés de todos los días y ganas de seguir conectado: estudio japonés y hasta armé <strong>Sandō</strong>, un juego para practicarlo.</p>
+        <p>Fuera del código: videojuegos y pixel art, café (de ahí la academia de barismo de Sandō), música, fotografía y snowboard. Hice voluntariado en comedores.</p>
+      </div>
+    </div>
+  </section>
 </main>
-<footer>
+<footer id="contacto">
   <div class="wrap">
     <div class="footer-top">
-      <p class="footer-title">Darle vida a las ideas.</p>
-      <a class="text-link" href="https://github.com/Lauaf" target="_blank" rel="noopener noreferrer">Encontrémonos en GitHub <span aria-hidden="true">↗</span></a>
+      <div>
+        <p class="footer-title">¿Hablamos?</p>
+        <p class="footer-sub">Busco un puesto remoto de backend o full-stack.</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="mailto:lautaroflorenza@gmail.com">lautaroflorenza@gmail.com</a>
+        <a class="btn" href="assets/cv/Lautaro_Florenza_CV.pdf">CV (PDF)</a>
+        <a class="btn" href="https://www.linkedin.com/in/lautaro-florenza-bb0536242/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/Lauaf" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
     </div>
-    <div class="footer-bottom"><span>Lautaro Florenza · Rosario, Argentina</span><span>Software, café y curiosidad.</span><span>2026 / Siempre en proceso</span></div>
+    <div class="footer-bottom"><span>Lautaro Florenza · Rosario, Argentina</span><a href="en/" lang="en">English version</a><span>2026</span></div>
   </div>
 </footer>
 <dialog id="modal" aria-labelledby="modaltitle">
