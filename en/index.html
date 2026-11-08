@@ -212,9 +212,7 @@
         <div class="meta">Described in general terms · no internal code, names or data</div>
         <ul>
           <li><b>Multi-tenant SaaS for clinical labs:</b> backend and database work, Keycloak permissions, tenant administration, feature flags, quotas and plans.</li>
-          <li><b>Clinical integrations:</b> HL7 v2.6 over MLLP, FHIR and MQTT; validating and mapping clinical codes; retries, re-sending and traceability alongside legacy Java components.</li>
-          <li><b>Microbiology export:</b> an MVP that validates MIC, disk-diffusion and S/I/R results, with preview, download, a dedicated permission and end-to-end tests.</li>
-          <li><b>Report templates:</b> an editor with variables, per-fragment styles and reusable templates.</li>
+          <li><b>Clinical integrations:</b> HL7 v2.6 over MLLP, FHIR and MQTT; validating and mapping clinical codes; retries, re-sending and traceability alongside legacy Java components. Most recently, an export of microbiology results to an external analysis format, with end-to-end tests.</li>
         </ul>
         <div class="tags"><span>Python</span><span>FastAPI</span><span>SQL Server</span><span>Keycloak</span><span>HL7 v2</span><span>FHIR</span><span>MQTT</span><span>Angular</span></div>
       </div>
@@ -246,13 +244,11 @@
         <ul>
           <li><b>Dog breed recognition (team of two):</b> similarity search with pgvector, a fine-tuned ResNet18 against a custom CNN, and YOLOv8 detection, served by an async FastAPI and Docker Compose. On the test set the ResNet18 reached 91.6% accuracy (F1 0.91), and similarity search reached NDCG@10 0.94. <a href="https://github.com/Lauaf/TP2_VC" target="_blank" rel="noopener noreferrer">Repo ↗</a></li>
           <li><b>Face recognition pipeline:</b> YuNet detection, five-point alignment, FaceNet embeddings and threshold tuning, served by an async API. The dataset is small, so it validates the pipeline rather than measuring accuracy. <a href="https://github.com/Lauaf/TP1_CV" target="_blank" rel="noopener noreferrer">Repo ↗</a></li>
-          <li><b>Search algorithms:</b> BFS, DFS, UCS, GBFS and A* in a Pygame maze visualizer, plus a Minimax tic-tac-toe agent. <a href="https://github.com/Lauaf/TP1_Prog3" target="_blank" rel="noopener noreferrer">Repo ↗</a></li>
           <li><b>Classical computer vision:</b> OpenCV work ported to dependency-free JavaScript, with regression tests against the original Python output. <a href="../#laboratorio" lang="es">Try it ↗</a></li>
         </ul>
       </div>
       <div class="shots">
         <figure class="wide"><img src="../assets/uni/perros-pipeline.webp" width="1489" height="924" loading="lazy" alt="Stage 3 on external images: YOLOv8 finds each dog and the classifier names the breed"><figcaption>Dog breeds: detection and classification on images outside the dataset.</figcaption></figure>
-        <figure><img src="../assets/uni/busqueda-astar.webp" width="874" height="530" loading="lazy" alt="The Pygame visualizer solving a maze with A*"><figcaption>A* in the maze visualizer.</figcaption></figure>
         <figure><img src="../assets/uni/facial-lau.webp" width="309" height="548" loading="lazy" alt="Face recognition: detected face, landmarks and the recognized identity with its similarity score"><figcaption>Face recognition (similarity 0.92).</figcaption></figure>
       </div>
     </article>

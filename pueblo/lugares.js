@@ -11,25 +11,23 @@ const img = (archivo, cap) => ({ img: IMG + archivo + '.webp', cap });
 const asset = (ruta, cap) => ({ img: '../assets/' + ruta, cap });
 
 export const VISUALES = {
-  'SaaS multi-tenant para salud': [asset('trabajo/saas.svg', 'Ilustración: no es una captura del sistema real.'), flujo(['Clientes (tenants)', 'Keycloak · permisos', 'API FastAPI', 'Módulos de negocio'])],
-  'Integraciones clínicas HL7 / FHIR': [asset('trabajo/hl7-fhir.svg', 'Ilustración: no es una captura del sistema real.'), flujo(['Sistema externo', 'HL7 v2.6 por MLLP · FHIR', 'Integrador: mapeos y reintentos', 'Sistema del laboratorio'])],
-  'Exportación de antibiogramas': [asset('trabajo/antibiograma.svg', 'Ilustración: no es una captura del sistema real.'), flujo(['Antibiograma', 'Validación CMI / halo / SIR', 'Vista previa', 'Archivo de exportación'])],
-  'Plantillas de informes': [asset('trabajo/plantillas.svg', 'Ilustración: no es una captura del sistema real.'), flujo(['Plantilla con {{variables}}', 'Estilos por fragmento', 'Vista previa', 'Aplicación masiva'])],
-  'Arky AI': [{ video: '../assets/arky/arky-video-es.mp4', cap: 'El video de presentación: la app real, en castellano.' }, asset('arky/arky-chat-es.webp', 'No solo contesta: actúa. Arma la receta y suma a la lista lo que falta.'), asset('arky/arky-sueldo-es.webp', 'Sueldo contra inflación, con datos reales del INDEC y la cuenta a la vista.')],
-  'ArkyBites': [asset('arky/arky-despensa-es.webp', 'La despensa avisa qué vence y Arky propone una receta con eso.'), asset('arky/arky-chat-es.webp', 'Desde el chat: receta, despensa y lista del súper en una conversación.')],
-  'ArkyCash-e': [asset('arky/arky-libre-es.webp', 'Cuánto podés gastar de verdad: lo que tenés, menos pagos, colchón y ahorro.'), asset('arky/arky-importar-es.webp', 'Una foto del resumen del banco y los gastos se cargan solos.'), asset('arky/arky-aldia-es.webp', 'Ponerse al día sin cargar gasto por gasto y sin duplicar nada.')],
+  'Arky': [{ video: '../assets/arky/arky-video-es.mp4', cap: 'El video de presentación: la app real, en castellano.' }, asset('arky/arky-chat-es.webp', 'No solo contesta: actúa. Arma la receta y suma a la lista lo que falta.'), asset('arky/arky-despensa-es.webp', 'La despensa avisa qué vence y Arky propone una receta con eso.'), asset('arky/arky-sueldo-es.webp', 'Sueldo contra inflación, con datos reales del INDEC y la cuenta a la vista.'), asset('arky/arky-libre-es.webp', 'Cuánto podés gastar de verdad: lo que tenés, menos pagos, colchón y ahorro.'), asset('arky/arky-importar-es.webp', 'Una foto del resumen del banco y los gastos se cargan solos.'), asset('arky/arky-aldia-es.webp', 'Ponerse al día sin cargar gasto por gasto y sin duplicar nada.')],
+  'Trabajo en Wiener Lab': [asset('trabajo/hl7-fhir.svg', 'Ilustración: un mensaje HL7 v2.6 ficticio convertido en FHIR. No es una captura del sistema real.'), asset('trabajo/saas.svg', 'Ilustración: tenants, Keycloak, FastAPI y SQL Server con datos separados por tenant.')],
   'Sandō 三道': [img('sando-pueblo', 'El pueblo: Arky camina entre el dojo, el cine, la sala de música, el café y la casa.'), img('sando-kana', 'Dojo: batallas de kana contra yokai.'), img('sando-espresso', 'Academia de barismo: el espresso paso a paso, con presión, caudal y canalización simulados.'), img('sando-latte', 'Latte Art Academy: se dibuja con el vertido sobre una superficie simulada.'), img('sando-canciones', 'Sala de música: canciones con notas que caen y teclado MIDI o micrófono.'), img('sando-cine', 'Cine: videos de YouTube con subtítulos japoneses analizados por una IA local.')],
-  'Valdor — D&D tools': [flujo(['Acertijo de varias etapas', 'Pistas', 'Decisiones de los jugadores', 'La historia cambia'], 'Esquema ilustrativo de cómo funcionan los puzles de la campaña.')],
-  'Arky Pixel Assets': [{ sprite: true, cap: 'La hoja de sprites de Arky, animada: caminata en cuatro direcciones.' }, { caras: true, cap: 'Expresiones: feliz, enojado, pensativo y sorprendido.' }],
-  'Reconocimiento facial': [asset('uni/facial-lau.webp', 'Detección, puntos de referencia e identidad reconocida (similitud 0,92).'), asset('uni/facial-video-lau.webp', 'Reconocimiento sobre video: detección, cinco puntos de referencia y la identidad con su similitud.'), img('facial-embeddings', 'Embeddings del dataset propio con PCA y t-SNE: cada persona forma su propio grupo.'), img('facial-umbral', 'Barrido del umbral: reconocer a los conocidos contra rechazar a los desconocidos.'), img('facial-confusion', 'Matriz de confusión de la evaluación closed-set.')],
-  'Algoritmos de búsqueda e IA': [asset('uni/busqueda-astar.webp', 'El visualizador del TP, en Pygame, resolviendo con A* un laberinto de división recursiva.'), flujo(['Tablero', 'MAX y MIN recursivos', 'Jugada óptima'], 'Esquema del agente Minimax para el tres en raya.')],
   'Razas de perros': [asset('uni/perros-pipeline.webp', 'Etapa 3 sobre imágenes externas: YOLOv8 detecta cada perro y el clasificador dice la raza.'), asset('uni/perros-deteccion.webp', 'Varios perros en una misma foto, cada uno con su caja y su raza.'), img('perros-metricas', 'ResNet18 con fine-tuning contra una CNN propia, en test.'), img('perros-confusion', 'Matriz de confusión de la ResNet18 sobre 70 razas.'), img('perros-similitud', 'Búsqueda por similitud: accuracy por modelo.'), img('perros-entrenamiento', 'Curvas de entrenamiento.')],
-  'Visión clásica con OpenCV': [img('vision-ecualizacion', 'Ecualización local: aparecen un cuadrado, una diagonal, una «a», cuatro líneas y un círculo escondidos.'), img('vision-formulario', 'Validación de formularios: en verde lo válido, en rojo lo que falla.'), img('vision-patente', 'Segmentación de los caracteres de una patente.'), img('vision-monedas', 'Monedas y dados: $7,40 en monedas, dados 5 y 3.')],
-  'Dados en video': [img('vision-dados', 'El cuadro elegido de la tirada 4: cinco dados quietos, 14 puntos.'), { video: '../assets/pdi/tirada_4.mp4', cap: 'La tirada original.' }],
+  'Reconocimiento facial': [asset('uni/facial-lau.webp', 'Detección, puntos de referencia e identidad reconocida (similitud 0,92).'), asset('uni/facial-video-lau.webp', 'Reconocimiento sobre video: detección, cinco puntos de referencia y la identidad con su similitud.'), img('facial-embeddings', 'Embeddings del dataset propio con PCA y t-SNE: cada persona forma su propio grupo.'), img('facial-umbral', 'Barrido del umbral: reconocer a los conocidos contra rechazar a los desconocidos.'), img('facial-confusion', 'Matriz de confusión de la evaluación closed-set.')],
+  'Procesamiento de imágenes': [img('vision-ecualizacion', 'Ecualización local: aparecen un cuadrado, una diagonal, una «a», cuatro líneas y un círculo escondidos.'), img('vision-formulario', 'Validación de formularios: en verde lo válido, en rojo lo que falla.'), img('vision-patente', 'Segmentación de los caracteres de una patente.'), img('vision-monedas', 'Monedas y dados: $7,40 en monedas, dados 5 y 3.'), img('vision-dados', 'El cuadro elegido de la tirada 4: cinco dados quietos, 14 puntos.'), { video: '../assets/pdi/tirada_4.mp4', cap: 'La tirada original.' }],
 };
 
 // Lo que no es una ficha del catálogo pero vive en un edificio.
 export const EXTRAS = {
+  'Arky Pixel Assets': {
+    resumen: 'Spritesheets y recursos retro para experiencias estilo GBA.',
+    trabajado: 'Adaptación estética, sprites y preparación para integrarlos en juegos. Arky es el protagonista de Sandō: camina en cuatro direcciones, descansa y cambia de expresión según lo que pasa. Un script propio limpia los restos del recorte en los bordes sin tocar el dibujo.',
+    tags: 'Pixel Art,Game Assets,JSON', icono: '🎮', estado: 'Assets desarrollados',
+    visuales: [{ sprite: true, cap: 'La hoja de sprites de Arky, animada: caminata en cuatro direcciones.' }, { caras: true, cap: 'Expresiones: feliz, enojado, pensativo y sorprendido.' }],
+    enlaces: [],
+  },
   'Café y barismo': {
     resumen: 'El café empezó como curiosidad y terminó en simulaciones. A largo plazo, una cafetería propia: un espacio cálido, jazz de fondo y tiempo para conversar.',
     trabajado: 'Modelos de extracción, vaporizado y latte art dentro de Sandō, .',
@@ -43,14 +41,14 @@ export const LUGARES = [
   {
     id: 'lab', nombre: 'Laboratorio clínico', kanji: '研究所', estilo: 'musica', icono: '🏥', x: 23, y: 2, w: 8, h: 6, puerta: { x: 26, y: 7 },
     linea: 'Mi trabajo en Wiener Lab',
-    intro: 'Soy desarrollador Full-Stack en Wiener Lab: me encargo principalmente del backend y la base de datos, y colaboro con el frontend. Acá están los tipos de desarrollo que hago, explicados de forma general. Como es software de salud de la empresa, no muestro código, pantallas, nombres de productos ni detalles internos: solo recreaciones con datos ficticios y esquemas.',
-    proyectos: ['SaaS multi-tenant para salud', 'Integraciones clínicas HL7 / FHIR', 'Exportación de antibiogramas', 'Plantillas de informes'],
+    intro: 'Soy desarrollador Full-Stack en Wiener Lab: me encargo principalmente del backend y la base de datos, y colaboro con el frontend. Acá está el tipo de desarrollo que hago, explicado de forma general. Como es software de salud de la empresa, no muestro código, pantallas, nombres de productos ni detalles internos: solo recreaciones con datos ficticios y esquemas.',
+    proyectos: ['Trabajo en Wiener Lab'],
   },
   {
     id: 'arky', nombre: 'Casa de Arky', kanji: 'アーキー', estilo: 'casa', icono: '🐉', x: 26, y: 12, w: 7, h: 5, puerta: { x: 28, y: 16 },
     linea: 'Un asistente con IA para la cocina y la plata, en producción',
     intro: 'Arky es un dragoncito con IA que maneja dos áreas del día a día y las cruza en una misma conversación: la cocina (ArkyBites) y las finanzas (ArkyCash-e). Está en producción en Railway, con usuarios reales y registro abierto.',
-    proyectos: ['Arky AI', 'ArkyBites', 'ArkyCash-e'],
+    proyectos: ['Arky'],
   },
   {
     id: 'cafe', nombre: 'Kissaten: Sandō y café', kanji: '喫茶店', estilo: 'cafe', icono: '☕', x: 2, y: 12, w: 8, h: 5, puerta: { x: 6, y: 16 },
@@ -61,14 +59,14 @@ export const LUGARES = [
   {
     id: 'facultad', nombre: 'Facultad · UNR', kanji: '大学', estilo: 'dojo', icono: '🎓', x: 4, y: 2, w: 8, h: 6, puerta: { x: 8, y: 7 },
     linea: 'Tecnicatura en Inteligencia Artificial',
-    intro: 'El dojo donde entreno: la Tecnicatura Universitaria en Inteligencia Artificial de la UNR, que curso mientras trabajo a jornada completa. Visión por computadora, procesamiento de imágenes, algoritmos de búsqueda y agentes para juegos. Varios trabajos fueron en equipo.',
-    proyectos: ['Reconocimiento facial', 'Razas de perros', 'Visión clásica con OpenCV', 'Dados en video', 'Algoritmos de búsqueda e IA'],
+    intro: 'El dojo donde entreno: la Tecnicatura Universitaria en Inteligencia Artificial de la UNR, que curso mientras trabajo a jornada completa. Visión por computadora y procesamiento de imágenes, varios en equipo.',
+    proyectos: ['Razas de perros', 'Reconocimiento facial', 'Procesamiento de imágenes'],
   },
   {
     id: 'estudio', nombre: 'Estudio creativo', kanji: '工房', estilo: 'cine', icono: '🎨', x: 13, y: 1, w: 9, h: 7, puerta: { x: 17, y: 7 },
     linea: 'Pixel art y mundos para jugar',
-    intro: 'Videojuegos, pixel art y sistemas interactivos: donde se juntan la lógica y lo visual. También desarrollo un universo para Dungeons & Dragons, con reglas, acertijos y herramientas donde las decisiones de los jugadores cambian la historia.',
-    proyectos: ['Arky Pixel Assets', 'Valdor — D&D tools'],
+    intro: 'Videojuegos, pixel art y sistemas interactivos: donde se juntan la lógica y lo visual. Acá viven los sprites de Arky, el protagonista de Sandō.',
+    proyectos: ['Arky Pixel Assets'],
   },
 ];
 export const PLAZA = { id: 'plaza', nombre: 'Sobre mí', icono: '⛲', linea: 'La fuente de la plaza' };
