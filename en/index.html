@@ -4,283 +4,155 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f3f0e7">
-  <meta name="description" content="Lautaro Florenza, full-stack developer focused on backend work: Python/FastAPI, SQL, multi-tenant SaaS and healthcare interoperability (HL7, FHIR). Based in Argentina, open to fully remote roles.">
+  <meta name="description" content="Lautaro Florenza, full-stack developer focused on the backend: Python/FastAPI, SQL, multi-tenant SaaS and healthcare integrations (HL7, FHIR). Based in Argentina, open to remote work.">
   <meta property="og:title" content="Lautaro Florenza, Full-Stack Developer">
-  <meta property="og:description" content="Backend-focused full-stack developer: Python/FastAPI, SQL, multi-tenant SaaS, HL7 and FHIR. Open to fully remote roles.">
+  <meta property="og:description" content="Python and SQL backend, multi-tenant SaaS and HL7/FHIR integrations. Arky, my AI app, runs in production.">
   <meta property="og:type" content="website">
   <title>Lautaro Florenza, Full-Stack Developer</title>
-  <style>
-    :root {
-      --paper: #f3f0e7; --paper-light: #faf8f1; --ink: #30372e; --muted: #6a6d61;
-      --olive: #47543d; --clay: #86654d; --line: #d9d8cb; --soft: #e9e9de;
-      --serif: Georgia, 'Times New Roman', serif; --sans: 'Segoe UI', system-ui, Arial, sans-serif;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.7 var(--sans); }
-    a { color: inherit; }
-    h1, h2, h3, p, ul, figure { margin: 0; }
-    :focus-visible { outline: 2px solid var(--olive); outline-offset: 4px; }
-    .wrap { width: min(1120px, 100%); margin: auto; padding: 0 40px; }
-    header { position: sticky; top: 0; z-index: 10; background: #f3f0e7ee; backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-    nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0; }
-    .brand { font: 22px/1.1 var(--serif); text-decoration: none; letter-spacing: -.5px; }
-    .brand span { color: var(--clay); font-style: italic; }
-    .navlinks { display: flex; gap: 24px; font-size: 13px; }
-    .navlinks a { text-decoration: none; border-bottom: 1px solid transparent; }
-    .navlinks a:hover { border-color: var(--clay); }
-    .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--olive); font-weight: 600; }
-    .hero { padding: 72px 0 56px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: end; }
-    h1 { font: 400 clamp(40px, 5.4vw, 64px)/1.06 var(--serif); letter-spacing: -2px; margin: 18px 0 24px; }
-    h1 em { color: var(--clay); }
-    .lead { color: #575d52; max-width: 600px; }
-    .facts { list-style: none; padding: 0; border-left: 1px solid var(--line); padding-left: 24px; font-size: 14px; display: grid; gap: 10px; }
-    .facts b { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border: 1px solid #c2c6b5; border-radius: 2px; font-size: 13px; font-weight: 500; text-decoration: none; background: transparent; }
-    .btn:hover { background: #e6e8dc; }
-    .btn.primary { background: var(--olive); border-color: var(--olive); color: #faf8ee; }
-    .btn.primary:hover { background: #303c29; }
-    .btn.live::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #9fd48f; box-shadow: 0 0 0 3px #9fd48f44; }
-    .btn.live:not(.primary)::before { background: #5b9a4f; }
-    section { padding: 64px 0; border-top: 1px solid var(--line); }
-    h2 { font: 400 clamp(30px, 3.4vw, 40px)/1.15 var(--serif); letter-spacing: -1px; margin: 12px 0 28px; }
-    h3 { font: 400 23px/1.3 var(--serif); }
-    .cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .card { background: var(--paper-light); border: 1px solid var(--line); padding: 24px; }
-    .card p { color: #575d52; font-size: 15px; margin-top: 10px; }
-    .job { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 26px 0; border-bottom: 1px solid var(--line); }
-    .job:last-child { border-bottom: 0; }
-    .when { font-size: 13px; color: var(--muted); }
-    .when b { display: block; color: var(--ink); font-size: 15px; font-weight: 600; }
-    .job ul, .case ul { padding-left: 18px; color: #4f554a; font-size: 15px; }
-    .job li + li, .case li + li { margin-top: 6px; }
-    .job p { color: #4f554a; font-size: 15px; margin: 6px 0 10px; }
-    .case { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 36px 0; border-bottom: 1px solid var(--line); }
-    .case:last-of-type { border-bottom: 0; }
-    .case .meta { font-size: 13px; color: var(--muted); margin: 6px 0 16px; }
-    .case h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1.6px; color: var(--olive); margin: 18px 0 6px; }
-    .case p { color: #4f554a; font-size: 15px; }
-    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
-    .shots img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: #fff; }
-    .shots .wide { grid-column: 1 / -1; }
-    .case.has-row { grid-template-columns: 1fr 1fr; }
-    .case.has-row .shots.arky { grid-column: 1 / -1; grid-template-columns: repeat(4, 1fr); }
-    .shots video { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: #e9e3d6; }
-    .pixel img { image-rendering: pixelated; }
-    figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
-    .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; font-size: 14px; }
-    .links a { color: var(--olive); text-underline-offset: 3px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-    .tags span { font-size: 12px; padding: 3px 9px; background: var(--soft); border-radius: 2px; }
-    .note { font-size: 13px; color: var(--muted); margin-top: 18px; }
-    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
-    .skills div { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
-    .skills b { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--olive); }
-    .contact { display: flex; flex-wrap: wrap; gap: 10px; }
-    footer { padding: 32px 0 48px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
-    @media (max-width: 860px) {
-      .wrap { padding: 0 16px; }
-      .navlinks { gap: 14px; }
-      .navlinks .opt { display: none; }
-      .hero, .case { grid-template-columns: 1fr; gap: 28px; }
-      .hero { padding-top: 44px; }
-      .facts { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; }
-      .cols3, .skills { grid-template-columns: 1fr; }
-      .case.has-row .shots.arky { grid-template-columns: 1fr 1fr; }
-      .job { grid-template-columns: 1fr; gap: 8px; }
-      section { padding: 48px 0; }
-    }
-  </style>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+<a class="skip-link" href="#contenido">Skip to content</a>
 <header>
-  <div class="wrap">
-    <nav aria-label="Main">
-      <a class="brand" href="#top">Lautaro <span>Florenza.</span></a>
-      <div class="navlinks">
-        <a class="opt" href="#experience">Experience</a>
-        <a href="#work">Work</a>
-        <a class="opt" href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a href="../" lang="es">Español</a>
-      </div>
-    </nav>
-  </div>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#inicio" aria-label="Lautaro Florenza, home">Lautaro <span>Florenza.</span></a>
+    <div class="navlinks">
+      <a href="#proyectos">Projects</a>
+      <a href="#experiencia">Experience</a>
+      <a href="#japon">Japan</a>
+      <a href="#contacto">Contact</a>
+      <a href="../" lang="es">Español</a>
+      <a class="nav-github" href="https://github.com/Lauaf" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </nav>
 </header>
-
-<main class="wrap" id="top">
-  <div class="hero">
-    <div>
+<main class="wrap" id="contenido">
+  <section id="inicio" class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
       <div class="eyebrow">Full-stack developer · backend-focused</div>
-      <h1>Backends that keep <em>healthcare and SaaS data</em> moving.</h1>
-      <p class="lead">I'm Lautaro Florenza, a full-stack developer with nearly four years of professional experience, most of it in healthcare software. I work mainly on the backend and the database: Python (FastAPI, SQLAlchemy), SQL, multi-tenant SaaS and integrations with external health systems over HL7 v2 and FHIR. I also build Angular frontends, and I run my own LLM-powered app in production.</p>
+      <h1 id="hero-title">Backend for<br><em>healthcare and SaaS.</em></h1>
+      <p class="lead">I'm <strong>Lautaro Florenza</strong>, a full-stack developer with nearly four years of experience, most of it in healthcare software. I work mainly on the backend and the database: Python (FastAPI, SQLAlchemy), SQL, multi-tenant SaaS and HL7 and FHIR integrations. I also build Angular frontends. Outside work I built <strong>Arky</strong>, an AI app that runs in production.</p>
       <div class="actions">
-        <a class="btn primary" href="../assets/cv/Lautaro_Florenza_CV.pdf">Download CV (PDF)</a>
-        <a class="btn live" href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">Try Arky, my app in production ↗</a>
+        <a class="btn primary live" href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">Try Arky in production <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="../assets/cv/Lautaro_Florenza_CV.pdf">CV (PDF)</a>
+        <a class="text-link" href="#proyectos">See projects <span aria-hidden="true">↓</span></a>
+      </div>
+      <ul class="hero-facts">
+        <li><b>Based in</b>Rosario, Argentina (UTC−3)</li>
+        <li><b>Looking for</b>Remote work, ideally with Japan-connected teams</li>
+        <li><b>Languages</b>Spanish (native) · English (advanced) · Japanese (basic–intermediate)</li>
+      </ul>
+    </div>
+    <figure class="hero-figure app-shot">
+      <img src="../assets/arky/arky-libre-en.webp" width="540" height="960" alt="Arky in production: the dashboard with how much is free to spend this month" fetchpriority="high">
+      <figcaption>Arky in production: how much you can really spend, with the breakdown.</figcaption>
+    </figure>
+  </section>
+  <div class="index-strip" aria-label="Summary">
+    <span><strong>~4 years</strong> of experience</span>
+    <span><strong>850+</strong> tests in Arky</span>
+    <span><strong>HL7 · FHIR</strong> in production</span>
+    <span><strong>ES · EN</strong> · basic 日本語</span>
+  </div>
+  <section id="proyectos" class="archive" aria-labelledby="projects-title">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow"><span class="section-number">01</span> Projects</div>
+        <h2 id="projects-title">What I've built.</h2>
+        <p>What runs in production can be tried. The rest has its repository or, for company work, a description of what I did.</p>
+      </div>
+      <input class="search" id="search" placeholder="Search a project or technology…" aria-label="Search projects" type="search">
+    </div>
+    <div class="filters" id="filters" aria-label="Filter projects"></div>
+    <div class="project-grid" id="projects"></div>
+    <p class="micro" id="count" aria-live="polite"></p>
+    <aside class="sando-banda" aria-label="Interactive version">
+      <div><b>Rather explore it as a game?</b><p>The same projects in a pixel-art town, built with the engine of Sandō, my game for studying Japanese. The town is in Spanish.</p></div>
+      <a class="sando-btn" href="../pueblo/"><span class="sando-arky" aria-hidden="true"></span><span class="sando-txt"><b>三道 Walk the town</b><small>Pick a place and Arky takes you there</small></span><span class="sando-flecha" aria-hidden="true">▶</span></a>
+    </aside>
+    <p class="repo-note">Private links require access. <a class="repo-link" href="https://github.com/Lauaf?tab=repositories" target="_blank" rel="noopener noreferrer">See all my repositories ↗</a></p>
+  </section>
+  <section id="experiencia" class="work-chapter" aria-labelledby="work-title">
+    <div class="eyebrow"><span class="section-number">02</span> Experience</div>
+    <h2 id="work-title">Where I've worked.</h2>
+    <div class="jobs">
+      <article class="job">
+        <div class="when"><b>Wiener Lab</b>Full-Stack Developer<br>Jun 2025 – present · Rosario (hybrid)</div>
+        <div>
+          <p>Multi-tenant SaaS for clinical laboratories. I work mainly on the backend and the database, and I contribute to the frontend.</p>
+          <ul>
+            <li>Python services with FastAPI, SQLAlchemy and Alembic: endpoints, data models and migrations.</li>
+            <li>SQL Server: schemas, complex queries, views, triggers and per-tenant data separation.</li>
+            <li>Healthcare integrations: HL7 v2.6 (ADT, OML) over MLLP, FHIR exchange of orders, observations and reports, and MQTT notifications, alongside legacy Java components.</li>
+            <li>Authentication and permissions with Keycloak (OIDC/SSO, RBAC, realms), feature flags, quotas and subscription plans.</li>
+            <li>Angular 20 frontend with TypeScript, RxJS, TailwindCSS and Angular Material.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when"><b>NISADE × The Luxe Nomad</b>Night Auditor<br>Nov 2024 – Mar 2025 · Niseko, Japan</div>
+        <div><p>Working Holiday in Japan: night operations, international guest services, and audit and control tasks, working in English every day.</p></div>
+      </article>
+      <article class="job">
+        <div class="when"><b>NEORIS</b>Full-Stack Web/API Developer<br>Sep 2022 – Apr 2024 · Rosario</div>
+        <div><p>Web and mobile projects with ASP.NET MVC (C#) and JavaScript/jQuery, SQL schema design and optimization, and agile teamwork with Git and Jira.</p></div>
+      </article>
+      <article class="job">
+        <div class="when"><b>Fantommers</b>Full-Stack Developer<br>Oct 2021 – Oct 2022 · Rosario</div>
+        <div><p>Healthcare web applications with Node.js, Angular and SQL Server, including API integrations.</p></div>
+      </article>
+      <article class="job">
+        <div class="when"><b>Universidad Nacional de Rosario</b>Associate Degree in Artificial Intelligence<br>In progress</div>
+        <div><p>I study it while working full time. Courses include Programming III, Databases I, Image Processing and Computer Vision; several projects are in the catalog.</p></div>
+      </article>
+    </div>
+    <p class="stack-line">Python · FastAPI · SQLAlchemy · SQL Server · PostgreSQL · Angular · TypeScript · Keycloak · Docker · HL7 · FHIR · MQTT · pytest</p>
+  </section>
+  <section id="laboratorio" class="lab" aria-labelledby="lab-title">
+    <div class="eyebrow"><span class="section-number">03</span> Vision lab</div>
+    <h2 id="lab-title">Try it in the browser.</h2>
+    <p class="muted">My Image Processing coursework from UNR, ported from Python to dependency-free JavaScript. Tests compare its output with the original code.</p>
+<div class="workspace"><div class="workbody"><div class="demo active" id="demo-vision"><div class="demo-title"><div><h3>Image processing, in your browser</h3><p>The UNR Image Processing coursework, ported from Python to JavaScript and running in your browser. It gives the same results as the original code.</p></div></div><div class="vtabs filters"></div><div class="vbody"></div></div></div></div>
+    <p class="micro" style="margin-top:17px">It uses the images and videos from the coursework.</p>
+  </section>
+  <section id="japon" class="japan-chapter" aria-labelledby="japan-title">
+    <div class="eyebrow"><span class="section-number">04</span> Japan and beyond code</div>
+    <div class="japan-grid">
+      <div>
+        <h2 id="japan-title">A year in Japan.</h2>
+        <div class="places" aria-label="Places I lived in Japan"><span>Tokyo</span><span>Yokohama</span><span>Okinawa</span><span>Hokkaido</span></div>
+      </div>
+      <div class="story-copy">
+        <p>In 2024 I went to Japan on a Working Holiday visa and spent about a year between Tokyo, Yokohama, Okinawa and Hokkaido. In Niseko I worked as a <em>Night Auditor</em>, on 10 pm to 7 am shifts, handling whatever came up at night on my own, with guests from all over the world.</p>
+        <p>I came back more independent, used to English every day and wanting to stay connected: I study Japanese and even built <strong>Sandō</strong>, a game to practice it.</p>
+        <p>Beyond code: video games and pixel art, coffee (hence Sandō's barista academy), music, photography and snowboarding. I have volunteered at community kitchens.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="contacto">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <p class="footer-title">Let's talk.</p>
+        <p class="footer-sub">I'm looking for a remote backend or full-stack role.</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="mailto:lautaroflorenza@gmail.com">lautaroflorenza@gmail.com</a>
+        <a class="btn" href="../assets/cv/Lautaro_Florenza_CV.pdf">CV (PDF)</a>
         <a class="btn" href="https://www.linkedin.com/in/lautaro-florenza-bb0536242/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         <a class="btn" href="https://github.com/Lauaf" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
     </div>
-    <ul class="facts">
-      <li><b>Location</b>Rosario, Argentina (UTC−3)</li>
-      <li><b>Looking for</b>Fully remote roles, ideally with Japanese or Japan-related teams</li>
-      <li><b>Languages</b>Spanish (native) · English (advanced) · Japanese (basic–intermediate)</li>
-      <li><b>Japan</b>Lived and worked there on a Working Holiday, 2024–2025</li>
-    </ul>
+    <div class="footer-bottom"><span>Lautaro Florenza · Rosario, Argentina</span><a href="../" lang="es">Versión en español</a><span>2026</span></div>
   </div>
-
-  <section aria-labelledby="bring-title">
-    <div class="eyebrow">What I bring</div>
-    <h2 id="bring-title">Where I'm most useful.</h2>
-    <div class="cols3">
-      <div class="card"><h3>Backend and data</h3><p>REST APIs with FastAPI, SQLAlchemy and Alembic. Relational modeling, complex SQL, views, triggers and migrations, including per-tenant data separation.</p></div>
-      <div class="card"><h3>Systems that must talk</h3><p>Inbound HL7 v2.6 over MLLP, FHIR resources and MQTT. Mapping clinical codes, handling retries and keeping legacy Java and new Python services working together.</p></div>
-      <div class="card"><h3>End-to-end ownership</h3><p>I designed, built, tested and deployed Arky on my own: Angular, FastAPI, PostgreSQL, an LLM integration and Docker on Railway.</p></div>
-    </div>
-  </section>
-
-  <section id="experience" aria-labelledby="exp-title">
-    <div class="eyebrow">Experience</div>
-    <h2 id="exp-title">Where I've worked.</h2>
-
-    <div class="job">
-      <div class="when"><b>Wiener Lab</b>Full-Stack Developer<br>Jun 2025 – present · Rosario (hybrid)</div>
-      <div>
-        <p>Multi-tenant SaaS platform for clinical laboratory management. I focus on the backend and the database, and I contribute to the frontend.</p>
-        <ul>
-          <li>Backend services in Python, FastAPI, SQLAlchemy and Alembic: endpoints, data models and migrations.</li>
-          <li>SQL Server schemas, complex queries, views, triggers and per-tenant data separation.</li>
-          <li>Healthcare integrations: HL7 v2.6 (ADT, OML) over MLLP, FHIR-based exchange of orders, observations and reports, and MQTT notifications.</li>
-          <li>Keycloak authentication and authorization (OIDC/SSO, RBAC, realms, tenant isolation), feature flags, quotas and subscription plans.</li>
-          <li>Angular features (recently Angular 20) with TypeScript, RxJS, TailwindCSS and Angular Material.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="job">
-      <div class="when"><b>NISADE × The Luxe Nomad</b>Night Auditor<br>Nov 2024 – Mar 2025 · Niseko, Japan</div>
-      <div><p>Working Holiday in Japan: night operations, guest services, and audit and control tasks for international guests, working in English every day.</p></div>
-    </div>
-    <div class="job">
-      <div class="when"><b>NEORIS</b>Full-Stack Web/API Developer<br>Sep 2022 – Apr 2024 · Rosario</div>
-      <div><p>Web and mobile project features with ASP.NET MVC (C#) and JavaScript/jQuery, SQL schema design and query optimization, and agile teamwork with Git and Jira.</p></div>
-    </div>
-    <div class="job">
-      <div class="when"><b>Fantommers</b>Full-Stack Developer<br>Oct 2021 – Oct 2022 · Rosario</div>
-      <div><p>Healthcare-sector web applications with Node.js backends, Angular frontends and SQL Server, including API integrations.</p></div>
-    </div>
-  </section>
-
-  <section id="work" aria-labelledby="work-title">
-    <div class="eyebrow">Selected work</div>
-    <h2 id="work-title">Things I've built.</h2>
-
-    <article class="case has-row">
-      <div>
-        <h3>Arky, an assistant for the kitchen and your money</h3>
-        <div class="meta">Personal product · live in production · built solo</div>
-        <p>A web app where an LLM assistant takes real actions, not just answers. It creates recipes, adds missing items to the shopping list and records an expense you dictate. It sees both areas at once: asked "can I afford delivery tonight?", it checks what's left to spend this month and what in the pantry is about to expire.</p>
-        <h4>Decisions worth mentioning</h4>
-        <ul>
-          <li>Any action that touches money asks for confirmation before it's applied.</li>
-          <li>The AI provider sits behind an interface: Gemini in production, and a deterministic mock for development and tests.</li>
-          <li>Ingredients and units are normalized, so "chicken breast" matches "chicken" and 1 kg compares with 500 g.</li>
-          <li>The finance module forecasts 12 months with inflation, salary updates and conservative, base and optimistic scenarios.</li>
-        </ul>
-        <h4>Evidence</h4>
-        <p>More than 850 backend tests, 88 frontend unit tests and an end-to-end Playwright run. JWT authentication, deployed on Railway (nginx web, Dockerized API, PostgreSQL). The app is bilingual (English and Spanish) and sign-up is open.</p>
-        <div class="tags"><span>Angular 20</span><span>FastAPI</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Gemini API</span><span>Docker</span><span>Railway</span></div>
-        <div class="actions">
-          <a class="btn primary live" href="https://arky-web-production.up.railway.app" target="_blank" rel="noopener noreferrer">Try it in production ↗</a>
-          <a class="btn" href="https://arky-landing-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Product page ↗</a>
-        </div>
-        <p class="note">Sign-up is open and the app works in English. Open-source finance module: <a href="https://github.com/Lauaf/Arky-Finances" target="_blank" rel="noopener noreferrer">github.com/Lauaf/Arky-Finances ↗</a></p>
-        <p class="note">The full source code is private and available on request.</p>
-      </div>
-      <div class="shots arky">
-        <figure><video src="../assets/arky/arky-video-en.mp4" poster="../assets/arky/arky-video-en.webp" controls muted playsinline preload="none" width="540" height="960" aria-label="Arky's one-minute product video"></video></figure>
-        <figure><img src="../assets/arky/arky-libre-en.webp" width="540" height="960" loading="lazy" alt="Arky's home: how much is free to spend this month, with the breakdown"></figure>
-        <figure><img src="../assets/arky/arky-chat-en.webp" width="540" height="960" loading="lazy" alt="Arky's chat builds a recipe and adds what's missing to the shopping list"></figure>
-        <figure><img src="../assets/arky/arky-despensa-en.webp" width="540" height="960" loading="lazy" alt="The pantry warns what's expiring and Arky suggests a recipe"></figure>
-        <p class="note wide" style="margin-top:0">Scenes from Arky's product video: the real app, in English.</p>
-      </div>
-    </article>
-
-    <article class="case">
-      <div>
-        <h3>Professional work at Wiener Lab</h3>
-        <div class="meta">Described in general terms · no internal code, names or data</div>
-        <ul>
-          <li><b>Multi-tenant SaaS for clinical labs:</b> backend and database work, Keycloak permissions, tenant administration, feature flags, quotas and plans.</li>
-          <li><b>Clinical integrations:</b> HL7 v2.6 over MLLP, FHIR and MQTT; validating and mapping clinical codes; retries, re-sending and traceability alongside legacy Java components. Most recently, an export of microbiology results to an external analysis format, with end-to-end tests.</li>
-        </ul>
-        <div class="tags"><span>Python</span><span>FastAPI</span><span>SQL Server</span><span>Keycloak</span><span>HL7 v2</span><span>FHIR</span><span>MQTT</span><span>Angular</span></div>
-      </div>
-      <div class="card">
-        <h3>How I describe this work</h3>
-        <p>These are real healthcare systems, so I don't publish code, screenshots, product or client names. I'm happy to talk through architecture, trade-offs and how I tested each piece in an interview.</p>
-      </div>
-    </article>
-
-    <article class="case">
-      <div>
-        <h3>Sandō, a game for learning Japanese, piano and coffee</h3>
-        <div class="meta">Personal project · playable in the browser</div>
-        <p>A pixel-art town I built to practice what I care about. The dojo has kana battles, N5–N3 vocabulary with spaced repetition and conversation with a local LLM. The cinema imports YouTube videos with Japanese subtitles and breaks each line into words with readings and meanings in context. The music room reads a MIDI keyboard or microphone. The coffee academy runs eight mini-games on simulation models I wrote.</p>
-        <div class="tags"><span>JavaScript (ES modules)</span><span>Canvas</span><span>Python stdlib server</span><span>Local LLM (Ollama)</span><span>MIDI</span></div>
-        <div class="actions"><a class="btn primary live" href="../sando/">Play it in the browser ↗</a></div>
-        <p class="note">No build step and no dependencies. The UI is in Spanish, and the AI features need the local server.</p>
-      </div>
-      <div class="shots pixel">
-        <figure><img src="../assets/pueblo/sando-pueblo.webp" width="1100" height="734" loading="lazy" alt="Sandō's pixel-art town"></figure>
-        <figure><img src="../assets/pueblo/sando-kana.webp" width="1100" height="734" loading="lazy" alt="A kana battle in Sandō's dojo"></figure>
-      </div>
-    </article>
-
-    <article class="case">
-      <div>
-        <h3>University work in AI</h3>
-        <div class="meta">Associate Degree in Artificial Intelligence, UNR · in progress</div>
-        <ul>
-          <li><b>Dog breed recognition (team of two):</b> similarity search with pgvector, a fine-tuned ResNet18 against a custom CNN, and YOLOv8 detection, served by an async FastAPI and Docker Compose. On the test set the ResNet18 reached 91.6% accuracy (F1 0.91), and similarity search reached NDCG@10 0.94. <a href="https://github.com/Lauaf/TP2_VC" target="_blank" rel="noopener noreferrer">Repo ↗</a></li>
-          <li><b>Face recognition pipeline:</b> YuNet detection, five-point alignment, FaceNet embeddings and threshold tuning, served by an async API. The dataset is small, so it validates the pipeline rather than measuring accuracy. <a href="https://github.com/Lauaf/TP1_CV" target="_blank" rel="noopener noreferrer">Repo ↗</a></li>
-          <li><b>Classical computer vision:</b> OpenCV work ported to dependency-free JavaScript, with regression tests against the original Python output. <a href="../#laboratorio" lang="es">Try it ↗</a></li>
-        </ul>
-      </div>
-      <div class="shots">
-        <figure class="wide"><img src="../assets/uni/perros-pipeline.webp" width="1489" height="924" loading="lazy" alt="Stage 3 on external images: YOLOv8 finds each dog and the classifier names the breed"><figcaption>Dog breeds: detection and classification on images outside the dataset.</figcaption></figure>
-        <figure><img src="../assets/uni/facial-lau.webp" width="309" height="548" loading="lazy" alt="Face recognition: detected face, landmarks and the recognized identity with its similarity score"><figcaption>Face recognition (similarity 0.92).</figcaption></figure>
-      </div>
-    </article>
-  </section>
-
-  <section id="skills" aria-labelledby="skills-title">
-    <div class="eyebrow">Skills</div>
-    <h2 id="skills-title">What I work with.</h2>
-    <div class="skills">
-      <div><b>Backend</b>Python, FastAPI, Pydantic, SQLAlchemy, Alembic, REST API design, pytest · earlier work: Node.js, C#, ASP.NET MVC</div>
-      <div><b>Frontend</b>Angular, TypeScript, RxJS, TailwindCSS, Angular Material, JavaScript</div>
-      <div><b>Databases</b>SQL Server, PostgreSQL, MySQL, SQLite · some Redis</div>
-      <div><b>Identity and SaaS</b>Keycloak, OpenID Connect (Authorization Code + PKCE), SSO, RBAC, JWT, multi-tenancy, feature flags</div>
-      <div><b>Healthcare interoperability</b>HL7 v2.6 (ADT, OML, MLLP), FHIR (ServiceRequest, DiagnosticReport, Observation), MQTT</div>
-      <div><b>Tooling</b>Docker, Docker Compose, Git, GitLab, GitHub Actions, Railway, Jira, Linux/WSL2</div>
-    </div>
-  </section>
-
-  <section id="contact" aria-labelledby="contact-title">
-    <div class="eyebrow">Contact</div>
-    <h2 id="contact-title">Let's talk.</h2>
-    <p class="lead" style="margin-bottom:24px">I'm looking for a fully remote role as a backend or full-stack developer. I'd especially like to join a team connected to Japan.</p>
-    <div class="contact">
-      <a class="btn primary" href="mailto:lautaroflorenza@gmail.com">lautaroflorenza@gmail.com</a>
-      <a class="btn" href="../assets/cv/Lautaro_Florenza_CV.pdf">CV (PDF)</a>
-      <a class="btn" href="https://www.linkedin.com/in/lautaro-florenza-bb0536242/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-      <a class="btn" href="https://github.com/Lauaf" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-    </div>
-  </section>
-</main>
-<footer>
-  <div class="wrap">Lautaro Florenza · Rosario, Argentina · <a href="../" lang="es">Versión en español</a></div>
 </footer>
+<dialog id="modal" aria-labelledby="modaltitle">
+  <div class="dialogtop"><div><div class="eyebrow" id="modalcat"></div><h2 id="modaltitle"></h2></div><button class="btn small" aria-label="Close" onclick="document.getElementById('modal').close()">✕</button></div>
+  <div class="modaltext" id="modalcontent"></div><div class="actions" id="modalactions"></div>
+</dialog>
+<script src="../proyectos.js"></script>
+<script src="../catalogo.js"></script>
+<script src="../vision.js" defer></script>
 </body>
 </html>

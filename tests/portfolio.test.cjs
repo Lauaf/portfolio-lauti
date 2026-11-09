@@ -5,7 +5,8 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
-const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
+const script = fs.readFileSync(path.join(__dirname, '..', 'catalogo.js'), 'utf8');
+const htmlEn = fs.readFileSync(path.join(__dirname, '..', 'en', 'index.html'), 'utf8');
 const catalogo = fs.readFileSync(path.join(__dirname, '..', 'proyectos.js'), 'utf8');
 
 test('the page references existing local styles and images', () => {
@@ -23,7 +24,7 @@ test('the page references existing local styles and images', () => {
 
 // Minimal DOM stand-in: these tests exercise startup and demo logic.
 // Layout, focus and real clipboard access are checked separately in a browser.
-function createApp() {
+function createApp(lang = 'es') {
   class Element {
     constructor() {
       this.children = [];
@@ -44,6 +45,7 @@ function createApp() {
     },
     createElement() { return new Element(); },
     querySelectorAll() { return []; },
+    documentElement: { lang },
   };
   const context = vm.createContext({ document, navigator: {}, console });
   vm.runInContext(catalogo, context, { timeout: 3000 });
@@ -105,4 +107,34 @@ test('the catalog has no filler entries', () => {
   for (const relleno of ['Plantillas de informes', 'Exportación de antibiogramas', 'Valdor', 'Algoritmos de búsqueda', 'Pixel Assets', 'Ver caso de estudio']) {
     assert.doesNotMatch(cards, new RegExp(relleno), relleno);
   }
+});
+
+test('the English page is the same page, translated', () => {
+  const ids = h => [...h.matchAll(/<section id="([^"]+)"/g)].map(m => m[1]);
+  assert.deepEqual(ids(htmlEn), ids(html));
+  assert.match(htmlEn, /<html lang="en">/);
+  for (const ref of ['../styles.css', '../proyectos.js', '../catalogo.js', '../vision.js', '../assets/cv/Lautaro_Florenza_CV.pdf']) assert.ok(htmlEn.includes(ref), ref);
+  const { PROYECTOS, CATALOGO_EN } = require('../proyectos.js');
+  assert.equal(CATALOGO_EN.proyectos.length, PROYECTOS.length);
+  CATALOGO_EN.proyectos.forEach((p, i) => {
+    assert.equal(p.length, PROYECTOS[i].length, p[0]);
+    assert.equal(p[9], PROYECTOS[i][9], p[0]);
+    assert.ok(CATALOGO_EN.imagenes[p[0]], `${p[0]} sin imagen`);
+    assert.ok(fs.statSync(path.join(__dirname, '..', CATALOGO_EN.imagenes[p[0]].src)).size > 0, p[0]);
+  });
+});
+
+test('the English catalog renders in English with paths from en/', () => {
+  const { context, element } = createApp('en');
+  assert.match(element('count').textContent, /^6 of 6 projects shown/);
+  const cards = element('projects').innerHTML;
+  assert.match(cards, /Try it in production ↗/);
+  assert.match(cards, /View details/);
+  assert.match(cards, /src="\.\.\/assets\/arky\/arky-chat-en\.webp"/);
+  assert.match(cards, /href="\.\.\/sando\/"/);
+  assert.doesNotMatch(cards, /Ver detalles|En producción/);
+  element('filters').onclick({ target: { dataset: { filter: 'University' } } });
+  assert.match(element('count').textContent, /^3 of 6/);
+  context.showProject(1);
+  assert.match(element('modalcontent').innerHTML, /What I did/);
 });

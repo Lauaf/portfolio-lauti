@@ -16,22 +16,36 @@ const visionName = `vision.${huella(vision)}.js`;
 // El catálogo lo comparten el portfolio y el pueblo: se versiona con su huella para esquivar la caché.
 const catalogo = await readFile(path.join(root, 'proyectos.js'));
 const version = huella(catalogo);
+// La lógica del catálogo la comparten / y /en/.
+const logica = await readFile(path.join(root, 'catalogo.js'));
+const versionLogica = huella(logica);
 
 const html = await readFile(path.join(root, 'index.html'), 'utf8');
-for (const [marca, archivo] of [['href="styles.css"', 'la hoja de estilos'], ['src="vision.js"', 'vision.js'], ['src="proyectos.js"', 'proyectos.js']]) {
+for (const [marca, archivo] of [['href="styles.css"', 'la hoja de estilos'], ['src="vision.js"', 'vision.js'], ['src="proyectos.js"', 'proyectos.js'], ['src="catalogo.js"', 'catalogo.js']]) {
   if (!html.includes(marca)) throw new Error(`Falta ${archivo} en index.html`);
 }
 await writeFile(path.join(output, 'index.html'), html
   .replace('href="styles.css"', `href="${styleName}"`)
   .replace('src="vision.js"', `src="${visionName}"`)
-  .replace('src="proyectos.js"', `src="proyectos.js?v=${version}"`));
+  .replace('src="proyectos.js"', `src="proyectos.js?v=${version}"`)
+  .replace('src="catalogo.js"', `src="catalogo.js?v=${versionLogica}"`));
 await writeFile(path.join(output, styleName), css);
 await writeFile(path.join(output, visionName), vision);
 await writeFile(path.join(output, 'proyectos.js'), catalogo);
+await writeFile(path.join(output, 'catalogo.js'), logica);
 await cp(path.join(root, 'assets'), path.join(output, 'assets'), { recursive: true });
 
-// Versión en inglés para reclutadores: HTML autocontenido que usa las imágenes de assets/.
-await cp(path.join(root, 'en'), path.join(output, 'en'), { recursive: true });
+// Versión en inglés: la misma página traducida, con los mismos archivos de la raíz (../).
+await mkdir(path.join(output, 'en'), { recursive: true });
+const en = await readFile(path.join(root, 'en', 'index.html'), 'utf8');
+for (const marca of ['href="../styles.css"', 'src="../vision.js"', 'src="../proyectos.js"', 'src="../catalogo.js"']) {
+  if (!en.includes(marca)) throw new Error(`Falta ${marca} en en/index.html`);
+}
+await writeFile(path.join(output, 'en', 'index.html'), en
+  .replace('href="../styles.css"', `href="../${styleName}"`)
+  .replace('src="../vision.js"', `src="../${visionName}"`)
+  .replace('src="../proyectos.js"', `src="../proyectos.js?v=${version}"`)
+  .replace('src="../catalogo.js"', `src="../catalogo.js?v=${versionLogica}"`));
 
 // Sandō se publica tal cual: HTML, CSS y módulos ES sin build.
 await cp(path.join(root, 'sando'), path.join(output, 'sando'), { recursive: true });

@@ -37,8 +37,9 @@ test('Arky links and demo deep links are offered where they exist', async () => 
   const { LUGARES } = await cargar();
   const arky = LUGARES.find(l => l.id === 'arky');
   for (const n of arky.proyectos) assert.ok(PROYECTO_ENLACES[n].some(e => e.live), n);
-  const html = fs.readFileSync(path.join(raiz, 'index.html'), 'utf8');
-  assert.match(html, /#demo=/);
+  // El enlace directo al laboratorio (#demo=vision/...) lo resuelve la lógica compartida del catálogo.
+  const logica = fs.readFileSync(path.join(raiz, 'catalogo.js'), 'utf8');
+  assert.match(logica, /#demo=/);
 });
 
 test('pathfinding reaches a door around obstacles and gives up when it cannot', async () => {

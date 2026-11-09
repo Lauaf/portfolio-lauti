@@ -26,8 +26,13 @@ decorativos y la foto editorial de la versión anterior se quitaron porque no le
 decían nada a quien evalúa.
 
 - `index.html`: portada, catálogo, experiencia, laboratorio de visión y Japón.
-- `en/index.html`: versión en inglés para reclutadores, alineada con el CV. Es HTML
-  autocontenido y usa las imágenes de `assets/`.
+- `en/index.html`: la misma página traducida al inglés, con las mismas secciones y el
+  mismo catálogo. Usa los archivos de la raíz (`../styles.css`, `../catalogo.js`…).
+  **Si cambiás un texto de `index.html`, cambialo también acá**; una prueba verifica
+  que las dos tengan las mismas secciones y el mismo catálogo.
+- `catalogo.js`: catálogo, fichas y laboratorio para los dos idiomas. Elige idioma y
+  rutas según el `lang` de la página; los datos de cada idioma están en `proyectos.js`
+  (`PROYECTOS` y `CATALOGO_EN`). `vision.js` traduce su interfaz de la misma forma.
 - `cv/cv.html`: fuente del CV. `node cv/render.cjs` (requiere Playwright con
   Chromium) genera `assets/cv/Lautaro_Florenza_CV.pdf`, que enlazan ambas versiones.
 - `vision.js`: laboratorio de visión. Porta a JavaScript, sin dependencias, la
@@ -107,6 +112,7 @@ Después ingresá a http://localhost:8080. El servidor escucha solo en esta comp
 - Se quitaron las seis demos simplificadas (búsqueda, HL7, antibiogramas, Minimax, plantillas y espresso). Queda el laboratorio de visión.
 - El trabajo profesional se describe sin nombres internos.
 - Se agregaron la versión en inglés (`en/`) y el CV en PDF.
+- La versión en inglés pasa a ser la misma página traducida (antes era otra página distinta), con el catálogo y el laboratorio de visión también en inglés.
 - Portada y textos más directos: qué hago, Arky en producción, experiencia y contacto. Sin la foto editorial ni las frases decorativas.
 - El catálogo pasa de 15 a 6 proyectos: Arky en una sola ficha, el trabajo profesional en una sola ficha, y fuera las fichas genéricas que no sumaban.
 - Las tarjetas y fichas muestran imágenes: escenas del video de Arky en el idioma de cada versión, capturas reales de los TP e ilustraciones propias para el trabajo profesional.
