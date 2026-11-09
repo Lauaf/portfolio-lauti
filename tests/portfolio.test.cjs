@@ -15,7 +15,7 @@ test('the page references existing local styles and images', () => {
     .map(match => match[1])
     .filter(value => !/^[a-z]+:/i.test(value));
   assert.ok(localFiles.includes('styles.css'));
-  assert.ok(localFiles.includes('assets/arky/arky-libre-es.webp'));
+  assert.ok(localFiles.includes('assets/arky/arky-logo.webp'));
   assert.ok(localFiles.includes('assets/cv/Lautaro_Florenza_CV.pdf'));
   for (const file of localFiles) {
     assert.ok(fs.statSync(path.join(__dirname, '..', file)).size > 0, file);
