@@ -224,7 +224,7 @@ footer { border-top: 1px solid var(--line); padding: 54px 0 33px; }
 
 /* Portada directa: qué hago, prueba en producción y datos clave. */
 .hero-facts { list-style: none; padding: 0; margin: 34px 0 0; display: grid; gap: 10px; font-size: 12px; color: #575d52; border-top: 1px solid var(--line); padding-top: 20px; max-width: 520px; }
-.hero-facts b { display: inline-block; min-width: 72px; font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--olive); font-weight: 600; }
+.hero-facts b { display: inline-block; min-width: 104px; font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--olive); font-weight: 600; }
 .hero-figure.app-shot { padding: 0; max-width: 360px; justify-self: center; }
 .hero-figure.app-shot img { display: block; width: 100%; height: auto; aspect-ratio: 9 / 14; object-fit: cover; object-position: center 22%; border-radius: 10px; border: 1px solid var(--line); box-shadow: 0 24px 50px -28px #30372e66; background: #efe6d6; }
 .hero-figure.app-shot figcaption { display: block; margin-top: 14px; font-size: 11px; color: var(--muted); }

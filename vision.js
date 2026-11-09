@@ -430,7 +430,12 @@
   };
 
   // ---------- Interfaz (solo en el navegador) ----------
-  const BASE = 'assets/pdi/';
+  // El laboratorio se monta en / y en /en/: las imágenes se resuelven desde la raíz del sitio y los textos siguen el idioma de la página.
+  const EN = typeof document !== 'undefined' && document.documentElement.lang === 'en';
+  const t = (es, en) => (EN ? en : es);
+  const BASE = (EN ? '../' : '') + 'assets/pdi/';
+  const CAMPO_EN = { 'Nombre y apellido': 'Full name', Edad: 'Age', Mail: 'Email', Legajo: 'Student ID', 'Pregunta 1': 'Question 1', 'Pregunta 2': 'Question 2', 'Pregunta 3': 'Question 3', Comentarios: 'Comments', MAL: 'WRONG' };
+  const campo = k => (EN ? CAMPO_EN[k] || k : k);
   const VIDEOS = [{ n: 1, frames: 146 }, { n: 2, frames: 145 }, { n: 3, frames: 146 }, { n: 4, frames: 88 }];
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const espera = () => new Promise(r => setTimeout(r, 0));
@@ -446,7 +451,7 @@
         const px = ctx.getImageData(0, 0, c.width, c.height);
         ok({ im, gris: V.gris(px.data, c.width, c.height) });
       };
-      im.onerror = () => mal(new Error('No se pudo cargar ' + nombre));
+      im.onerror = () => mal(new Error(t('No se pudo cargar ', 'Could not load ') + nombre));
       im.src = BASE + nombre;
     });
     return cache[nombre];
@@ -469,20 +474,20 @@
 
   const SUB = {
     eq: {
-      titulo: 'Ecualización local',
-      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><label class="vlabel">Ventana<select class="input" id="v-eq-k">${['5x5', '11x11', '21x21', '51x51', '111x111'].map(k => `<option${k === '21x21' ? ' selected' : ''}>${k}</option>`).join('')}</select></label><button class="btn primary small" id="v-eq-run">Ecualizar ↗</button></div><div class="vpair"><figure><canvas id="v-eq-a" class="vcanvas pixel"></canvas><figcaption>Original</figcaption></figure><figure><canvas id="v-eq-b" class="vcanvas pixel"></canvas><figcaption id="v-eq-cap">Ecualizada</figcaption></figure></div></div><div class="panel"><div class="eyebrow">Histogramas</div><canvas id="v-eq-h1" class="vhist"></canvas><p class="vnote">Original</p><canvas id="v-eq-h2" class="vhist"></canvas><p class="vnote">Ecualizada</p><div class="out" id="v-eq-out">Cada píxel se reemplaza por la distribución acumulada de su vecindario, después de un suavizado gaussiano de 5×5. Con ventanas medianas aparecen los detalles escondidos: un cuadrado, una línea diagonal, una letra «a», cuatro líneas horizontales y un círculo.</div></div></div>`,
+      titulo: t('Ecualización local', 'Local equalization'),
+      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><label class="vlabel">${t('Ventana', 'Window')}<select class="input" id="v-eq-k">${['5x5', '11x11', '21x21', '51x51', '111x111'].map(k => `<option${k === '21x21' ? ' selected' : ''}>${k}</option>`).join('')}</select></label><button class="btn primary small" id="v-eq-run">${t('Ecualizar', 'Equalize')} ↗</button></div><div class="vpair"><figure><canvas id="v-eq-a" class="vcanvas pixel"></canvas><figcaption>Original</figcaption></figure><figure><canvas id="v-eq-b" class="vcanvas pixel"></canvas><figcaption id="v-eq-cap">${t('Ecualizada', 'Equalized')}</figcaption></figure></div></div><div class="panel"><div class="eyebrow">${t('Histogramas', 'Histograms')}</div><canvas id="v-eq-h1" class="vhist"></canvas><p class="vnote">Original</p><canvas id="v-eq-h2" class="vhist"></canvas><p class="vnote">${t('Ecualizada', 'Equalized')}</p><div class="out" id="v-eq-out">${t('Cada píxel se reemplaza por la distribución acumulada de su vecindario, después de un suavizado gaussiano de 5×5. Con ventanas medianas aparecen los detalles escondidos: un cuadrado, una línea diagonal, una letra «a», cuatro líneas horizontales y un círculo.', 'Each pixel is replaced by the cumulative distribution of its neighborhood, after a 5×5 Gaussian blur. With medium windows the hidden details appear: a square, a diagonal line, a letter “a”, four horizontal lines and a circle.')}</div></div></div>`,
       async iniciar() {
         const { gris } = await cargarImagen('detalles.png');
         pintarGris(document.getElementById('v-eq-a'), gris);
         pintarHistograma(document.getElementById('v-eq-h1'), V.histograma(gris), '#86654d');
         const correr = async () => {
           const k = +document.getElementById('v-eq-k').value.split('x')[0];
-          document.getElementById('v-eq-cap').textContent = 'Calculando…';
+          document.getElementById('v-eq-cap').textContent = t('Calculando…', 'Computing…');
           await espera();
           const t = performance.now(), out = V.ecualizarLocal(gris, k, k), ms = Math.round(performance.now() - t);
           pintarGris(document.getElementById('v-eq-b'), out);
           pintarHistograma(document.getElementById('v-eq-h2'), V.histograma(out), '#47543d');
-          document.getElementById('v-eq-cap').textContent = `Ecualizada · ventana ${k}×${k} · ${ms} ms`;
+          document.getElementById('v-eq-cap').textContent = t(`Ecualizada · ventana ${k}×${k} · ${ms} ms`, `Equalized · ${k}×${k} window · ${ms} ms`);
         };
         document.getElementById('v-eq-run').onclick = correr;
         document.getElementById('v-eq-k').onchange = correr;
@@ -490,8 +495,8 @@
       },
     },
     form: {
-      titulo: 'Formularios',
-      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><label class="vlabel">Formulario<select class="input" id="v-form-n">${opciones(5, 1, n => 'formulario_' + dos(n))}</select></label></div><canvas id="v-form-c" class="vcanvas"></canvas><p class="vnote">Verde: campo válido · rojo: campo inválido.</p></div><div class="panel"><div class="eyebrow">Validación</div><div class="metric" id="v-form-m">—</div><div class="out" id="v-form-out"></div></div></div>`,
+      titulo: t('Formularios', 'Forms'),
+      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><label class="vlabel">${t('Formulario', 'Form')}<select class="input" id="v-form-n">${opciones(5, 1, n => 'formulario_' + dos(n))}</select></label></div><canvas id="v-form-c" class="vcanvas"></canvas><p class="vnote">${t('Verde: campo válido · rojo: campo inválido.', 'Green: valid field · red: invalid field.')}</p></div><div class="panel"><div class="eyebrow">${t('Validación', 'Validation')}</div><div class="metric" id="v-form-m">—</div><div class="out" id="v-form-out"></div></div></div>`,
       async iniciar() {
         const correr = async () => {
           const n = +document.getElementById('v-form-n').value, { gris } = await cargarImagen(`formulario_${dos(n)}.png`);
@@ -499,17 +504,17 @@
           ctx.lineWidth = 2;
           for (const c of r.cajas) { ctx.strokeStyle = c.ok ? '#3f8f4f' : '#c0392b'; ctx.fillStyle = c.ok ? 'rgba(63,143,79,.12)' : 'rgba(192,57,43,.12)'; ctx.fillRect(c.x, c.y, c.w, c.h); ctx.strokeRect(c.x, c.y, c.w, c.h); }
           const todos = Object.values(r.resultados).every(v => v === 'OK');
-          document.getElementById('v-form-m').textContent = `Tipo ${r.tipo} · ${todos ? 'Correcto' : 'Con errores'}`;
-          document.getElementById('v-form-out').textContent = Object.entries(r.resultados).map(([k, v]) => `${v === 'OK' ? '✓' : '✗'} ${k.padEnd(18)} ${v}`).join('\n') +
-            '\n\nLas filas y columnas del formulario se ubican por cambios bruscos en las proyecciones; en cada campo se cuentan caracteres y palabras por los huecos entre columnas con tinta. El tipo (A, B o C) sale del perfil de la letra del encabezado.';
+          document.getElementById('v-form-m').textContent = `${t('Tipo', 'Type')} ${r.tipo} · ${todos ? t('Correcto', 'Valid') : t('Con errores', 'With errors')}`;
+          document.getElementById('v-form-out').textContent = Object.entries(r.resultados).map(([k, v]) => `${v === 'OK' ? '✓' : '✗'} ${campo(k).padEnd(18)} ${campo(v)}`).join('\n') +
+            '\n\n' + t('Las filas y columnas del formulario se ubican por cambios bruscos en las proyecciones; en cada campo se cuentan caracteres y palabras por los huecos entre columnas con tinta. El tipo (A, B o C) sale del perfil de la letra del encabezado.', 'Form rows and columns are located by sharp changes in the projections; in each field, characters and words are counted from the gaps between inked columns. The type (A, B or C) comes from the profile of the header letter.');
         };
         document.getElementById('v-form-n').onchange = correr;
         await correr();
       },
     },
     patente: {
-      titulo: 'Patentes',
-      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><label class="vlabel">Imagen<select class="input" id="v-pat-n">${opciones(12, 1, n => 'img' + dos(n))}</select></label><label class="vcheck"><input type="checkbox" id="v-pat-f1"> Ver descartes del primer filtro</label></div><canvas id="v-pat-c" class="vcanvas"></canvas></div><div class="panel"><div class="eyebrow">Caracteres encontrados</div><div class="metric" id="v-pat-m">—</div><canvas id="v-pat-z" class="vcanvas pixel" aria-label="Zoom sobre la patente"></canvas><div class="out" id="v-pat-out"></div></div></div>`,
+      titulo: t('Patentes', 'License plates'),
+      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><label class="vlabel">${t('Imagen', 'Image')}<select class="input" id="v-pat-n">${opciones(12, 1, n => 'img' + dos(n))}</select></label><label class="vcheck"><input type="checkbox" id="v-pat-f1"> ${t('Ver descartes del primer filtro', 'Show first-filter rejects')}</label></div><canvas id="v-pat-c" class="vcanvas"></canvas></div><div class="panel"><div class="eyebrow">${t('Caracteres encontrados', 'Characters found')}</div><div class="metric" id="v-pat-m">—</div><canvas id="v-pat-z" class="vcanvas pixel" aria-label="${t('Zoom sobre la patente', 'Zoom on the plate')}"></canvas><div class="out" id="v-pat-out"></div></div></div>`,
       async iniciar() {
         const correr = async () => {
           const n = +document.getElementById('v-pat-n').value, p = V.PARAMS_PATENTES[n - 1], { gris } = await cargarImagen(`img${dos(n)}.png`);
@@ -529,8 +534,8 @@
             const zc = z.getContext('2d'); zc.imageSmoothingEnabled = false;
             zc.drawImage(document.getElementById('v-pat-c'), x0, y0, x1 - x0, y1 - y0, 0, 0, z.width, z.height);
           } else z.style.display = 'none';
-          document.getElementById('v-pat-m').textContent = `${r.caracteres.length} caracteres`;
-          document.getElementById('v-pat-out').textContent = `Umbral: ${p.t}\nComponentes conectados: ${r.componentes}\nPasan área (${p.area[1]}–${p.area[0]} px) y alto/ancho (${p.asp[0]}–${p.asp[1]}): ${r.filtro1.length}\nTienen un vecino a menos de ${p.dist} px: ${r.caracteres.length}\n\nLos parámetros son los ajustados en el TP para cada foto.`;
+          document.getElementById('v-pat-m').textContent = `${r.caracteres.length} ${t('caracteres', 'characters')}`;
+          document.getElementById('v-pat-out').textContent = t(`Umbral: ${p.t}\nComponentes conectados: ${r.componentes}\nPasan área (${p.area[1]}–${p.area[0]} px) y alto/ancho (${p.asp[0]}–${p.asp[1]}): ${r.filtro1.length}\nTienen un vecino a menos de ${p.dist} px: ${r.caracteres.length}\n\nLos parámetros son los ajustados en el TP para cada foto.`, `Threshold: ${p.t}\nConnected components: ${r.componentes}\nPass area (${p.area[1]}–${p.area[0]} px) and height/width (${p.asp[0]}–${p.asp[1]}): ${r.filtro1.length}\nHave a neighbor closer than ${p.dist} px: ${r.caracteres.length}\n\nParameters are the ones tuned in the coursework for each photo.`);
         };
         document.getElementById('v-pat-n').onchange = correr;
         document.getElementById('v-pat-f1').onchange = correr;
@@ -538,8 +543,8 @@
       },
     },
     dados: {
-      titulo: 'Dados en video',
-      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><label class="vlabel">Tirada<select class="input" id="v-dad-n">${opciones(4, 1, n => 'tirada_' + n)}</select></label><button class="btn primary small" id="v-dad-run">Analizar tirada ↗</button></div><div class="vpair"><figure><video id="v-dad-v" class="vcanvas" muted playsinline controls preload="metadata"></video><figcaption>Video original</figcaption></figure><figure><canvas id="v-dad-c" class="vcanvas"></canvas><figcaption id="v-dad-cap">Cuadro analizado</figcaption></figure></div></div><div class="panel"><div class="eyebrow">Resultado</div><div class="metric" id="v-dad-m">—</div><div class="out" id="v-dad-out">Tocá «Analizar tirada». Se recorre la segunda mitad del video, donde los dados ya frenaron, y se elige el cuadro con cinco dados válidos y más puntos.</div></div></div>`,
+      titulo: t('Dados en video', 'Dice in video'),
+      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><label class="vlabel">${t('Tirada', 'Roll')}<select class="input" id="v-dad-n">${opciones(4, 1, n => 'tirada_' + n)}</select></label><button class="btn primary small" id="v-dad-run">${t('Analizar tirada', 'Analyze roll')} ↗</button></div><div class="vpair"><figure><video id="v-dad-v" class="vcanvas" muted playsinline controls preload="metadata"></video><figcaption>${t('Video original', 'Original video')}</figcaption></figure><figure><canvas id="v-dad-c" class="vcanvas"></canvas><figcaption id="v-dad-cap">${t('Cuadro analizado', 'Analyzed frame')}</figcaption></figure></div></div><div class="panel"><div class="eyebrow">${t('Resultado', 'Result')}</div><div class="metric" id="v-dad-m">—</div><div class="out" id="v-dad-out">${t('Tocá «Analizar tirada». Se recorre la segunda mitad del video, donde los dados ya frenaron, y se elige el cuadro con cinco dados válidos y más puntos.', 'Press “Analyze roll”. It scans the second half of the video, where the dice have stopped, and picks the frame with five valid dice and the most points.')}</div></div></div>`,
       async iniciar() {
         const video = document.getElementById('v-dad-v'), sel = document.getElementById('v-dad-n');
         const cargar = () => { video.src = `${BASE}tirada_${sel.value}.mp4`; document.getElementById('v-dad-m').textContent = '—'; };
@@ -566,9 +571,9 @@
             ctx.drawImage(video, 0, 0, w, h);
             const r = V.analizarCuadro(ctx.getImageData(0, 0, w, h).data, w, h);
             const valido = r.cajas.length === 5 && r.puntos.every(p => p >= 1 && p <= 6), total = r.puntos.reduce((a, b) => a + b, 0);
-            lineas.push(`Cuadro ${f}: ${r.cajas.length === 5 ? `puntos [${r.puntos.join(', ')}]${valido ? '' : ' · descartado'}` : 'no hay cinco dados quietos'}`);
+            lineas.push(`${t('Cuadro', 'Frame')} ${f}: ${r.cajas.length === 5 ? `${t('puntos', 'points')} [${r.puntos.join(', ')}]${valido ? '' : t(' · descartado', ' · discarded')}` : t('no hay cinco dados quietos', 'no five dice at rest')}`);
             dibujar(tmp, w, h, r.cajas, r.puntos, valido ? '#f1c40f' : '#95a5a6');
-            document.getElementById('v-dad-cap').textContent = `Analizando cuadro ${f}…`;
+            document.getElementById('v-dad-cap').textContent = `${t('Analizando cuadro', 'Analyzing frame')} ${f}…`;
             log.textContent = lineas.join('\n');
             if (valido && (!mejor || total > mejor.total)) {
               const copia = document.createElement('canvas'); copia.width = w; copia.height = h; copia.getContext('2d').drawImage(tmp, 0, 0);
@@ -601,24 +606,24 @@
           });
           if (mejor) {
             dibujar(mejor.copia, w, h, mejor.cajas, mejor.puntos, '#f1c40f');
-            document.getElementById('v-dad-m').textContent = `${mejor.total} puntos`;
-            document.getElementById('v-dad-cap').textContent = `Cuadro ${mejor.f}: ${mejor.puntos.join(' · ')}`;
-            log.textContent = `Resultado: cuadro ${mejor.f}, 5 dados, puntos [${mejor.puntos.join(', ')}], total ${mejor.total}.\n\n` + lineas.join('\n');
+            document.getElementById('v-dad-m').textContent = `${mejor.total} ${t('puntos', 'points')}`;
+            document.getElementById('v-dad-cap').textContent = `${t('Cuadro', 'Frame')} ${mejor.f}: ${mejor.puntos.join(' · ')}`;
+            log.textContent = t(`Resultado: cuadro ${mejor.f}, 5 dados, puntos [${mejor.puntos.join(', ')}], total ${mejor.total}.`, `Result: frame ${mejor.f}, 5 dice, points [${mejor.puntos.join(', ')}], total ${mejor.total}.`) + '\n\n' + lineas.join('\n');
             video.currentTime = (mejor.f + 0.5) / fps;
           } else {
-            document.getElementById('v-dad-m').textContent = 'Sin resultado';
-            log.textContent = 'No se encontró un cuadro con cinco dados válidos.\n\n' + lineas.join('\n');
+            document.getElementById('v-dad-m').textContent = t('Sin resultado', 'No result');
+            log.textContent = t('No se encontró un cuadro con cinco dados válidos.', 'No frame with five valid dice was found.') + '\n\n' + lineas.join('\n');
           }
           boton.disabled = false;
         };
       },
     },
     monedas: {
-      titulo: 'Monedas y dados',
-      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><button class="btn small" id="v-mon-t">Ver original</button></div><img id="v-mon-img" class="vcanvas" src="${BASE}monedas_resultado.jpg" alt="Monedas y dados detectados: círculos naranjas para 10 centavos, verdes para 1 peso, azules para 50 centavos y recuadros amarillos en los dados" loading="lazy"></div><div class="panel"><div class="eyebrow">Conteo</div><div class="metric">$ 7,40</div><div class="out">10 centavos  ×9   $ 0,90\n1 peso       ×5   $ 5,00\n50 centavos  ×3   $ 1,50\n\nDados: 5 y 3\n\nPipeline: suavizado gaussiano, Canny, clausura y dilatación, círculos de Hough y clasificación por radio. Los dados salen de los componentes grandes que quedan al tapar las monedas.</div><div class="notice">Este resultado se generó con el código original en Python: Canny y la transformada de Hough no se reimplementaron en el navegador.</div></div></div>`,
+      titulo: t('Monedas y dados', 'Coins and dice'),
+      html: `<div class="demo-grid"><div class="panel"><div class="toolrow"><button class="btn small" id="v-mon-t">${t('Ver original', 'Show original')}</button></div><img id="v-mon-img" class="vcanvas" src="${BASE}monedas_resultado.jpg" alt="${t('Monedas y dados detectados: círculos naranjas para 10 centavos, verdes para 1 peso, azules para 50 centavos y recuadros amarillos en los dados', 'Detected coins and dice: orange circles for 10 cents, green for 1 peso, blue for 50 cents and yellow boxes on the dice')}" loading="lazy"></div><div class="panel"><div class="eyebrow">${t('Conteo', 'Count')}</div><div class="metric">$ 7,40</div><div class="out">${t('10 centavos  ×9   $ 0,90\n1 peso       ×5   $ 5,00\n50 centavos  ×3   $ 1,50\n\nDados: 5 y 3\n\nPipeline: suavizado gaussiano, Canny, clausura y dilatación, círculos de Hough y clasificación por radio. Los dados salen de los componentes grandes que quedan al tapar las monedas.', '10 cents   ×9   $ 0.90\n1 peso     ×5   $ 5.00\n50 cents   ×3   $ 1.50\n\nDice: 5 and 3\n\nPipeline: Gaussian blur, Canny, closing and dilation, Hough circles and classification by radius. The dice come from the large components left after masking the coins.')}</div><div class="notice">${t('Este resultado se generó con el código original en Python: Canny y la transformada de Hough no se reimplementaron en el navegador.', 'This result was produced by the original Python code: Canny and the Hough transform were not reimplemented in the browser.')}</div></div></div>`,
       iniciar() {
         const b = document.getElementById('v-mon-t'), im = document.getElementById('v-mon-img');
-        b.onclick = () => { const orig = im.src.includes('original'); im.src = BASE + (orig ? 'monedas_resultado.jpg' : 'monedas_original.jpg'); b.textContent = orig ? 'Ver original' : 'Ver detección'; };
+        b.onclick = () => { const orig = im.src.includes('original'); im.src = BASE + (orig ? 'monedas_resultado.jpg' : 'monedas_original.jpg'); b.textContent = orig ? t('Ver original', 'Show original') : t('Ver detección', 'Show detection'); };
       },
     },
   };
